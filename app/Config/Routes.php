@@ -30,7 +30,35 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+$routes->group('/manager', function ($routes) {
+    // =========== Dashboard Manager ===========
+    $routes->get('', 'Manager\ManagerController::index');
 
+    // =========== Dashboard Product ===========
+    $routes->get('produk', 'Manager\ManagerController::produk');
+    $routes->get('create-produk', 'Manager\ManagerController::create_produk');
+    $routes->post('insert-produk', 'Manager\ManagerController::insert_produk');
+    $routes->get('detail-produk', 'Manager\ManagerController::detail_produk/$1');
+    $routes->post('edit-produk', 'Manager\ManagerController::update_produk');
+
+    // =========== Dashboard Promo ===========
+    $routes->get('promo', 'Manager\ManagerController::promo');
+    $routes->get('create-promo', 'Manager\ManagerController::create_promo');
+    $routes->post('insert-promo', 'Manager\ManagerController::insert_promo');
+    $routes->get('detail-promo', 'Manager\ManagerController::detail_promo/$1/$2');
+    $routes->post('edit-promo', 'Manager\ManagerController::update_promo');
+
+    // =========== Dashboard Kasir ===========
+    $routes->get('kasir', 'Manager\ManagerController::kasir');
+    $routes->get('create-kasir', 'Manager\ManagerController::create_kasir');
+    $routes->post('insert-kasir', 'Manager\ManagerController::insert_kasir');
+    $routes->get('detail-kasir', 'Manager\ManagerController::detail_kasir/$1/$2');
+    $routes->post('edit-kasir', 'Manager\ManagerController::update_kasir');
+
+    // =========== Dashboard Transaksi ===========
+    $routes->get('transaksi', 'Manager\ManagerController::transaksi');
+    $routes->get('detail-transaksi', 'Manager\ManagerController::detail_transaksi/$1');
+});
 /*
  * --------------------------------------------------------------------
  * Additional Routing
