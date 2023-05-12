@@ -22,7 +22,7 @@ class ManagerController extends BaseController
             'aktif4' => '',
             'aktif5' => ''
         ];
-        return view('Manager/Dashboard/Dashboard', $data);
+        return view('Manager/Layout', $data);
     }
 
     // TODO : MENU KASIR
