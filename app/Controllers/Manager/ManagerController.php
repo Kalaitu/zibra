@@ -14,7 +14,7 @@ class ManagerController extends BaseController
     public function index()
     {
         $data = [
-            'judul' => 'Judul',
+            'judul' => 'ZIBRA.ID',
             'halaman' => 'Dashboard',
             'aktif1' => 'active',
             'aktif2' => '',
