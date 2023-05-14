@@ -22,7 +22,7 @@ class ManagerController extends BaseController
             'aktif4' => '',
             'aktif5' => ''
         ];
-        return view('Manager/Layout', $data);
+        return view('Manager/Dashboard/Dashboard', $data);
     }
 
     // TODO : MENU KASIR
@@ -56,7 +56,6 @@ class ManagerController extends BaseController
 
     function insert_kasir()
     {
-    
     }
 
     function detail_kasir()
@@ -75,7 +74,6 @@ class ManagerController extends BaseController
 
     function update_kasir()
     {
-
     }
 
 
@@ -84,11 +82,11 @@ class ManagerController extends BaseController
     {
         $data = [
             'judul' => 'ZIBRA.ID',
-            'halaman' => 'Promo',
+            'halaman' => 'Produk',
             'aktif1' => '',
             'aktif2' => '',
-            'aktif3' => '',
-            'aktif4' => 'active',
+            'aktif3' => 'active',
+            'aktif4' => '',
             'aktif5' => '',
         ];
         return view('Manager/Produk/Index', $data);
@@ -98,11 +96,11 @@ class ManagerController extends BaseController
     {
         $data = [
             'judul' => 'ZIBRA.ID',
-            'halaman' => 'Promo',
+            'halaman' => 'Produk',
             'aktif1' => '',
             'aktif2' => '',
-            'aktif3' => '',
-            'aktif4' => 'active',
+            'aktif3' => 'active',
+            'aktif4' => '',
             'aktif5' => '',
         ];
         return view('Manager/Produk/Create', $data);
@@ -110,18 +108,17 @@ class ManagerController extends BaseController
 
     function insert_produk()
     {
-    
     }
 
     function detail_produk()
     {
         $data = [
             'judul' => 'ZIBRA.ID',
-            'halaman' => 'Promo',
+            'halaman' => 'Produk',
             'aktif1' => '',
             'aktif2' => '',
-            'aktif3' => '',
-            'aktif4' => 'active',
+            'aktif3' => 'active',
+            'aktif4' => '',
             'aktif5' => '',
         ];
         return view('Manager/Produk/Detail', $data);
@@ -129,7 +126,6 @@ class ManagerController extends BaseController
 
     function update_produk()
     {
-
     }
 
     // TODO : MENU PROMO
@@ -163,7 +159,6 @@ class ManagerController extends BaseController
 
     function insert_promo()
     {
-    
     }
 
     function detail_promo()
@@ -182,7 +177,6 @@ class ManagerController extends BaseController
 
     function update_promo()
     {
-
     }
 
     // TODO : MENU TRANSAKSI
@@ -197,7 +191,7 @@ class ManagerController extends BaseController
             'aktif4' => '',
             'aktif5' => 'active',
         ];
-        return view('Manager/Transaksi/Detail', $data);
+        return view('Manager/Transaksi/Index', $data);
     }
 
     function detail_transaksi()
