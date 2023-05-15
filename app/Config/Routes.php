@@ -94,6 +94,12 @@ $routes->group('/zibra', function ($routes) {
     $routes->get('', 'Customer\CustomerController::index');
     // produk detail
     $routes->get('produk-detail', 'Customer\CustomerController::produk_detail/$1/$2');
+    // checkout
+    $routes->get('checkout', 'Customer\CustomerController::checkout/$1/$2');
+    // cart
+    $routes->get('cart', 'Customer\CustomerController::cart/$1/$2');
+    $routes->get('product', 'Customer\CustomerController::product/$1/$2');
+    $routes->get('contact', 'Customer\CustomerController::contact/$1/$2');
 });
 
 /*

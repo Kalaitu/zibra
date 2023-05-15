@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ZibraID</title>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 
@@ -21,13 +21,14 @@
     <link rel="stylesheet" href="<?= base_url('fashion/css/owl.carousel.min.css') ?>" type="text/css">
     <link rel="stylesheet" href="<?= base_url('fashion/css/slicknav.min.css') ?>" type="text/css">
     <link rel="stylesheet" href="<?= base_url('fashion/css/style.css') ?>" type="text/css">
+
 </head>
 
 <body>
     <!-- Page Preloder -->
-    <!-- <div id="preloder">
+    <div id="preloder">
         <div class="loader"></div>
-    </div> -->
+    </div>
 
 
     <!-- Offcanvas Menu Begin -->
@@ -53,25 +54,16 @@
             <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-2  px-3 pt-3">
                     <div class="header__logo ">
-                        <a href="./index.html"><img src="<?= base_url('boassets/img/LOGO.png') ?>" class="img-fluid" alt=""></a>
+                        <a href="<?= base_url('zibra') ?>"><img src="<?= base_url('boassets/img/LOGO.png') ?>" class="img-fluid" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class="active"><a href="./index.html">Home</a></li>
-                            <li><a href="./shop.html">Shop</a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="dropdown">
-                                    <li><a href="./about.html">About Us</a></li>
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shopping-cart.html">Shopping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contacts</a></li>
+                            <li class="active"><a href="<?= base_url('zibra') ?>">Home</a></li>
+                            <li><a href="<?= base_url('zibra/product') ?>">Shop</a></li>
+                            <li><a href="<?= base_url('zibra/promo') ?>">Voucher </a></li>
+                            <li><a href="<?= base_url('zibra/contact') ?>">Contacts</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -176,6 +168,7 @@
     <script src="<?= base_url('fashion/js/mixitup.min.js') ?>"></script>
     <script src="<?= base_url('fashion/js/owl.carousel.min.js') ?>"></script>
     <script src="<?= base_url('fashion/js/main.js') ?>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 
 </html>

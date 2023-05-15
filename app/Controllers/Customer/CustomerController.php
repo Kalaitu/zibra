@@ -27,4 +27,36 @@ class CustomerController extends BaseController
         ];
         return view('Zibra/DetailProduk', $data);
     }
+    public function checkout()
+    {
+        $data = [
+            'judul' => 'ZIBRA.ID',
+            'halaman' => 'Zibra',
+        ];
+        return view('Zibra/Checkout', $data);
+    }
+    public function cart()
+    {
+        $data = [
+            'judul' => 'ZIBRA.ID',
+            'halaman' => 'Zibra',
+        ];
+        return view('Zibra/Cart', $data);
+    }
+    public function product()
+    {
+        $data = [
+            'judul' => 'ZIBRA.ID',
+            'halaman' => 'Zibra',
+        ];
+        return view('Zibra/Product', $data);
+    }
+    public function contact()
+    {
+        $data = [
+            'judul' => 'ZIBRA.ID',
+            'halaman' => 'Zibra',
+        ];
+        return view('Zibra/Contact', $data);
+    }
 }
