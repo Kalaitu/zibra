@@ -8,7 +8,7 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Produk</th>
+                                <th>Produkk</th>
                                 <th>Jumlah</th>
                                 <th>Total</th>
                                 <th></th>
