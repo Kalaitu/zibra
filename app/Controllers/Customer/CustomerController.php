@@ -19,4 +19,12 @@ class CustomerController extends BaseController
         ];
         return view('Zibra/Index', $data);
     }
+    public function produk_detail()
+    {
+        $data = [
+            'judul' => 'ZIBRA.ID',
+            'halaman' => 'Zibra',
+        ];
+        return view('Zibra/DetailProduk', $data);
+    }
 }

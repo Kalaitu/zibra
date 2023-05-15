@@ -92,6 +92,8 @@ $routes->group('/kasir', function ($routes) {
 // routes for customers
 $routes->group('/zibra', function ($routes) {
     $routes->get('', 'Customer\CustomerController::index');
+    // produk detail
+    $routes->get('produk-detail', 'Customer\CustomerController::produk_detail/$1/$2');
 });
 
 /*
