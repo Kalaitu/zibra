@@ -25,9 +25,7 @@
 
 <body>
     <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
+
 
     <!-- Offcanvas Menu Begin -->
     <div class="offcanvas-menu-overlay"></div>
@@ -39,15 +37,10 @@
 
         </div>
         <div class="offcanvas__nav__option">
-            <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-            <a href="#"><img src="img/icon/heart.png" alt=""></a>
-            <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-            <div class="price">$0.00</div>
+            <a href="#" class="search-switch"><img src="<?= base_url('fashion/img/icon/search.png') ?>" alt=""></a>
+            <a href="#"><img src="<?= base_url('fashion/img/icon/heart.png') ?>" alt=""></a>
         </div>
         <div id="mobile-menu-wrap"></div>
-        <div class="offcanvas__text">
-            <p>Gratis Ongkir, 30 harinjaminan return atau refund</p>
-        </div>
     </div>
     <!-- Offcanvas Menu End -->
 
@@ -55,8 +48,8 @@
     <header class="header">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-3">
-                    <div class="header__logo">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-2 my-3 px-3 py-3">
+                    <div class="header__logo ">
                         <a href="./index.html"><img src="<?= base_url('boassets/img/LOGO.png') ?>" class="img-fluid" alt=""></a>
                     </div>
                 </div>
