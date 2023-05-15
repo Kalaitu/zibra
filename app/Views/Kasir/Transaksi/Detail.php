@@ -9,7 +9,7 @@
                 </div>
                 <div class="card-body pt-4 p-3">
                     <div class="row px-3 mx-4">
-                        <div class="col col-md-6 col-sm-12 ">
+                        <div class="col col-md-6 col-sm-12 col-xs-12">
                             <p class="text-sm">Kode Transaksi: <span>TRX001 </span> </p>
                             <p class="text-sm">Tanggal Transaksi: <span>23/01/2023 </span> </p>
                             <p class="text-sm">Kasir:<span> Dia (Alex) </span> </p>

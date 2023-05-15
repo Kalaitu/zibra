@@ -17,25 +17,25 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Username</label>
-                                <input class="form-control" type="text" placeholder="Masukan username">
+                                <input class="form-control" type="text" placeholder="Masukan username" name="username" id="username">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Password</label>
-                                <input class="form-control" type="password" placeholder="Masukan Password">
+                                <input class="form-control" type="password" name="password" id="password" placeholder="Masukan Password">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Nama</label>
-                                <input class="form-control" type="text" placeholder="Masukan Nama">
+                                <input class="form-control" type="text" name="nama_kasir" id="nama_kasir" placeholder="Masukan Nama">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Foto</label>
-                                <input class="form-control" type="file" placeholder="">
+                                <input class="form-control" name="foto" id="foto" type="file" placeholder="">
                             </div>
                         </div>
                         <button class="btn btn-primary btn-sm ms-auto">Simpan</button>

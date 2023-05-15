@@ -48,7 +48,7 @@ $routes->group('/manager', function ($routes) {
     $routes->get('detail-promo', 'Manager\ManagerController::detail_promo/$1/$2');
     $routes->post('edit-promo', 'Manager\ManagerController::update_promo');
 
-    // =========== Dashboard Kasir ===========
+    // =========== Dashboard Manager ===========
     $routes->get('kasir', 'Manager\ManagerController::kasir');
     $routes->get('create-kasir', 'Manager\ManagerController::create_kasir');
     $routes->post('insert-kasir', 'Manager\ManagerController::insert_kasir');
@@ -56,8 +56,37 @@ $routes->group('/manager', function ($routes) {
     $routes->post('edit-kasir', 'Manager\ManagerController::update_kasir');
 
     // =========== Dashboard Transaksi ===========
-    $routes->get('transaksi', 'Manager\ManagerController::transaksi');
-    $routes->get('detail-transaksi', 'Manager\ManagerController::detail_transaksi/$1');
+    $routes->get('transaksi', 'Kasir\KasirController::transaksi');
+    $routes->get('detail-transaksi', 'Kasir\KasirController::detail_transaksi/$1');
+});
+$routes->group('/kasir', function ($routes) {
+    // =========== Dashboard Kasir ===========
+    $routes->get('', 'Kasir\KasirController::index');
+
+    // =========== Dashboard Product ===========
+    $routes->get('produk', 'Kasir\KasirController::produk');
+    $routes->get('create-produk', 'Kasir\KasirController::create_produk');
+    $routes->post('insert-produk', 'Kasir\KasirController::insert_produk');
+    $routes->get('detail-produk', 'Kasir\KasirController::detail_produk/$1');
+    $routes->post('edit-produk', 'Kasir\KasirController::update_produk');
+
+    // =========== Dashboard Promo ===========
+    $routes->get('promo', 'Kasir\KasirController::promo');
+    $routes->get('create-promo', 'Kasir\KasirController::create_promo');
+    $routes->post('insert-promo', 'Kasir\KasirController::insert_promo');
+    $routes->get('detail-promo', 'Kasir\KasirController::detail_promo/$1/$2');
+    $routes->post('edit-promo', 'Kasir\KasirController::update_promo');
+
+    // =========== Dashboard Kasir ===========
+    $routes->get('kasir', 'Kasir\KasirController::kasir');
+    $routes->get('create-kasir', 'Kasir\KasirController::create_kasir');
+    $routes->post('insert-kasir', 'Kasir\KasirController::insert_kasir');
+    $routes->get('detail-kasir', 'Kasir\KasirController::detail_kasir/$1/$2');
+    $routes->post('edit-kasir', 'Kasir\KasirController::update_kasir');
+
+    // =========== Dashboard Transaksi ===========
+    $routes->get('transaksi', 'Kasir\KasirController::transaksi');
+    $routes->get('detail-transaksi', 'Kasir\KasirController::detail_transaksi/$1');
 });
 /*
  * --------------------------------------------------------------------
