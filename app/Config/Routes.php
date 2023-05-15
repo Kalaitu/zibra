@@ -88,6 +88,12 @@ $routes->group('/kasir', function ($routes) {
     $routes->get('transaksi', 'Kasir\KasirController::transaksi');
     $routes->get('detail-transaksi', 'Kasir\KasirController::detail_transaksi/$1');
 });
+
+// routes for customers
+$routes->group('/zibra', function ($routes) {
+    $routes->get('', 'Customer\CustomerController::index');
+});
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

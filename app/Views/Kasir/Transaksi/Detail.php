@@ -1,4 +1,4 @@
-<?= $this->extend('Manager/Layout'); ?>
+<?= $this->extend('Kasir/Layout'); ?>
 <?= $this->section('content'); ?>
 <div class="container-fluid py-4">
     <div class="row">
