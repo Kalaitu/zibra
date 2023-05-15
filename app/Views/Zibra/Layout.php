@@ -25,6 +25,9 @@
 
 <body>
     <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
 
 
     <!-- Offcanvas Menu Begin -->
@@ -48,7 +51,7 @@
     <header class="header">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-2 my-3 px-3 py-3">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-2  px-3 pt-3">
                     <div class="header__logo ">
                         <a href="./index.html"><img src="<?= base_url('boassets/img/LOGO.png') ?>" class="img-fluid" alt=""></a>
                     </div>
@@ -141,7 +144,7 @@
                             <script>
                                 document.write(new Date().getFullYear());
                             </script>2020
-                            All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            All rights reserved
                         </p>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </div>
