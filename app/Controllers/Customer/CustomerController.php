@@ -59,4 +59,20 @@ class CustomerController extends BaseController
         ];
         return view('Zibra/Contact', $data);
     }
+    public function promo()
+    {
+        $data = [
+            'judul' => 'ZIBRA.ID',
+            'halaman' => 'Zibra',
+        ];
+        return view('Zibra/Promo', $data);
+    }
+    public function profile()
+    {
+        $data = [
+            'judul' => 'ZIBRA.ID',
+            'halaman' => 'Zibra',
+        ];
+        return view('Zibra/Profile', $data);
+    }
 }

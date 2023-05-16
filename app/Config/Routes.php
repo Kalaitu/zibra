@@ -100,6 +100,8 @@ $routes->group('/zibra', function ($routes) {
     $routes->get('cart', 'Customer\CustomerController::cart/$1/$2');
     $routes->get('product', 'Customer\CustomerController::product/$1/$2');
     $routes->get('contact', 'Customer\CustomerController::contact/$1/$2');
+    $routes->get('promo', 'Customer\CustomerController::promo/$1/$2');
+    $routes->get('profile', 'Customer\CustomerController::profile/$1/$2');
 });
 
 /*

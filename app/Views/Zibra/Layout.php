@@ -11,7 +11,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-
+    <link href="<?= base_url('boassets/css/nucleo-icons.css') ?>" rel="stylesheet" />
+    <link href="<?= base_url('boassets/css/nucleo-svg.css') ?>" rel="stylesheet" />
+    <link id="pagestyle" href="<?= base_url('boassets/css/argon-dashboard.css?v=2.0.4') ?>" rel="stylesheet" />
     <!-- Css Styles -->
     <link rel="stylesheet" href="<?= base_url('fashion/css/bootstrap.min.css') ?>" type="text/css">
     <link rel="stylesheet" href="<?= base_url('fashion/css/font-awesome.min.css') ?>" type="text/css">
@@ -42,7 +44,7 @@
         </div>
         <div class="offcanvas__nav__option">
             <a href="#" class="search-switch"><img src="<?= base_url('fashion/img/icon/search.png') ?>" alt=""></a>
-            <a href="#"><img src="<?= base_url('fashion/img/icon/heart.png') ?>" alt=""></a>
+            <i class="fa-solid fa-user"></i>
         </div>
         <div id="mobile-menu-wrap"></div>
     </div>
@@ -70,7 +72,7 @@
                 <div class="col-lg-3 col-md-3">
                     <div class="header__nav__option">
                         <a href="#" class="search-switch"><img src="<?= base_url('fashion/img/icon/search.png') ?>" alt=""></a>
-                        <a href="#"><img src="<?= base_url('fashion/img/icon/heart.png') ?>" alt=""></a>
+                        <a href="<?= base_url('zibra/profile') ?>" class="text-dark"><i class="fa fa-user text-lg"></i></a>
                     </div>
                 </div>
             </div>
