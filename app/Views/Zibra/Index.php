@@ -3,7 +3,7 @@
 <!-- Hero Section Begin -->
 <section class="hero">
     <div class="hero__slider owl-carousel">
-        <div class="hero__items set-bg" data-setbg="<?= base_url('fashion/img/hero/hil3.jpg') ?>">
+        <div class="hero__items set-bg" data-setbg="<?= base_url('fashion/img/hero/bg1.png') ?>">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-5 col-lg-7 col-md-8">
@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-        <div class="hero__items set-bg" data-setbg="<?= base_url('fashion/img/hero/hil2.jpg') ?>">
+        <div class="hero__items set-bg" data-setbg="<?= base_url('fashion/img/hero/bg2.png') ?>">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-5 col-lg-7 col-md-8">
@@ -48,7 +48,31 @@
     </div>
 </section>
 <!-- Hero Section End -->
+<div class="row mx-4 px-2 my-2 shadow">
+    <div class="col-lg-4 md-4 sm-4 mt-3">
+        <div class="card">
 
+            <img src="<?= base_url('fashion/img/hero/Voucher.png') ?>">
+        </div>
+
+    </div>
+    <div class="col-lg-4 md-4 sm-4 mt-3">
+        <div class="card">
+
+            <img src="<?= base_url('fashion/img/hero/Voucher.png') ?>">
+        </div>
+
+    </div>
+    <div class="col-lg-4 md-4 sm-4 mt-3">
+        <div class="card">
+
+            <img src="<?= base_url('fashion/img/hero/Voucher.png') ?>">
+        </div>
+
+    </div>
+
+
+</div>
 <!-- Banner Section Begin -->
 <section class="banner spad">
     <div class="container">
