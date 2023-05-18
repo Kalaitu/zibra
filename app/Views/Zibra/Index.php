@@ -48,31 +48,7 @@
     </div>
 </section>
 <!-- Hero Section End -->
-<div class="row mx-4 px-2 my-2 shadow">
-    <div class="col-lg-4 md-4 sm-4 mt-3">
-        <div class="card">
-
-            <img src="<?= base_url('fashion/img/hero/Voucher.png') ?>">
-        </div>
-
-    </div>
-    <div class="col-lg-4 md-4 sm-4 mt-3">
-        <div class="card">
-
-            <img src="<?= base_url('fashion/img/hero/Voucher.png') ?>">
-        </div>
-
-    </div>
-    <div class="col-lg-4 md-4 sm-4 mt-3">
-        <div class="card">
-
-            <img src="<?= base_url('fashion/img/hero/Voucher.png') ?>">
-        </div>
-
-    </div>
-
-
-</div>
+\
 <!-- Banner Section Begin -->
 <section class="banner spad">
     <div class="container">
