@@ -27,11 +27,11 @@
     <!-- swal 2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- jquery -->
-    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.css" integrity="sha512-Z0kTB03S7BU+JFU0nw9mjSBcRnZm2Bvm0tzOX9/OuOuz01XQfOpa0w/N9u6Jf2f1OAdegdIPWZ9nIZZ+keEvBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- datepicker -->
-    <script src="<?= base_url('boassets/js/plugins/flatpickr.min.js') ?>"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
 </head>
 
@@ -39,7 +39,7 @@
     <div class="min-height-300 bg-primary position-absolute w-100">
 
     </div>
-    <aside class="sidenav bg-light navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
+    <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
         <div class="sidenav-header">
             <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
             <a class="navbar-brand m-0" href="">
@@ -130,7 +130,6 @@
     <!-- date range -->
 
     <!-- end date range -->
-
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
@@ -162,6 +161,7 @@
     </script>
 
     <!--   Core JS Files   -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="<?= base_url('boassets/js/plugins/chartjs.min.js') ?>"></script>
     <script src="<?= base_url('boassets/js/core/popper.min.js') ?>"></script>
     <script src="<?= base_url('boassets/js/core/bootstrap.min.js') ?>"></script>
@@ -173,6 +173,15 @@
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="<?= base_url('boassets/js/argon-dashboard.min.js?v=2.0.4') ?>"></script>
 
+    <script>
+        $("#tanggalnya").flatpickr({
+            altInput: true,
+            altFormat: "F j, Y",
+            dateFormat: "Y-m-d",
+            mode: "range",
+            time: false
+        });
+    </script>
 </body>
 
 </html>

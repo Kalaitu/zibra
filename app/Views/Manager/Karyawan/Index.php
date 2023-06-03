@@ -1,12 +1,12 @@
 <?= $this->extend('Manager/Layout'); ?>
 <?= $this->section('content'); ?>
 <div class="container-fluid my-4">
-    <div class="row mx-4">
+    <div class="row">
         <div class="col">
             <a href="<?= base_url('/manager/create-karyawan') ?>" class=" btn btn-light "> Tambah Karyawan </a>
         </div>
     </div>
-    <div class=" row mx-4">
+    <div class=" row">
         <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
             <div class="card">
                 <div class="card-body p-3">
@@ -26,7 +26,7 @@
                         </div>
                         <div class="col-6 text-center">
                             <img src="<?= base_url('boassets/img/team-1.jpg') ?>" alt="" class="h-80 w-80 rounded-circle mb-4">
-                            <a href="<?= base_url('manager/detail-kasir') ?>">Details </a>
+                            <a href="<?= base_url('manager/detail-karyawan') ?>">Details </a>
                         </div>
                     </div>
                 </div>
