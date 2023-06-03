@@ -43,19 +43,19 @@
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link <?= $aktif1 ?>" href="<?= base_url('gudang/produk') ?>">
+                    <a class="nav-link <?= $aktif1 ?>" href="<?= base_url('keuangan') ?>">
                         <div class=" icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
                         </div>
-                        <span class="nav-link-text ms-1">Produk</span>
+                        <span class="nav-link-text ms-1">Promo</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?= $aktif2 ?>" href="<?= base_url('gudang/profile') ?>">
+                    <a class="nav-link <?= $aktif2 ?>" href="<?= base_url('keuangan/transaksi') ?>">
                         <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa fa-user text-success text-sm opacity-10"></i>
                         </div>
-                        <span class="nav-link-text ms-1">Profile</span>
+                        <span class="nav-link-text ms-1">Transaksi</span>
                     </a>
                 </li>
 
@@ -75,7 +75,7 @@
                         <li class="nav-item d-flex align-items-center">
                             <a href="#" onclick="logout()" class="nav-link text-white font-weight-bold px-0">
                                 <i class="fa fa-user me-sm-1" aria-hidden="true"></i>
-                                <span class="d-sm-inline d-none">Staff Gudang</span>
+                                <span class="d-sm-inline d-none">Staff Keuangan</span>
                             </a>
                         </li>
                         <li class="nav-item d-xl-none ps-3 pe-0 d-flex align-items-center">

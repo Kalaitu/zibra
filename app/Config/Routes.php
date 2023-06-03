@@ -56,8 +56,8 @@ $routes->group('/manager', function ($routes) {
     $routes->post('edit-karyawan', 'Manager\ManagerController::update_karyawan');
 
     // =========== Dashboard Transaksi ===========
-    $routes->get('transaksi', 'Kasir\KasirController::transaksi');
-    $routes->get('detail-transaksi', 'Kasir\KasirController::detail_transaksi/$1');
+    $routes->get('transaksi', 'Manager\ManagerController::transaksi');
+    $routes->get('detail-transaksi', 'Manager\ManagerController::detail_transaksi/$1');
 });
 $routes->group('/kasir', function ($routes) {
     // =========== Dashboard Kasir ===========
@@ -115,6 +115,21 @@ $routes->group('/gudang', function ($routes) {
     $routes->post('insert-produk', 'Gudang\GudangController::insert_produk');
     $routes->get('detail-produk', 'Gudang\GudangController::detail_produk/$1');
     $routes->post('edit-produk', 'Gudang\GudangController::update_produk');
+});
+// routes for keuangan
+$routes->group('/keuangan', function ($routes) {
+    // =========== Dashboard Keuangan ===========
+    $routes->get('', 'Keuangan\KeuanganController::index');
+
+    // =========== Dashboard Promo ===========
+    $routes->get('promo', 'Keuangan\KeuanganController::promo');
+    $routes->get('create-promo', 'Keuangan\KeuanganController::create_promo');
+    $routes->post('insert-promo', 'Keuangan\KeuanganController::insert_promo');
+    $routes->get('detail-promo', 'Keuangan\KeuanganController::detail_promo/$1/$2');
+    $routes->post('edit-promo', 'Keuangan\KeuanganController::update_promo');
+    // dasboard transaksi
+    $routes->get('transaksi', 'Keuangan\KeuanganController::transaksi');
+    $routes->get('detail-transaksi', 'Keuangan\KeuanganController::detail_transaksi/$1');
 });
 /*
  * --------------------------------------------------------------------

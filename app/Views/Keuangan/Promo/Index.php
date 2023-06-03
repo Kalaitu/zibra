@@ -1,8 +1,10 @@
-<?= $this->extend('Kasir/Layout'); ?>
+<?= $this->extend('Keuangan/Layout'); ?>
 <?= $this->section('content'); ?>
 <div class="container-fluid my-4">
-    <div class="d-flex justify-content-end mb-2">
-
+    <div class="row">
+        <div class="col-6">
+            <a href="<?= base_url('/keuangan/create-promo') ?>" class=" btn btn-light ">Add promo </a>
+        </div>
         <div class="col-6">
             <div class="input-group">
 
@@ -53,7 +55,7 @@
                                     </td>
                                     <td class="align-middle text-center">
                                         <div class="d-flex align-items-center justify-content-center">
-                                            <a href="<?= base_url('manager/detail-promo') ?>"> <span class="text-xs font-weight-bold">Detail</span> </a>
+                                            <a href="<?= base_url('keuangan/detail-promo') ?>"> <span class="text-xs font-weight-bold">Detail</span> </a>
                                         </div>
                                     </td>
                                 </tr>

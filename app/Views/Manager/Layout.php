@@ -51,7 +51,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?= $aktif2 ?>" href="<?= base_url('/manager/Karyawan') ?>">
+          <a class="nav-link <?= $aktif2 ?>" href="<?= base_url('/manager/karyawan') ?>">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
             </div>
