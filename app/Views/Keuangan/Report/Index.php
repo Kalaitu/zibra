@@ -2,7 +2,9 @@
 <?= $this->section('content'); ?>
 <div class="container-fluid py-4">
     <div class="row">
-
+        <div class="form">
+            <input class="form-control datepicker" placeholder="KONTOL" type="text" onfocus="focused(this)" onfocusout="defocused(this)">
+        </div>
         <div class="col">
             <div class="card h-100">
                 <div class="card-header pb-0 p-3">
@@ -13,8 +15,6 @@
 
                     </div>
                 </div>
-                <input class="form-control datepicker" placeholder="KONTOL" type="text" onfocus="focused(this)" onfocusout="defocused(this)">
-                <div class="form"></div>
 
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>
