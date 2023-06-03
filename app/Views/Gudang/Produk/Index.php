@@ -1,8 +1,10 @@
-<?= $this->extend('Kasir/Layout'); ?>
+<?= $this->extend('Gudang/Layout'); ?>
 <?= $this->section('content'); ?>
 <div class="container-fluid my-4">
-    <div class="d-flex justify-content-end mb-4">
-
+    <div class="row mx-4">
+        <div class="col-6">
+            <a href="<?= base_url('/gudang/create-produk') ?>" class=" btn btn-light ">Add Produk </a>
+        </div>
         <div class="col-6">
             <div class="input-group">
 
@@ -50,7 +52,7 @@
                                     </td>
                                     <td class="align-middle text-center">
                                         <div class="d-flex align-items-center justify-content-center">
-                                            <a href="<?= base_url('Kasir/detail-produk') ?>"> <span class="text-xs font-weight-bold">Detail</span> </a>
+                                            <a href="<?= base_url('manager/detail-produk') ?>"> <span class="text-xs font-weight-bold">Detail</span> </a>
                                         </div>
                                     </td>
                                 </tr>

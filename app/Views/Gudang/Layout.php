@@ -43,7 +43,7 @@
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link <?= $aktif1 ?>" href="<?= base_url('kasir') ?>">
+                    <a class="nav-link <?= $aktif1 ?>" href="<?= base_url('gudang') ?>">
                         <div class=" icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
                         </div>
@@ -51,29 +51,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?= $aktif3 ?>" href="<?= base_url('/kasir/produk') ?>">
+                    <a class="nav-link <?= $aktif2 ?>" href="<?= base_url('gudang/produk') ?>">
                         <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-app text-success text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Produk</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link <?= $aktif4 ?>" href="<?= base_url('/kasir/promo') ?>">
-                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-credit-card text-info text-sm opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Promo</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?= $aktif5 ?>" href="<?= base_url('/kasir/transaksi') ?>">
-                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-app text-danger text-sm opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Transaksi</span>
-                    </a>
-                </li>
+
+
             </ul>
         </div>
     </aside>
@@ -89,7 +75,7 @@
                         <li class="nav-item d-flex align-items-center">
                             <a href="#" onclick="logout()" class="nav-link text-white font-weight-bold px-0">
                                 <i class="fa fa-user me-sm-1" aria-hidden="true"></i>
-                                <span class="d-sm-inline d-none">Kasir</span>
+                                <span class="d-sm-inline d-none">Kepala Bidang</span>
                             </a>
                         </li>
                         <li class="nav-item d-xl-none ps-3 pe-0 d-flex align-items-center">

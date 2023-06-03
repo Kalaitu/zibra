@@ -49,11 +49,11 @@ $routes->group('/manager', function ($routes) {
     $routes->post('edit-promo', 'Manager\ManagerController::update_promo');
 
     // =========== Dashboard Manager ===========
-    $routes->get('kasir', 'Manager\ManagerController::kasir');
-    $routes->get('create-kasir', 'Manager\ManagerController::create_kasir');
-    $routes->post('insert-kasir', 'Manager\ManagerController::insert_kasir');
-    $routes->get('detail-kasir', 'Manager\ManagerController::detail_kasir/$1/$2');
-    $routes->post('edit-kasir', 'Manager\ManagerController::update_kasir');
+    $routes->get('karyawan', 'Manager\ManagerController::karyawan');
+    $routes->get('create-karyawan', 'Manager\ManagerController::create_karyawan');
+    $routes->post('insert-karyawan', 'Manager\ManagerController::insert_karyawan');
+    $routes->get('detail-karyawan', 'Manager\ManagerController::detail_karyawan/$1/$2');
+    $routes->post('edit-karyawan', 'Manager\ManagerController::update_karyawan');
 
     // =========== Dashboard Transaksi ===========
     $routes->get('transaksi', 'Kasir\KasirController::transaksi');
@@ -104,6 +104,18 @@ $routes->group('/zibra', function ($routes) {
     $routes->get('profile', 'Customer\CustomerController::profile/$1/$2');
 });
 
+// routes for gudang
+$routes->group('/gudang', function ($routes) {
+    // =========== Dashboard Gudang ===========
+    $routes->get('', 'Gudang\GudangController::index');
+
+    // =========== Dashboard Product ===========
+    $routes->get('produk', 'Gudang\GudangController::produk');
+    $routes->get('create-produk', 'Gudang\GudangController::create_produk');
+    $routes->post('insert-produk', 'Gudang\GudangController::insert_produk');
+    $routes->get('detail-produk', 'Gudang\GudangController::detail_produk/$1');
+    $routes->post('edit-produk', 'Gudang\GudangController::update_produk');
+});
 /*
  * --------------------------------------------------------------------
  * Additional Routing

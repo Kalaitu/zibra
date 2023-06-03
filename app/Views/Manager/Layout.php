@@ -51,11 +51,11 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?= $aktif2 ?>" href="<?= base_url('/manager/kasir') ?>">
+          <a class="nav-link <?= $aktif2 ?>" href="<?= base_url('/manager/Karyawan') ?>">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Kasir</span>
+            <span class="nav-link-text ms-1">Karyawan</span>
           </a>
         </li>
         <li class="nav-item">

@@ -3,7 +3,7 @@
 <div class="container-fluid my-4">
     <div class="row mx-4">
         <div class="col">
-            <a href="<?= base_url('/manager/create-kasir') ?>" class=" btn btn-light "> Tambah Kasir </a>
+            <a href="<?= base_url('/manager/create-kasir') ?>" class=" btn btn-light "> Tambah Karyawan </a>
         </div>
     </div>
     <div class=" row mx-4">

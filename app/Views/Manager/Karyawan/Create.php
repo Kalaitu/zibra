@@ -6,13 +6,13 @@
             <div class="card">
                 <div class="card-header pb-0">
                     <div class="d-flex align-items-center">
-                        <p class="mb-0">Tambah Kasir</p>
+                        <p class="mb-0">Tambah karyawan</p>
 
                     </div>
                     <hr class="horizontal dark">
                 </div>
                 <div class="card-body">
-                    <p class="text-uppercase text-sm">Informasi Kasir</p>
+                    <p class="text-uppercase text-sm">Informasi karyawan</p>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -29,7 +29,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Nama</label>
-                                <input class="form-control" type="text" name="nama_kasir" id="nama_kasir" placeholder="Masukan Nama">
+                                <input class="form-control" type="text" name="nama_karyawan" id="nama_karyawan" placeholder="Masukan Nama">
                             </div>
                         </div>
                         <div class="col-md-12">

@@ -26,50 +26,50 @@ class ManagerController extends BaseController
     }
 
     // TODO : MENU KASIR
-    public function kasir()
+    public function karyawan()
     {
         $data = [
             'judul' => 'ZIBRA.ID',
-            'halaman' => 'Kasir',
+            'halaman' => 'Karyawan',
             'aktif1' => '',
             'aktif2' => 'active',
             'aktif3' => '',
             'aktif4' => '',
             'aktif5' => '',
         ];
-        return view('Manager/Kasir/Index', $data);
+        return view('Manager/Karyawan/Index', $data);
     }
 
-    public function create_kasir()
+    public function create_karyawan()
     {
         $data = [
             'judul' => 'ZIBRA.ID',
-            'halaman' => 'Kasir',
+            'halaman' => 'Karyawan',
             'aktif1' => '',
             'aktif2' => 'active',
             'aktif3' => '',
             'aktif4' => '',
             'aktif5' => '',
         ];
-        return view('Manager/Kasir/Create', $data);
+        return view('Manager/Karyawan/Create', $data);
     }
 
     function insert_kasir()
     {
     }
 
-    function detail_kasir()
+    function detail_karyawan()
     {
         $data = [
             'judul' => 'ZIBRA.ID',
-            'halaman' => 'Kasir',
+            'halaman' => 'Karyawan',
             'aktif1' => '',
             'aktif2' => 'active',
             'aktif3' => '',
             'aktif4' => '',
             'aktif5' => '',
         ];
-        return view('Manager/Kasir/Detail', $data);
+        return view('Manager/Karyawan/Detail', $data);
     }
 
     function update_kasir()
