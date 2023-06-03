@@ -102,4 +102,31 @@ class KeuanganController extends BaseController
         ];
         return view('Keuangan/Transaksi/Detail', $data);
     }
+    function report()
+    {
+        $data = [
+            'judul' => 'ZIBRA.ID',
+            'halaman' => 'Report',
+            'aktif1' => '',
+            'aktif2' => '',
+            'aktif3' => '',
+            'aktif4' => '',
+            'aktif5' => 'active',
+        ];
+        return view('Keuangan/Report/Index', $data);
+    }
+
+    function detail_report()
+    {
+        $data = [
+            'judul' => 'ZIBRA.ID',
+            'halaman' => 'Report',
+            'aktif1' => '',
+            'aktif2' => '',
+            'aktif3' => '',
+            'aktif4' => '',
+            'aktif5' => 'active',
+        ];
+        return view('Keuangan/Report/Detail', $data);
+    }
 }

@@ -80,8 +80,8 @@
                 </div>
             </div>
             <div class="row mt-2">
-                <div class="card">
-                    <div class="card-header">
+                <div class="card mx-2">
+                    <div class="card-header ">
 
                         <p> Bukti Transfer</p>
                     </div>

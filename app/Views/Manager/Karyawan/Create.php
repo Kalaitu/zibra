@@ -34,6 +34,17 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
+                                <label for="example-text-input" class="form-control-label">Role</label>
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                    <option>Kasir</option>
+                                    <option>Staff Gudang</option>
+                                    <option>Staff Keuangan</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Foto</label>
                                 <input class="form-control" name="foto" id="foto" type="file" placeholder="">
                             </div>

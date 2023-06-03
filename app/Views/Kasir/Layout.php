@@ -58,14 +58,7 @@
                         <span class="nav-link-text ms-1">Produk</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link <?= $aktif4 ?>" href="<?= base_url('/kasir/promo') ?>">
-                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-credit-card text-info text-sm opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Promo</span>
-                    </a>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link <?= $aktif5 ?>" href="<?= base_url('/kasir/transaksi') ?>">
                         <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">

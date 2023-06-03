@@ -58,6 +58,14 @@ $routes->group('/manager', function ($routes) {
     // =========== Dashboard Transaksi ===========
     $routes->get('transaksi', 'Manager\ManagerController::transaksi');
     $routes->get('detail-transaksi', 'Manager\ManagerController::detail_transaksi/$1');
+
+    // =========== Dashboard Report ===========
+    $routes->get('report', 'Manager\ManagerController::report');
+    $routes->get('detail-report', 'Manager\ManagerController::detail_report/$1');
+
+    // =========== Dashboard Customer ===========
+    $routes->get('customer', 'Manager\ManagerController::customer');
+    $routes->get('detail-customer', 'Manager\ManagerController::detail_customer/$1');
 });
 $routes->group('/kasir', function ($routes) {
     // =========== Dashboard Kasir ===========
@@ -130,6 +138,12 @@ $routes->group('/keuangan', function ($routes) {
     // dasboard transaksi
     $routes->get('transaksi', 'Keuangan\KeuanganController::transaksi');
     $routes->get('detail-transaksi', 'Keuangan\KeuanganController::detail_transaksi/$1');
+    // dashboard produk
+    $routes->get('produk', 'Keuangan\KeuanganController::produk');
+    $routes->get('detail-produk', 'Keuangan\KeuanganController::detail_produk/$1');
+    // dashboard report
+    $routes->get('report', 'Keuangan\KeuanganController::report');
+    $routes->get('detail-report', 'Keuangan\KeuanganController::detail_report/$1');
 });
 /*
  * --------------------------------------------------------------------

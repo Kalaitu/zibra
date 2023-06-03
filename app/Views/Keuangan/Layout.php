@@ -9,6 +9,11 @@
     <title>
         ZIBRA.ID
     </title>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css" />
+
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->
@@ -25,6 +30,9 @@
     <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.css" integrity="sha512-Z0kTB03S7BU+JFU0nw9mjSBcRnZm2Bvm0tzOX9/OuOuz01XQfOpa0w/N9u6Jf2f1OAdegdIPWZ9nIZZ+keEvBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- datepicker -->
+    <script src="<?= base_url('boassets/js/plugins/flatpickr.min.js') ?>"></script>
+
 </head>
 
 <body class="g-sidenav-show bg-gray-100 ">
@@ -51,15 +59,30 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link <?= $aktif2 ?>" href="<?= base_url('keuangan/produk') ?>">
+                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="ni ni-cart text-primary text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Produk</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link <?= $aktif2 ?>" href="<?= base_url('keuangan/transaksi') ?>">
                         <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fa fa-user text-success text-sm opacity-10"></i>
+                            <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Transaksi</span>
                     </a>
                 </li>
 
-
+                <li class="nav-item">
+                    <a class="nav-link <?= $aktif5 ?>" href="<?= base_url('/keuangan/report') ?>">
+                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa fa-info-circle text-success text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Report</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </aside>
@@ -96,6 +119,23 @@
         <?= $this->renderSection('content') ?>
     </main>
     <script>
+        $(document).ready(function() {
+            $('#example').DataTable({
+                order: [
+                    [1, 'desc']
+                ],
+            });
+        });
+    </script>
+    <!-- date range -->
+
+    <!-- end date range -->
+
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
+    <script>
         function logout() {
             Swal.fire({
                 title: 'Logout',
@@ -120,6 +160,7 @@
             })
         }
     </script>
+
     <!--   Core JS Files   -->
     <script src="<?= base_url('boassets/js/plugins/chartjs.min.js') ?>"></script>
     <script src="<?= base_url('boassets/js/core/popper.min.js') ?>"></script>

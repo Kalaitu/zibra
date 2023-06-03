@@ -36,6 +36,7 @@ class ManagerController extends BaseController
             'aktif3' => '',
             'aktif4' => '',
             'aktif5' => '',
+            'aktif6' => '',
         ];
         return view('Manager/Karyawan/Index', $data);
     }
@@ -99,8 +100,8 @@ class ManagerController extends BaseController
             'halaman' => 'Produk',
             'aktif1' => '',
             'aktif2' => '',
-            'aktif3' => 'active',
-            'aktif4' => '',
+            'aktif3' => '',
+            'aktif4' => 'active',
             'aktif5' => '',
         ];
         return view('Manager/Produk/Create', $data);
@@ -118,7 +119,7 @@ class ManagerController extends BaseController
             'aktif1' => '',
             'aktif2' => '',
             'aktif3' => 'active',
-            'aktif4' => '',
+            'aktif4' => 'active',
             'aktif5' => '',
         ];
         return view('Manager/Produk/Detail', $data);
@@ -189,7 +190,8 @@ class ManagerController extends BaseController
             'aktif2' => '',
             'aktif3' => '',
             'aktif4' => '',
-            'aktif5' => 'active',
+            'aktif5' => '',
+            'aktif6' => 'active',
         ];
         return view('Manager/Transaksi/Index', $data);
     }
@@ -203,8 +205,66 @@ class ManagerController extends BaseController
             'aktif2' => '',
             'aktif3' => '',
             'aktif4' => '',
-            'aktif5' => 'active',
+            'aktif5' => '',
+            'aktif6' => 'active',
         ];
         return view('Manager/Transaksi/Detail', $data);
+    }
+    function report()
+    {
+        $data = [
+            'judul' => 'ZIBRA.ID',
+            'halaman' => 'Report',
+            'aktif1' => '',
+            'aktif2' => '',
+            'aktif3' => '',
+            'aktif4' => '',
+            'aktif5' => '',
+            'aktif6' => 'active',
+        ];
+        return view('Manager/Report/Index', $data);
+    }
+
+    function detail_report()
+    {
+        $data = [
+            'judul' => 'ZIBRA.ID',
+            'halaman' => 'Report',
+            'aktif1' => '',
+            'aktif2' => '',
+            'aktif3' => '',
+            'aktif4' => '',
+            'aktif5' => '',
+            'aktif6' => 'active',
+        ];
+        return view('Manager/Report/Detail', $data);
+    }
+    function customer()
+    {
+        $data = [
+            'judul' => 'ZIBRA.ID',
+            'halaman' => 'Customer',
+            'aktif1' => '',
+            'aktif2' => 'active',
+            'aktif3' => '',
+            'aktif4' => '',
+            'aktif5' => '',
+            'aktif6' => '',
+        ];
+        return view('Manager/Customer/Index', $data);
+    }
+
+    function detail_customer()
+    {
+        $data = [
+            'judul' => 'ZIBRA.ID',
+            'halaman' => 'Customer',
+            'aktif1' => '',
+            'aktif2' => 'active',
+            'aktif3' => '',
+            'aktif4' => '',
+            'aktif5' => '',
+        ];
+        return view('Manager/Customer/Detail', $data);
     }
 }

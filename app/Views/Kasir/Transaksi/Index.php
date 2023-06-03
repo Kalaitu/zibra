@@ -21,7 +21,7 @@
                             </div>
                             <div class="d-flex align-items-center text-sm text-success">
                                 <span class="badge badge-sm bg-gradient-success">Success</span>
-                                <a href="<?= base_url('manager/detail-transaksi') ?>" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-info-circle  me-1"></i> Details</a>
+                                <a href="<?= base_url('kasir/detail-transaksi') ?>" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-info-circle  me-1"></i> Details</a>
                             </div>
 
                         </li>
@@ -33,7 +33,7 @@
                             </div>
                             <div class="d-flex align-items-center text-sm text-danger">
                                 <span class="badge badge-sm bg-gradient-danger">Pending</span>
-                                <a href="<?= base_url('manager/detail-transaksi') ?>" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-info-circle  me-1"></i> Details</a>
+                                <a href="<?= base_url('kasir/detail-transaksi') ?>" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-info-circle  me-1"></i> Details</a>
                             </div>
                         </li>
                         <hr class="horizontal dark mx-0">

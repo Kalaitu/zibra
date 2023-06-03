@@ -1,10 +1,7 @@
 <?= $this->extend('Manager/Layout'); ?>
 <?= $this->section('content'); ?>
 <div class="container-fluid my-4">
-    <div class="row mx-4">
-        <div class="col-6">
-            <a href="<?= base_url('/manager/create-produk') ?>" class=" btn btn-light ">Add Produk </a>
-        </div>
+    <div class="d-flex justify-content-end mb-2">
         <div class="col-6">
             <div class="input-group">
 
@@ -28,7 +25,7 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Produk</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Harga</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Stok</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Aksi</th>
+
 
                                 </tr>
                             </thead>
@@ -50,11 +47,7 @@
                                     <td>
                                         <span class="text-xs font-weight-bold">33</span>
                                     </td>
-                                    <td class="align-middle text-center">
-                                        <div class="d-flex align-items-center justify-content-center">
-                                            <a href="<?= base_url('manager/detail-produk') ?>"> <span class="text-xs font-weight-bold">Detail</span> </a>
-                                        </div>
-                                    </td>
+
                                 </tr>
 
                             </tbody>

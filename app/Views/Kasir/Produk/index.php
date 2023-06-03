@@ -50,7 +50,7 @@
                                     </td>
                                     <td class="align-middle text-center">
                                         <div class="d-flex align-items-center justify-content-center">
-                                            <a href="<?= base_url('Kasir/detail-produk') ?>"> <span class="text-xs font-weight-bold">Detail</span> </a>
+                                            <a href="<?= base_url('kasir/detail-produk') ?>"> <span class="text-xs font-weight-bold">Detail</span> </a>
                                         </div>
                                     </td>
                                 </tr>
