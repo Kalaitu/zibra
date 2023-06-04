@@ -17,6 +17,7 @@ class ManagerController extends BaseController
         $this->karyawan = new \App\Models\ModelKaryawan();
         $this->user = new \App\Models\UserModel();
         $this->customer = new \App\Models\CustomerModel();
+        $this->produk = new \App\Models\ProdukModel();
     }
 
     public function index()
@@ -184,11 +185,12 @@ class ManagerController extends BaseController
             'halaman' => 'Produk',
             'aktif1' => '',
             'aktif2' => '',
-            'aktif3' => 'active',
-            'aktif4' => '',
+            'aktif3' => '',
+            'aktif4' => 'active',
             'aktif5' => '',
             'aktif6' => '',
         ];
+        $data['produk'] = $this->produk->findAll();
         return view('Manager/Produk/Index', $data);
     }
 
