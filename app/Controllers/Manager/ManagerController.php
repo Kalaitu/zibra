@@ -11,6 +11,13 @@ use App\Models\PromoModel;
 
 class ManagerController extends BaseController
 {
+
+    function __construct()
+    {
+        $this->karyawan = new \App\Models\ModelKaryawan();
+        $this->user = new \App\Models\UserModel();
+    }
+
     public function index()
     {
         $data = [
@@ -20,12 +27,13 @@ class ManagerController extends BaseController
             'aktif2' => '',
             'aktif3' => '',
             'aktif4' => '',
-            'aktif5' => ''
+            'aktif5' => '',
+            'aktif6' => ''
         ];
         return view('Manager/Dashboard/Dashboard', $data);
     }
 
-    // TODO : MENU KASIR
+    // TODO : MENU KARYAWAN
     public function karyawan()
     {
         $data = [
@@ -38,6 +46,8 @@ class ManagerController extends BaseController
             'aktif5' => '',
             'aktif6' => '',
         ];
+        $query = $this->karyawan->tampilSemua();
+        $data['karyawan'] = $query->getResult();
         return view('Manager/Karyawan/Index', $data);
     }
 
@@ -51,15 +61,33 @@ class ManagerController extends BaseController
             'aktif3' => '',
             'aktif4' => '',
             'aktif5' => '',
+            'aktif6' => ''
         ];
         return view('Manager/Karyawan/Create', $data);
     }
 
-    function insert_kasir()
+    public function insert_karyawan()
     {
+        $this->user->insert([
+            "username" => $this->request->getPost('username'),
+            "password" => $this->request->getPost('password'),
+            "role" => $this->request->getPost('role')
+        ]);
+        $query = $this->user->seleksi();
+        $data['user'] = $query->getRow();
+        $dataBerkas = $this->request->getFile('foto');
+        $ekstensiFoto = $dataBerkas->getExtension();
+        $fileName = "Karyawan" . $data['user']->id_user . '.' . $ekstensiFoto;
+        $dataBerkas->move('karyawan', $fileName);
+        $this->karyawan->insert([
+            "id_user" => $data['user']->id_user,
+            "nama_karyawan" => $this->request->getPost('nama_karyawan'),
+            "foto_karyawan" => $fileName
+        ]);
+        return redirect()->to(base_url('manager/karyawan'));
     }
 
-    function detail_karyawan()
+    function detail_karyawan($id)
     {
         $data = [
             'judul' => 'ZIBRA.ID',
@@ -69,14 +97,81 @@ class ManagerController extends BaseController
             'aktif3' => '',
             'aktif4' => '',
             'aktif5' => '',
+            'aktif6' => '',
         ];
+        $query = $this->karyawan->tampilSatu($id);
+        $data['karyawan'] = $query->getRow();
         return view('Manager/Karyawan/Detail', $data);
     }
 
-    function update_kasir()
+    function update_karyawan()
     {
+        $dataBerkas = $this->request->getFile('foto');
+        if ($dataBerkas->getSize() == 0) {
+            $this->karyawan->update($this->request->getPost('id_karyawan'), [
+                "nama_karyawan" => $this->request->getPost('nama_karyawan'),
+            ]);
+            $this->user->update($data['fotolama']['id_user'], [
+                "username" => $this->request->getPost('username'),
+                "password" => $this->request->getPost('password'),
+            ]);
+        } else {
+            $data['fotolama'] = $this->karyawan->find($this->request->getPost('id_karyawan'));
+            unlink("karyawan/" . $data['fotolama']['foto_karyawan']);
+            $ekstensiFoto = $dataBerkas->getExtension();
+            $fileName = "Karyawan" . $this->request->getPost('id_karyawan') . '.' . $ekstensiFoto;
+            $dataBerkas->move('karyawan', $fileName);
+            $this->karyawan->update($this->request->getPost('id_karyawan'), [
+                "nama_karyawan" => $this->request->getPost('nama_karyawan'),
+                "foto_karyawan" => $fileName
+            ]);
+            $this->user->update($data['fotolama']['id_user'], [
+                "username" => $this->request->getPost('username'),
+                "password" => $this->request->getPost('password'),
+            ]);
+        }
+        return redirect()->to(base_url('manager/karyawan'));
     }
 
+    function delete_karyawan($id)
+    {
+        $data['karyawan'] = $this->karyawan->find($id);
+        unlink("karyawan/" . $data['karyawan']['foto_karyawan']);
+        $this->karyawan->delete($id);
+        $this->user->delete($data['karyawan']['id_user']);
+        return redirect()->to(base_url('manager/karyawan'));
+    }
+
+    // TODO : MENU CUSTOMER
+    function customer()
+    {
+        $data = [
+            'judul' => 'ZIBRA.ID',
+            'halaman' => 'Customer',
+            'aktif1' => '',
+            'aktif2' => '',
+            'aktif3' => 'active',
+            'aktif4' => '',
+            'aktif5' => '',
+            'aktif6' => '',
+        ];
+        return view('Manager/Customer/Index', $data);
+    }
+
+    function detail_customer()
+    {
+        $data = [
+            'judul' => 'ZIBRA.ID',
+            'halaman' => 'Customer',
+            'aktif1' => '',
+            'aktif2' => '',
+            'aktif3' => 'active',
+            'aktif4' => '',
+            'aktif5' => '',
+            'aktif6' => '',
+        ];
+        return view('Manager/Customer/Detail', $data);
+    }
 
     // TODO : MENU PRODUK 
     public function produk()
@@ -89,6 +184,7 @@ class ManagerController extends BaseController
             'aktif3' => 'active',
             'aktif4' => '',
             'aktif5' => '',
+            'aktif6' => '',
         ];
         return view('Manager/Produk/Index', $data);
     }
@@ -238,33 +334,5 @@ class ManagerController extends BaseController
             'aktif6' => 'active',
         ];
         return view('Manager/Report/Detail', $data);
-    }
-    function customer()
-    {
-        $data = [
-            'judul' => 'ZIBRA.ID',
-            'halaman' => 'Customer',
-            'aktif1' => '',
-            'aktif2' => 'active',
-            'aktif3' => '',
-            'aktif4' => '',
-            'aktif5' => '',
-            'aktif6' => '',
-        ];
-        return view('Manager/Customer/Index', $data);
-    }
-
-    function detail_customer()
-    {
-        $data = [
-            'judul' => 'ZIBRA.ID',
-            'halaman' => 'Customer',
-            'aktif1' => '',
-            'aktif2' => 'active',
-            'aktif3' => '',
-            'aktif4' => '',
-            'aktif5' => '',
-        ];
-        return view('Manager/Customer/Detail', $data);
     }
 }

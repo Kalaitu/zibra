@@ -52,8 +52,9 @@ $routes->group('/manager', function ($routes) {
     $routes->get('karyawan', 'Manager\ManagerController::karyawan');
     $routes->get('create-karyawan', 'Manager\ManagerController::create_karyawan');
     $routes->post('insert-karyawan', 'Manager\ManagerController::insert_karyawan');
-    $routes->get('detail-karyawan', 'Manager\ManagerController::detail_karyawan/$1/$2');
+    $routes->get('detail-karyawan/(:num)', 'Manager\ManagerController::detail_karyawan/$1');
     $routes->post('edit-karyawan', 'Manager\ManagerController::update_karyawan');
+    $routes->get('delete-karyawan/(:num)', 'Manager\ManagerController::delete_karyawan/$1');
 
     // =========== Dashboard Transaksi ===========
     $routes->get('transaksi', 'Manager\ManagerController::transaksi');
@@ -67,6 +68,7 @@ $routes->group('/manager', function ($routes) {
     $routes->get('customer', 'Manager\ManagerController::customer');
     $routes->get('detail-customer', 'Manager\ManagerController::detail_customer/$1');
 });
+
 $routes->group('/kasir', function ($routes) {
     // =========== Dashboard Kasir ===========
     $routes->get('', 'Kasir\KasirController::index');

@@ -9,6 +9,9 @@
   <title>
     ZIBRA.ID
   </title>
+  <!-- Data Table -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
@@ -25,6 +28,12 @@
   <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
   <!-- font awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.css" integrity="sha512-Z0kTB03S7BU+JFU0nw9mjSBcRnZm2Bvm0tzOX9/OuOuz01XQfOpa0w/N9u6Jf2f1OAdegdIPWZ9nIZZ+keEvBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    .dataTables_filter {
+      width: 100% !important;
+      /* border-radius: 50%; */
+    }
+  </style>
 </head>
 
 <body class="g-sidenav-show bg-gray-100 ">
@@ -58,7 +67,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?= $aktif2 ?>" href="<?= base_url('/manager/customer') ?>">
+          <a class="nav-link <?= $aktif3 ?>" href="<?= base_url('/manager/customer') ?>">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="fa fa-user-circle text-primary text-sm opacity-10"></i>
             </div>
@@ -66,7 +75,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?= $aktif3 ?>" href="<?= base_url('/manager/produk') ?>">
+          <a class="nav-link <?= $aktif4 ?>" href="<?= base_url('/manager/produk') ?>">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-app text-success text-sm opacity-10"></i>
             </div>
@@ -74,7 +83,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?= $aktif4 ?>" href="<?= base_url('/manager/promo') ?>">
+          <a class="nav-link <?= $aktif5 ?>" href="<?= base_url('/manager/promo') ?>">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-credit-card text-info text-sm opacity-10"></i>
             </div>
@@ -83,7 +92,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link <?= $aktif5 ?>" href="<?= base_url('/manager/report') ?>">
+          <a class="nav-link <?= $aktif6 ?>" href="<?= base_url('/manager/report') ?>">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="fa fa-info-circle text-success text-sm opacity-10"></i>
             </div>
@@ -98,7 +107,7 @@
 
   <main class="main-content position-relative border-radius-lg ">
     <!-- Navbar -->
-    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="false">
+    <nav class="navbar navbar-main navbar-expand-lg px-0 shadow-none border-radius-xl" id="navbarBlur" data-scroll="false">
       <div class="container-fluid py-1 mt-4">
         <nav aria-label="breadcrumb">
           <h6 class="text-white font-weight-bolder ms-2 mt-2"><?= $halaman ?></h6>
@@ -108,7 +117,7 @@
             <li class="nav-item d-flex align-items-center">
               <a href="#" onclick="logout()" class="nav-link text-white font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1" aria-hidden="true"></i>
-                <span class="d-sm-inline d-none">Kepala Bidang</span>
+                <span class="d-sm-inline d-none">Manager</span>
               </a>
             </li>
             <li class="nav-item d-xl-none ps-3 pe-0 d-flex align-items-center">
@@ -163,6 +172,8 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="<?= base_url('boassets/js/argon-dashboard.min.js?v=2.0.4') ?>"></script>
+  <script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+  <script src="//cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
 
 </body>
 

@@ -1,72 +1,107 @@
 <?= $this->extend('Manager/Layout'); ?>
 <?= $this->section('content'); ?>
-<div class="container-fluid py-4">
-    <div class="card shadow-lg mx-4 ">
-        <div class="card-body p-3">
+<div class="container-fluid">
+    <div class="card shadow-lg">
+        <div class="card-body">
             <div class="row gx-4">
                 <div class="col-auto">
                     <div class="avatar avatar-xl position-relative">
-                        <img src="<?= base_url('boassets/img/team-4.jpg') ?>" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+                        <img src="<?= base_url('karyawan/') . $karyawan->foto_karyawan ?>" alt="profile_image" class="w-100 border-radius-lg shadow-sm" height="70px">
                     </div>
                 </div>
                 <div class="col-auto my-auto">
                     <div class="h-100">
                         <h5 class="mb-1">
-                            Dia (Alex)
+                            <?= $karyawan->nama_karyawan ?>
                         </h5>
                         <p class="mb-0 font-weight-bold text-sm">
-                            Kasir
+                            <?= $karyawan->role ?>
                         </p>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
-    <div class="container-fluid py-4">
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-header pb-0">
-                        <div class="d-flex align-items-center">
-                            <p class="mb-0">Edit Profile</p>
+</div>
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header pb-0">
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0">Edit Profile</p>
 
-                        </div>
                     </div>
-                    <div class="card-body">
-                        <p class="text-uppercase text-sm">Informasi Kasir</p>
+                </div>
+                <div class="card-body">
+                    <form action="<?= base_url('manager/edit-karyawan') ?>" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="example-text-input" class="form-control-label">Username</label>
-                                    <input class="form-control" type="text" placeholder="Masukan username" name="username" id="username">
+                                    <label for="username" class="form-control-label">Username</label>
+                                    <input class="form-control" type="text" placeholder="Masukan username" name="username" id="username" value="<?= $karyawan->username ?>" required>
+                                    <input class="form-control" type="text" name="id_karyawan" id="id_karyawan" value="<?= $karyawan->id_karyawan ?>" hidden>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="example-text-input" class="form-control-label">Password</label>
-                                    <input class="form-control" type="password" name="password" id="password" placeholder="Masukan Password">
+                                    <label for="password" class="form-control-label">Password</label>
+                                    <input class="form-control" value="<?= $karyawan->password ?>" type="password" name="password" id="password" placeholder="Masukan Password" required>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="example-text-input" class="form-control-label">Nama</label>
-                                    <input class="form-control" type="text" name="nama_kasir" id="nama_kasir" placeholder="Masukan Nama">
+                                    <label for="nama_karyawan" class="form-control-label">Nama Lengkap</label>
+                                    <input class="form-control" value="<?= $karyawan->nama_karyawan ?>" type="text" name="nama_karyawan" id="nama_karyawan" placeholder="Masukan Nama Karyawan" required>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="example-text-input" class="form-control-label">Foto</label>
+                                    <label for="role" class="form-control-label">Role</label>
+                                    <input class="form-control" value="<?= $karyawan->role ?>" type="text" name="role" id="role" placeholder="" required readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="foto" class="form-control-label">Foto</label>
                                     <input class="form-control" name="foto" id="foto" type="file" placeholder="">
                                 </div>
                             </div>
-                            <button class="btn btn-primary btn-sm ms-auto">Simpan</button>
+                            <div class="col-md-6 col-sm-12 mt-3">
+                                <button class="btn btn-primary btn-sm ms-auto w-100">Update</button>
+                            </div>
+                            <div class="col-md-6 col-sm-12 mt-3">
+                                <a onclick="hapus(<?= $karyawan->id_karyawan ?>)" class="btn btn-danger btn-sm ms-auto w-100">Delete</a>
+                            </div>
                         </div>
-
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-
-    <?= $this->endSection(); ?>
+</div>
+<script>
+    function hapus(id) {
+        Swal.fire({
+            title: 'Apakah Anda Yakin?',
+            text: "Data yang dihapus tidak bisa dikembalikan!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yakin'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    text: 'Data Berhasil Dihapus',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                window.location = '<?= base_url('manager/delete-karyawan') . '/' ?>' + id;
+            }
+        })
+    }
+</script>
+<?= $this->endSection(); ?>
