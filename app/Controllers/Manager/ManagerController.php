@@ -16,6 +16,7 @@ class ManagerController extends BaseController
     {
         $this->karyawan = new \App\Models\ModelKaryawan();
         $this->user = new \App\Models\UserModel();
+        $this->customer = new \App\Models\CustomerModel();
     }
 
     public function index()
@@ -155,10 +156,11 @@ class ManagerController extends BaseController
             'aktif5' => '',
             'aktif6' => '',
         ];
+        $data['customer'] = $this->customer->findAll();
         return view('Manager/Customer/Index', $data);
     }
 
-    function detail_customer()
+    function detail_customer($id)
     {
         $data = [
             'judul' => 'ZIBRA.ID',
@@ -170,6 +172,7 @@ class ManagerController extends BaseController
             'aktif5' => '',
             'aktif6' => '',
         ];
+        $data['customer'] = $this->customer->find($id);
         return view('Manager/Customer/Detail', $data);
     }
 

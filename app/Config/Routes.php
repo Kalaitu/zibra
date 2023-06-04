@@ -66,7 +66,7 @@ $routes->group('/manager', function ($routes) {
 
     // =========== Dashboard Customer ===========
     $routes->get('customer', 'Manager\ManagerController::customer');
-    $routes->get('detail-customer', 'Manager\ManagerController::detail_customer/$1');
+    $routes->get('detail-customer/(:num)', 'Manager\ManagerController::detail_customer/$1');
 });
 
 $routes->group('/kasir', function ($routes) {

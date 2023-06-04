@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-body dataTable-container">
-                    <div class="table-responsive px-3 py-3">
+                    <div class="table-responsive px-1 py-3">
                         <table class="table table-flush dataTable-table" id="example">
                             <thead>
                                 <tr>
@@ -17,32 +17,36 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="">
-                                        <div class="d-flex px-2">
-                                            <div>
-                                                <img src="<?= base_url('boassets/img/team-1.jpg') ?>" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
+                                <?php
+                                foreach ($customer as $data) :
+                                ?>
+                                    <tr>
+                                        <td class="">
+                                            <div class="d-flex px-2">
+                                                <div>
+                                                    <img src="<?= base_url('customer/' . $data['foto_customer']) ?>" class="avatar avatar-sm rounded-circle me-2" alt="">
+                                                </div>
+                                                <div class="my-auto">
+                                                    <h6 class="mb-0 text-sm"><?= $data['nama_customer'] ?></h6>
+                                                </div>
                                             </div>
-                                            <div class="my-auto">
-                                                <h6 class="mb-0 text-sm">Ujang</h6>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="d-none d-sm-table-cell">
-                                        <p class="text-sm font-weight-bold mb-0">082312312</p>
-                                    </td>
-                                    <td class="d-none d-sm-table-cell">
-                                        <span class="text-xs font-weight-bold">33</span>
-                                    </td>
-                                    <td class="d-none d-sm-table-cell">
-                                        <span class="text-xs font-weight-bold">AjayB2</span>
-                                    </td>
-                                    <td>
-                                        <a href="<?= base_url('manager/detail-customer') ?>" class="btn btn-link text-primary text-xs mb-0 px-0 ms-4"><i class="fas fa-info-circle  me-1"></i>Details</a>
-                                    </td>
-
-                                </tr>
-
+                                        </td>
+                                        <td class="d-none d-sm-table-cell">
+                                            <p class="text-sm font-weight-bold mb-0"><?= $data['nomor_telepon'] ?></p>
+                                        </td>
+                                        <td class="d-none d-sm-table-cell">
+                                            <span class="text-xs font-weight-bold"><?= $data['point'] ?></span>
+                                        </td>
+                                        <td class="d-none d-sm-table-cell">
+                                            <span class="text-xs font-weight-bold"><?= $data['kode_reveral'] ?></span>
+                                        </td>
+                                        <td>
+                                            <a href="<?= base_url('manager/detail-customer/' . $data['id_customer']) ?>" class="btn btn-link text-primary text-xs mb-0 px-0 ms-4"><i class="fas fa-info-circle  me-1"></i>Details</a>
+                                        </td>
+                                    </tr>
+                                <?php
+                                endforeach
+                                ?>
                             </tbody>
                         </table>
                     </div>
