@@ -5,43 +5,36 @@
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-body dataTable-container">
-                    <div class="table-responsive px-1 py-3">
-                        <table class="table table-flush dataTable-table" id="example">
+                    <div class="px-1 py-3">
+                        <table class="table table-flush dataTable-table" style="width: 100%;" id="example">
                             <thead>
                                 <tr>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 d-none d-sm-table-cell">No HP</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 d-none d-sm-table-cell">Point</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 d-none d-sm-table-cell">Kode Refferal</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2" style="width: 5%;"></th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Customer</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                 foreach ($customer as $data) :
                                 ?>
-                                    <tr>
-                                        <td class="">
-                                            <div class="d-flex px-2">
-                                                <div>
-                                                    <img src="<?= base_url('customer/' . $data['foto_customer']) ?>" class="avatar avatar-sm rounded-circle me-2" alt="">
-                                                </div>
-                                                <div class="my-auto">
-                                                    <h6 class="mb-0 text-sm"><?= $data['nama_customer'] ?></h6>
+                                    <tr class="">
+                                        <td class="row my-2">
+                                            <div class="col-12">
+                                                <div class="d-flex px-2">
+                                                    <div>
+                                                        <img src="<?= base_url('customer/' . $data['foto_customer']) ?>" class="border-radius-lg shadow me-2" alt="" width="80px" height="80px">
+                                                    </div>
+                                                    <div class="">
+                                                        <h6 class="mb-0 text-sm ms-2"><?= $data['nama_customer'] ?></h6>
+                                                        <p class="text-xs font-weight-bold mb-0 ms-2"><?= $data['nomor_telepon'] ?></p>
+                                                        <p class="text-xs ms-2 mt-2 <?= $data['point'] <= 50 ? '' : 'd-none' ?> "><img src="<?= base_url('customer/bronze-medal.png') ?>" alt="" width="24px"> Bronze Member</p>
+                                                        <p class="text-xs ms-2 mt-2 <?= $data['point'] > 50 && $data['point'] <= 100 ? '' : 'd-none' ?>"><img src="<?= base_url('customer/silver-medal.png') ?>" alt="" width="24px"> Silver Member</p>
+                                                        <p class="text-xs ms-2 mt-2 <?= $data['point'] > 100 ? '' : 'd-none' ?>"><img src="<?= base_url('customer/gold-medal.png') ?>" alt="" width="24px"> Gold Member</p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </td>
-                                        <td class="d-none d-sm-table-cell">
-                                            <p class="text-sm font-weight-bold mb-0"><?= $data['nomor_telepon'] ?></p>
-                                        </td>
-                                        <td class="d-none d-sm-table-cell">
-                                            <span class="text-xs font-weight-bold"><?= $data['point'] ?></span>
-                                        </td>
-                                        <td class="d-none d-sm-table-cell">
-                                            <span class="text-xs font-weight-bold"><?= $data['kode_reveral'] ?></span>
-                                        </td>
-                                        <td>
-                                            <a href="<?= base_url('manager/detail-customer/' . $data['id_customer']) ?>" class="btn btn-link text-primary text-xs mb-0 px-0 ms-4"><i class="fas fa-info-circle  me-1"></i>Details</a>
+                                            <div class="col-12 mt-2">
+                                                <p class="text-sm mb-0 text-wrap px-2"><?= $data['alamat_customer'] ?></p>
+                                            </div>
                                         </td>
                                     </tr>
                                 <?php

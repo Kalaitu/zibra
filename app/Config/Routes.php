@@ -36,17 +36,12 @@ $routes->group('/manager', function ($routes) {
 
     // =========== Dashboard Product ===========
     $routes->get('produk', 'Manager\ManagerController::produk');
-    $routes->get('create-produk', 'Manager\ManagerController::create_produk');
-    $routes->post('insert-produk', 'Manager\ManagerController::insert_produk');
-    $routes->get('detail-produk', 'Manager\ManagerController::detail_produk/$1');
-    $routes->post('edit-produk', 'Manager\ManagerController::update_produk');
+
+    // =========== Dashboard Customer ===========
+    $routes->get('customer', 'Manager\ManagerController::customer');
 
     // =========== Dashboard Promo ===========
     $routes->get('promo', 'Manager\ManagerController::promo');
-    $routes->get('create-promo', 'Manager\ManagerController::create_promo');
-    $routes->post('insert-promo', 'Manager\ManagerController::insert_promo');
-    $routes->get('detail-promo', 'Manager\ManagerController::detail_promo/$1/$2');
-    $routes->post('edit-promo', 'Manager\ManagerController::update_promo');
 
     // =========== Dashboard Manager ===========
     $routes->get('karyawan', 'Manager\ManagerController::karyawan');
@@ -63,10 +58,6 @@ $routes->group('/manager', function ($routes) {
     // =========== Dashboard Report ===========
     $routes->get('report', 'Manager\ManagerController::report');
     $routes->get('detail-report', 'Manager\ManagerController::detail_report/$1');
-
-    // =========== Dashboard Customer ===========
-    $routes->get('customer', 'Manager\ManagerController::customer');
-    $routes->get('detail-customer/(:num)', 'Manager\ManagerController::detail_customer/$1');
 });
 
 $routes->group('/kasir', function ($routes) {

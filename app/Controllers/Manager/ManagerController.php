@@ -18,6 +18,7 @@ class ManagerController extends BaseController
         $this->user = new \App\Models\UserModel();
         $this->customer = new \App\Models\CustomerModel();
         $this->produk = new \App\Models\ProdukModel();
+        $this->promo = new \App\Models\PromoModel();
     }
 
     public function index()
@@ -161,22 +162,6 @@ class ManagerController extends BaseController
         return view('Manager/Customer/Index', $data);
     }
 
-    function detail_customer($id)
-    {
-        $data = [
-            'judul' => 'ZIBRA.ID',
-            'halaman' => 'Customer',
-            'aktif1' => '',
-            'aktif2' => '',
-            'aktif3' => 'active',
-            'aktif4' => '',
-            'aktif5' => '',
-            'aktif6' => '',
-        ];
-        $data['customer'] = $this->customer->find($id);
-        return view('Manager/Customer/Detail', $data);
-    }
-
     // TODO : MENU PRODUK 
     public function produk()
     {
@@ -194,42 +179,6 @@ class ManagerController extends BaseController
         return view('Manager/Produk/Index', $data);
     }
 
-    public function create_produk()
-    {
-        $data = [
-            'judul' => 'ZIBRA.ID',
-            'halaman' => 'Produk',
-            'aktif1' => '',
-            'aktif2' => '',
-            'aktif3' => '',
-            'aktif4' => 'active',
-            'aktif5' => '',
-        ];
-        return view('Manager/Produk/Create', $data);
-    }
-
-    function insert_produk()
-    {
-    }
-
-    function detail_produk()
-    {
-        $data = [
-            'judul' => 'ZIBRA.ID',
-            'halaman' => 'Produk',
-            'aktif1' => '',
-            'aktif2' => '',
-            'aktif3' => 'active',
-            'aktif4' => 'active',
-            'aktif5' => '',
-        ];
-        return view('Manager/Produk/Detail', $data);
-    }
-
-    function update_produk()
-    {
-    }
-
     // TODO : MENU PROMO
     public function promo()
     {
@@ -239,47 +188,14 @@ class ManagerController extends BaseController
             'aktif1' => '',
             'aktif2' => '',
             'aktif3' => '',
-            'aktif4' => 'active',
-            'aktif5' => '',
+            'aktif4' => '',
+            'aktif5' => 'active',
+            'aktif6' => '',
         ];
+        $data['promo'] = $this->promo->findAll();
         return view('Manager/Promo/Index', $data);
     }
 
-    public function create_promo()
-    {
-        $data = [
-            'judul' => 'ZIBRA.ID',
-            'halaman' => 'Promo',
-            'aktif1' => '',
-            'aktif2' => '',
-            'aktif3' => '',
-            'aktif4' => 'active',
-            'aktif5' => '',
-        ];
-        return view('Manager/Promo/Create', $data);
-    }
-
-    function insert_promo()
-    {
-    }
-
-    function detail_promo()
-    {
-        $data = [
-            'judul' => 'ZIBRA.ID',
-            'halaman' => 'Promo',
-            'aktif1' => '',
-            'aktif2' => '',
-            'aktif3' => '',
-            'aktif4' => 'active',
-            'aktif5' => '',
-        ];
-        return view('Manager/Promo/Detail', $data);
-    }
-
-    function update_promo()
-    {
-    }
 
     // TODO : MENU TRANSAKSI
     function transaksi()
