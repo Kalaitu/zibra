@@ -1,5 +1,14 @@
 <?= $this->extend('Zibra/Layout'); ?>
 <?= $this->section('content'); ?>
+<?php
+if (empty(session()->get('id_customer'))) {
+?>
+    <script>
+
+    </script>
+<?php
+}
+?>
 <section class="shopping-cart spad">
     <div class="container">
         <div class="row">

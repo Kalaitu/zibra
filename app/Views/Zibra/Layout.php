@@ -31,8 +31,6 @@
     <div id="preloder">
         <div class="loader"></div>
     </div>
-
-
     <!-- Offcanvas Menu Begin -->
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">

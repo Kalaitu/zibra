@@ -31,4 +31,11 @@ class ModelKaryawan extends Model
         $query   = $db->query("SELECT karyawan.*, user.* FROM karyawan JOIN user ON karyawan.id_user = user.id_user WHERE karyawan.id_karyawan = '$id'");
         return $query;
     }
+
+    public function seleksiIdUser($id)
+    {
+        $db      = \Config\Database::connect();
+        $query   = $db->query("SELECT * FROM karyawan WHERE id_user = '$id'");
+        return $query;
+    }
 }

@@ -17,4 +17,11 @@ class CustomerModel extends Model
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';
+
+    public function seleksiIdUser($id)
+    {
+        $db      = \Config\Database::connect();
+        $query   = $db->query("SELECT * FROM customer WHERE id_user = '$id'");
+        return $query;
+    }
 }

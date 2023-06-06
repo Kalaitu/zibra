@@ -33,6 +33,10 @@
   <link href="<?= base_url('boassets/css/nucleo-svg.css') ?>" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="<?= base_url('boassets/css/argon-dashboard.css?v=2.0.4') ?>" rel="stylesheet" />
+  <!-- swal 2 -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
 </head>
 
 <body class="">
@@ -82,6 +86,114 @@
       </div>
     </section>
   </main>
+  <?php
+  if (!empty(session()->getFlashdata('login-gudang'))) {
+  ?>
+    <script>
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Login Berhasil',
+        text: "Selamat Datang <?= session()->get('nama_karyawan') ?>",
+        showConfirmButton: false,
+        timer: 1500
+      }).then(function() {
+        window.location = "gudang";
+      });
+    </script>
+  <?php
+  }
+  ?>
+  <?php
+  if (!empty(session()->getFlashdata('login-keuangan'))) {
+  ?>
+    <script>
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Login Berhasil',
+        text: "Selamat Datang <?= session()->get('nama_karyawan') ?>",
+        showConfirmButton: false,
+        timer: 1500
+      }).then(function() {
+        window.location = "keuangan";
+      });
+    </script>
+  <?php
+  }
+  ?>
+  <?php
+  if (!empty(session()->getFlashdata('login-kasir'))) {
+  ?>
+    <script>
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Login Berhasil',
+        text: "Selamat Datang <?= session()->get('nama_karyawan') ?>",
+        showConfirmButton: false,
+        timer: 1500
+      }).then(function() {
+        window.location = "kasir";
+      });
+    </script>
+  <?php
+  }
+  ?>
+  <?php
+  if (!empty(session()->getFlashdata('login-gudang'))) {
+  ?>
+    <script>
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Login Berhasil',
+        text: "Selamat Datang <?= session()->get('nama_karyawan') ?>",
+        showConfirmButton: false,
+        timer: 1500
+      }).then(function() {
+        window.location = "manager";
+      });
+    </script>
+  <?php
+  }
+  ?>
+  <?php
+  if (!empty(session()->getFlashdata('login-customer'))) {
+  ?>
+    <script>
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Login Berhasil',
+        text: "Selamat Datang <?= session()->get('nama_customer') ?>",
+        showConfirmButton: false,
+        timer: 1500
+      }).then(function() {
+        window.location = "zibra";
+      });
+    </script>
+  <?php
+  }
+  ?>
+  <?php
+  if (!empty(session()->getFlashdata('login-gagal'))) {
+  ?>
+    <script>
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Login Gagal',
+        text: "Username atau Password Salah",
+        showConfirmButton: false,
+        timer: 1500
+      }).then(function() {
+        window.location = "login";
+      });
+    </script>
+  <?php
+  }
+  ?>
   <!--   Core JS Files   -->
   <script src="<?= base_url('boassets/js/core/popper.min.js') ?>"></script>
   <script src="<?= base_url('boassets/js/core/bootstrap.min.js') ?>"></script>

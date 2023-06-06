@@ -28,7 +28,7 @@ class UserModel extends Model
     public function login($username, $password)
     {
         $db      = \Config\Database::connect();
-        $query   = $db->query("SELECT user.*, karyawan.* FROM user JOIN karyawan ON user.id_user = karyawan.id_user WHERE username='$username' AND password='$password'");
+        $query   = $db->query("SELECT * FROM user WHERE username='$username' AND password='$password'");
         return $query;
     }
 }

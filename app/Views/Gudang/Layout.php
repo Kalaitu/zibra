@@ -37,22 +37,6 @@
 </head>
 
 <body class="g-sidenav-show bg-gray-100 ">
-    <?php
-    if (!empty(session()->getFlashdata('login-berhasil'))) {
-    ?>
-        <script>
-            Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: 'Login Berhasil',
-                text: "Selamat Datang <?= session()->get('nama_karyawan') ?>",
-                showConfirmButton: false,
-                timer: 2000
-            })
-        </script>
-    <?php
-    }
-    ?>
     <div class="min-height-300 bg-primary position-absolute w-100">
     </div>
     <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
