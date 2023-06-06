@@ -7,9 +7,9 @@ use CodeIgniter\Model;
 class PromoModel extends Model
 {
     protected $table            = 'promo';
-    protected $primaryKey       = 'id';
+    protected $primaryKey       = 'id_promo';
     protected $useAutoIncrement = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['nama_promo', 'deskripsi_promo', 'poin', 'diskon', 'foto_promo'];
 
     // Dates
     protected $useTimestamps = false;

@@ -24,4 +24,11 @@ class UserModel extends Model
         $query   = $db->query("SELECT id_user FROM user ORDER BY id_user DESC LIMIT 1");
         return $query;
     }
+
+    public function login($username, $password)
+    {
+        $db      = \Config\Database::connect();
+        $query   = $db->query("SELECT user.*, karyawan.* FROM user JOIN karyawan ON user.id_user = karyawan.id_user WHERE username='$username' AND password='$password'");
+        return $query;
+    }
 }

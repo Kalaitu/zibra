@@ -3,11 +3,6 @@
 namespace App\Controllers\Manager;
 
 use App\Controllers\BaseController;
-use App\Models\AuthModel;
-use App\Models\KasirModel;
-use App\Models\CustomerModel;
-use App\Models\ProdukModel;
-use App\Models\PromoModel;
 
 class ManagerController extends BaseController
 {

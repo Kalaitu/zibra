@@ -1,4 +1,4 @@
-<?= $this->extend('Keuangan/Layout'); ?>
+<?= $this->extend('Gudang/Layout'); ?>
 <?= $this->section('content'); ?>
 <div class="container-fluid py-4">
     <div class="row">
@@ -11,7 +11,7 @@
                     <hr class="horizontal dark">
                 </div>
                 <div class="card-body">
-                    <form action="<?= base_url('keuangan/edit-produk') ?>" method="POST" enctype="multipart/form-data">
+                    <form action="<?= base_url('gudang/edit-produk') ?>" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-6 col-sm-12">
                                 <img src="<?= base_url('produk/') . $produk['foto_produk'] ?>" alt="" width="100%" class="rounded" id="output" height="500px">
@@ -20,33 +20,31 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="nama_produk" class="form-control-label">Nama Produk</label>
-                                        <input class="form-control" type="text" placeholder="Masukan Nama Produk" name="nama_produk" id="nama_produk" value="<?= $produk['nama_produk'] ?>" readonly>
+                                        <input class="form-control" type="text" placeholder="Masukan Nama Produk" name="nama_produk" id="nama_produk" value="<?= $produk['nama_produk'] ?>" required>
                                         <input class="form-control" type="text" placeholder="Masukan Nama Produk" name="id_produk" id="id_produk" value="<?= $produk['id_produk'] ?>" hidden>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="deskripsi_produk" class="form-control-label">Deskripsi Produk</label>
-                                        <textarea class="form-control" name="deskripsi_produk" id="deskripsi_produk" cols="30" rows="5" required readonly><?= $produk['deskripsi_produk'] ?></textarea>
+                                        <textarea class="form-control" name="deskripsi_produk" id="deskripsi_produk" cols="30" rows="9" required><?= $produk['deskripsi_produk'] ?></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="status" class="form-control-label">Status</label>
-                                        <select class="form-control" id="status" name="status" required>
-                                            <option value="New Arival" <?= $produk['status'] == "New Arival" ? "selected" : "" ?>>New Arival</option>
-                                            <option value="Reguler" <?= $produk['status'] == "Reguler" ? "selected" : "" ?>>Reguler</option>
-                                            <option value="Best Seller" <?= $produk['status'] == "Best Seller" ? "selected" : "" ?>>Best Seller</option>
-                                            <option value="Hot Sales" <?= $produk['status'] == "Hot Sales" ? "selected" : "" ?>>Hot Sales</option>
-                                        </select>
+                                        <label for="foto" class="form-control-label">Foto</label>
+                                        <input class="form-control" name="foto" id="foto" type="file" placeholder="">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="harga_produk" class="form-control-label">Harga Produk</label>
-                                    <input class="form-control" type="number" placeholder="Masukan Harga Produk" name="harga_produk" id="harga_produk" value="<?= $produk['harga_produk'] ?>">
-                                </div>
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-primary ms-auto w-100 mt-3">Update</button>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">
+                                            <button type="submit" class="btn btn-primary ms-auto w-100 mt-3">Update</button>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <a onclick="hapus(<?= $produk['id_produk'] ?>)" class="btn btn-danger ms-auto w-100 mt-3">Delete</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

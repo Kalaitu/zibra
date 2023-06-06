@@ -30,6 +30,10 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+
+$routes->get('/login', 'Home::login');
+$routes->post('/proses-login', 'Home::proses_login');
+
 $routes->group('/manager', function ($routes) {
     // =========== Dashboard Manager ===========
     $routes->get('', 'Manager\ManagerController::index');
@@ -111,12 +115,14 @@ $routes->group('/gudang', function ($routes) {
     $routes->get('', 'Gudang\GudangController::index');
 
     // =========== Dashboard Product ===========
-    $routes->get('produk', 'Gudang\GudangController::produk');
+    $routes->get('produk', 'Gudang\GudangController::index');
     $routes->get('create-produk', 'Gudang\GudangController::create_produk');
     $routes->post('insert-produk', 'Gudang\GudangController::insert_produk');
-    $routes->get('detail-produk', 'Gudang\GudangController::detail_produk/$1');
+    $routes->get('detail-produk/(:num)', 'Gudang\GudangController::detail_produk/$1');
     $routes->post('edit-produk', 'Gudang\GudangController::update_produk');
+    $routes->get('delete-produk/(:num)', 'Gudang\GudangController::delete_produk/$1');
 });
+
 // routes for keuangan
 $routes->group('/keuangan', function ($routes) {
     // =========== Dashboard Keuangan ===========
@@ -126,14 +132,16 @@ $routes->group('/keuangan', function ($routes) {
     $routes->get('promo', 'Keuangan\KeuanganController::promo');
     $routes->get('create-promo', 'Keuangan\KeuanganController::create_promo');
     $routes->post('insert-promo', 'Keuangan\KeuanganController::insert_promo');
-    $routes->get('detail-promo', 'Keuangan\KeuanganController::detail_promo/$1/$2');
+    $routes->get('detail-promo/(:num)', 'Keuangan\KeuanganController::detail_promo/$1');
+    $routes->get('delete-promo/(:num)', 'Keuangan\KeuanganController::delete_promo/$1');
     $routes->post('edit-promo', 'Keuangan\KeuanganController::update_promo');
     // dasboard transaksi
     $routes->get('transaksi', 'Keuangan\KeuanganController::transaksi');
     $routes->get('detail-transaksi', 'Keuangan\KeuanganController::detail_transaksi/$1');
     // dashboard produk
     $routes->get('produk', 'Keuangan\KeuanganController::produk');
-    $routes->get('detail-produk', 'Keuangan\KeuanganController::detail_produk/$1');
+    $routes->get('detail-produk/(:num)', 'Keuangan\KeuanganController::detail_produk/$1');
+    $routes->post('edit-produk', 'Keuangan\KeuanganController::update_produk');
     // dashboard report
     $routes->get('report', 'Keuangan\KeuanganController::report');
     $routes->get('detail-report', 'Keuangan\KeuanganController::detail_report/$1');

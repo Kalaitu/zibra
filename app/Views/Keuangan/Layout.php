@@ -9,11 +9,9 @@
     <title>
         ZIBRA.ID
     </title>
-
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css" />
-
+    <!-- Data Table -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->
@@ -27,12 +25,15 @@
     <!-- swal 2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- jquery -->
-    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.css" integrity="sha512-Z0kTB03S7BU+JFU0nw9mjSBcRnZm2Bvm0tzOX9/OuOuz01XQfOpa0w/N9u6Jf2f1OAdegdIPWZ9nIZZ+keEvBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- datepicker -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
+    <style>
+        .dataTables_filter {
+            width: 100% !important;
+            /* border-radius: 50%; */
+        }
+    </style>
 </head>
 
 <body class="g-sidenav-show bg-gray-100 ">
@@ -44,11 +45,10 @@
             <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
             <a class="navbar-brand m-0" href="">
                 <img src="<?= base_url('boassets/img/LOGO.png') ?>" class="navbar-brand-img h-100" alt="main_logo">
-
             </a>
         </div>
         <hr class="horizontal dark mt-0">
-        <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+        <div class="collapse navbar-collapse  w-auto" style="overflow-y: hidden; height:70%;" id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link <?= $aktif1 ?>" href="<?= base_url('keuangan') ?>">
@@ -67,7 +67,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?= $aktif2 ?>" href="<?= base_url('keuangan/transaksi') ?>">
+                    <a class="nav-link <?= $aktif3 ?>" href="<?= base_url('keuangan/transaksi') ?>">
                         <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
                         </div>
@@ -76,7 +76,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link <?= $aktif5 ?>" href="<?= base_url('/keuangan/report') ?>">
+                    <a class="nav-link <?= $aktif4 ?>" href="<?= base_url('/keuangan/report') ?>">
                         <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa fa-info-circle text-success text-sm opacity-10"></i>
                         </div>
@@ -86,9 +86,10 @@
             </ul>
         </div>
     </aside>
+
     <main class="main-content position-relative border-radius-lg ">
         <!-- Navbar -->
-        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="false">
+        <nav class="navbar navbar-main navbar-expand-lg px-0 shadow-none border-radius-xl" id="navbarBlur" data-scroll="false">
             <div class="container-fluid py-1 mt-4">
                 <nav aria-label="breadcrumb">
                     <h6 class="text-white font-weight-bolder ms-2 mt-2"><?= $halaman ?></h6>
@@ -119,22 +120,6 @@
         <?= $this->renderSection('content') ?>
     </main>
     <script>
-        $(document).ready(function() {
-            $('#example').DataTable({
-                order: [
-                    [1, 'desc']
-                ],
-            });
-        });
-    </script>
-    <!-- date range -->
-
-    <!-- end date range -->
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
-    <script>
         function logout() {
             Swal.fire({
                 title: 'Logout',
@@ -159,29 +144,19 @@
             })
         }
     </script>
-
     <!--   Core JS Files   -->
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="<?= base_url('boassets/js/plugins/chartjs.min.js') ?>"></script>
     <script src="<?= base_url('boassets/js/core/popper.min.js') ?>"></script>
     <script src="<?= base_url('boassets/js/core/bootstrap.min.js') ?>"></script>
     <script src="<?= base_url('boassets/js/plugins/perfect-scrollbar.min.js') ?>"></script>
     <script src="<?= base_url('boassets/js/plugins/smooth-scrollbar.min.js') ?>"></script>
-    <script src="<?= base_url('boassets/js/plugins/flatpickr.min.js') ?>"></script>
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="<?= base_url('boassets/js/argon-dashboard.min.js?v=2.0.4') ?>"></script>
+    <script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
 
-    <script>
-        $("#tanggalnya").flatpickr({
-            altInput: true,
-            altFormat: "F j, Y",
-            dateFormat: "Y-m-d",
-            mode: "range",
-            time: false
-        });
-    </script>
 </body>
 
 </html>

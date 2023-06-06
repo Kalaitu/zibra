@@ -47,7 +47,9 @@
                                     <input class="form-control" name="foto" id="foto" type="file" placeholder="">
                                 </div>
                             </div>
-                            <button class="btn btn-primary btn-sm ms-auto">Simpan</button>
+                            <div class="col-md-12 mt-3">
+                                <button class="btn btn-primary btn-sm ms-auto w-100">Simpan</button>
+                            </div>
                         </div>
                     </form>
                 </div>

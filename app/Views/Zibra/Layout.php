@@ -54,18 +54,17 @@
     <header class="header">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-2  px-3 pt-3">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-2 px-3">
                     <div class="header__logo ">
-                        <a href="<?= base_url('zibra') ?>"><img src="<?= base_url('boassets/img/LOGO.png') ?>" class="img-fluid" alt=""></a>
+                        <a href="<?= base_url('zibra') ?>"><img src="<?= base_url('boassets/img/LOGO.png') ?>" class="img-fluid" alt="" width="200px"></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class="active"><a href="<?= base_url('zibra') ?>">Home</a></li>
-                            <li><a href="<?= base_url('zibra/product') ?>">Shop</a></li>
-                            <li><a href="<?= base_url('zibra/promo') ?>">Voucher </a></li>
-                            <li><a href="<?= base_url('zibra/contact') ?>">Contacts</a></li>
+                            <li class="<?= $aktif1 ?>"><a href="<?= base_url('zibra') ?>">Home</a></li>
+                            <li class="<?= $aktif2 ?>"><a href="<?= base_url('zibra/product') ?>">Shop</a></li>
+                            <li class="<?= $aktif3 ?>"><a href="<?= base_url('zibra/contact') ?>">Contacts</a></li>
                         </ul>
                     </nav>
                 </div>
