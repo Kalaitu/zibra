@@ -36,13 +36,13 @@
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__option">
             <div class="offcanvas__links">
-                <a href="#">Sign in</a>
+                <a href="<?= base_url('login') ?>" class="text-dark <?= empty(session()->get('id_customer')) ? '' : 'd-none' ?>">Login</i></a>
+                <a href="<?= base_url('login') ?>" class="text-dark <?= empty(session()->get('id_customer')) ? 'd-none' : '' ?>">Logout</i></a>
             </div>
 
         </div>
         <div class="offcanvas__nav__option">
-            <a href="#" class="search-switch"><img src="<?= base_url('fashion/img/icon/search.png') ?>" alt=""></a>
-            <i class="fa-solid fa-user"></i>
+            <a href="<?= base_url('zibra/profile') ?>" class="text-dark"> <i class="fa fa-user me-3"></i><?= session()->get('nama_customer') ?></a>
         </div>
         <div id="mobile-menu-wrap"></div>
     </div>
@@ -52,12 +52,12 @@
     <header class="header">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-2 px-3">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-2 px-3">
                     <div class="header__logo ">
                         <a href="<?= base_url('zibra') ?>"><img src="<?= base_url('boassets/img/LOGO.png') ?>" class="img-fluid" alt="" width="200px"></a>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6">
+                <div class="col-lg-4 col-md-4">
                     <nav class="header__menu mobile-menu">
                         <ul>
                             <li class="<?= $aktif1 ?>"><a href="<?= base_url('zibra') ?>">Home</a></li>
@@ -66,10 +66,12 @@
                         </ul>
                     </nav>
                 </div>
-                <div class="col-lg-3 col-md-3">
+                <div class="col-lg-4 col-md-4">
                     <div class="header__nav__option">
                         <a href="#" class="search-switch"><img src="<?= base_url('fashion/img/icon/search.png') ?>" alt=""></a>
-                        <a href="<?= base_url('zibra/profile') ?>" class="text-dark"><i class="fa fa-user text-lg"></i></a>
+                        <a href="<?= base_url('zibra/profile') ?>" class="text-dark"><i class="fa fa-user text-lg me-3"></i><?= session()->get('nama_customer') ?></a>
+                        <a href="<?= base_url('login') ?>" class="text-dark d-inline <?= empty(session()->get('id_customer')) ? 'd-none' : '' ?>">Logout</i></a>
+                        <a href="<?= base_url('login') ?>" class="text-dark <?= empty(session()->get('id_customer')) ? 'd-inline' : 'd-none' ?>">Login</i></a>
                     </div>
                 </div>
             </div>

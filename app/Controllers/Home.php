@@ -59,4 +59,28 @@ class Home extends BaseController
         }
         return view('sign-in');
     }
+    public function register()
+    {
+        return view('sign-up');
+    }
+    public function proses_register()
+    {
+        $this->user->insert([
+            "username" => $this->request->getPost('username'),
+            "password" => $this->request->getPost('password'),
+            "role" => "Customer"
+        ]);
+        $query = $this->user->seleksi();
+        $data['user'] = $query->getRow();
+        $this->customer->insert([
+            "id_user" => $data['user']->id_user,
+            "nama_customer" => $this->request->getPost('nama_customer'),
+            "nomor_telepon" => $this->request->getPost('nomor_telepon'),
+            "alamat_customer" => $this->request->getPost('alamat_customer'),
+            "point" => "0",
+            "kode_reveral" => "ZIBRAID" . $data['user']->id_user
+        ]);
+        session()->setFlashdata('register-berhasil', 'register-berhasil');
+        return redirect()->to(base_url('register'));
+    }
 }

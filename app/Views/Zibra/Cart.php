@@ -4,7 +4,15 @@
 if (empty(session()->get('id_customer'))) {
 ?>
     <script>
-
+        Swal.fire({
+            position: 'center',
+            icon: 'warning',
+            text: "Silahkan Login Terlebih Dahulu",
+            showConfirmButton: false,
+            timer: 1500
+        }).then(function() {
+            window.location = "login";
+        });
     </script>
 <?php
 }

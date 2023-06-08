@@ -34,6 +34,9 @@ $routes->get('/', 'Home::index');
 $routes->get('/login', 'Home::login');
 $routes->post('/proses-login', 'Home::proses_login');
 
+$routes->get('/register', 'Home::register');
+$routes->post('/proses-register', 'Home::proses_register');
+
 $routes->group('/manager', function ($routes) {
     // =========== Dashboard Manager ===========
     $routes->get('', 'Manager\ManagerController::index');

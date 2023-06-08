@@ -45,8 +45,8 @@ class CustomerController extends BaseController
         $data = [
             'judul' => 'ZIBRA.ID',
             'halaman' => 'Zibra',
-            'aktif1' => 'active',
-            'aktif2' => '',
+            'aktif1' => '',
+            'aktif2' => 'active',
             'aktif3' => '',
         ];
         return view('Zibra/DetailProduk', $data);
@@ -83,6 +83,9 @@ class CustomerController extends BaseController
         $data = [
             'judul' => 'ZIBRA.ID',
             'halaman' => 'Zibra',
+            'aktif1' => 'active',
+            'aktif2' => '',
+            'aktif3' => '',
         ];
         return view('Zibra/Profile', $data);
     }
