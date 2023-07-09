@@ -32,15 +32,15 @@
                             </label>
                         </div>
                     </div>
-                    <form action="" id="julahform">
+                    <form action="<?= base_url('zibra/tambahkeranjang') ?>" method="post" id="julahform">
                         <div class="product__details__option mb-1 mt-2 text-left">
                             <div class="product__details__cart__option">
                                 <div class="quantity">
                                     <span>Jumlah :</span>
                                     <div class="pro-qty">
-                                        <input type="text" value="1" name="jumlah">
+                                        <input type="number" value="1" name="qty">
                                     </div>
-                                    <input hidden type="text" name="" value="<?= $produk['0']->id_produk ?>">
+                                    <input hidden type="text" name="id_produk" value="<?= $produk['0']->id_produk ?>">
                                 </div>
                             </div>
                         </div>

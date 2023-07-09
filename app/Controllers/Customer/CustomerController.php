@@ -10,6 +10,7 @@ class CustomerController extends BaseController
     {
         $this->promo = new \App\Models\PromoModel();
         $this->produk = new \App\Models\ProdukModel();
+        $this->pemesanan = new \App\Models\PemesananModel();
     }
 
     public function index()
@@ -95,5 +96,56 @@ class CustomerController extends BaseController
 
     function tambahkeranjang()
     {
+        $currentDate = date('Ymdhis');
+        $currentDate2 = date('Y-m-d');
+        $query = $this->pemesanan->cekKode(session()->get('id_user'));
+        $data['kodepemsanan'] = $query->getResult();
+        if ($data['kodepemsanan'] == null) {
+            $kode = 'ORDER' . '' . session()->get('id_user') . '' . $currentDate;
+        } else {
+            dd("KODE BARU");
+            $kode = $data['kodepemsanan']->kode_permintaan;
+        }
+        $query = $this->pemesanan->cekBarang(session()->get('id_user'), $this->request->getPost('id_produk'));
+        $data['cekproduk'] = $query->getResult();
+        if ($data['cekproduk'] == null) {
+            $data = [
+                'kode_pemesanan' => $kode,
+                'id_user' => session()->get('id_user'),
+                'id_produk' => $this->request->getPost('id_produk'),
+                'tanggal_pemesanan' => $currentDate2,
+                'status' => 'Keranjang',
+                'qty' => $this->request->getPost('qty')
+            ];
+            $this->pemesanan->insert($data);
+            dd("cobaliat");
+            $permintaanModel->createPermintaan($data);
+            $barangModel = new ModelBarang();
+            $dataBarang = $barangModel->getBarang($this->request->getPost('id_barang'));
+            $stok = $dataBarang[0]->stok - $this->request->getPost('qty');
+            $data2 = [
+                'stok' => $stok
+            ];
+            $barangModel->update($this->request->getPost('id_barang'), $data2);
+        } else {
+            $qty = $cekbarang[0]->qty + $this->request->getPost('qty');
+            $data = [
+                'kode_permintaan' => $kode,
+                'id_user' => session()->get('id_user'),
+                'id_barang' => $this->request->getPost('id_barang'),
+                'tanggal_permintaan' => $currentDate2,
+                'status' => 'keranjang',
+                'qty' => $qty
+            ];
+            $permintaanModel->update($cekbarang[0]->id_permintaan, $data);
+            $barangModel = new ModelBarang();
+            $dataBarang = $barangModel->getBarang($this->request->getPost('id_barang'));
+            $stok = $dataBarang[0]->stok - $this->request->getPost('qty');
+            $data2 = [
+                'stok' => $stok
+            ];
+            $barangModel->update($this->request->getPost('id_barang'), $data2);
+        }
+        return redirect()->to('mitra/catalog')->with('success-kernjang', 'Data Keranjang Berhasi Ditambahkan');
     }
 }
