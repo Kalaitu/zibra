@@ -40,14 +40,17 @@ class CustomerController extends BaseController
         $data['produk'] = $query->getResult();
         return view('Zibra/Product', $data);
     }
-    public function produk_detail()
+    public function produk_detail($id)
     {
+        $query = $this->produk->getProdukById($id);
+        $data['produk'] = $query->getResult();
         $data = [
             'judul' => 'ZIBRA.ID',
             'halaman' => 'Zibra',
             'aktif1' => '',
             'aktif2' => 'active',
             'aktif3' => '',
+            'produk' => $data['produk']
         ];
         return view('Zibra/DetailProduk', $data);
     }
@@ -88,5 +91,9 @@ class CustomerController extends BaseController
             'aktif3' => '',
         ];
         return view('Zibra/Profile', $data);
+    }
+
+    function tambahkeranjang()
+    {
     }
 }

@@ -100,16 +100,14 @@ $routes->group('/kasir', function ($routes) {
 // routes for customers
 $routes->group('/zibra', function ($routes) {
     $routes->get('', 'Customer\CustomerController::index');
-    // produk detail
-    $routes->get('produk-detail', 'Customer\CustomerController::produk_detail/$1/$2');
-    // checkout
+    $routes->get('produk-detail/(:any)', 'Customer\CustomerController::produk_detail/$1/$2');
     $routes->get('checkout', 'Customer\CustomerController::checkout/$1/$2');
-    // cart
     $routes->get('cart', 'Customer\CustomerController::cart/$1/$2');
     $routes->get('product', 'Customer\CustomerController::product/$1/$2');
     $routes->get('contact', 'Customer\CustomerController::contact/$1/$2');
     $routes->get('promo', 'Customer\CustomerController::promo/$1/$2');
     $routes->get('profile', 'Customer\CustomerController::profile/$1/$2');
+    $routes->post('tambahkeranjang', 'Customer\CustomerController::tambahkeranjang');
 });
 
 // routes for gudang

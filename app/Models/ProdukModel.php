@@ -38,4 +38,11 @@ class ProdukModel extends Model
         $query   = $db->query("SELECT * FROM produk WHERE harga_produk != '0'");
         return $query;
     }
+
+    function getProdukById($kode)
+    {
+        $db      = \Config\Database::connect();
+        $query   = $db->query("SELECT * FROM produk WHERE id_produk = '$kode'");
+        return $query;
+    }
 }

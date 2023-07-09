@@ -113,7 +113,7 @@
                         </div>
                         <div class="product__item__text">
                             <h6><?= $data->nama_produk ?></h6>
-                            <a href="#" class="add-cart">+ Tambah Keranjang</a>
+                            <a href="<?= base_url('zibra/produk-detail/' . $data->id_produk) ?>" class="add-cart">+ Tambah Keranjang</a>
                             <h5>Rp.<?= $data->harga_produk ?>,-</h5>
                         </div>
                     </div>
