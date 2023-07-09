@@ -147,6 +147,7 @@ $routes->group('/keuangan', function ($routes) {
     $routes->get('report', 'Keuangan\KeuanganController::report');
     $routes->get('detail-report', 'Keuangan\KeuanganController::detail_report/$1');
 });
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

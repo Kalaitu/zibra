@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="<?= base_url('boassets/img/apple-icon.png') ?>">
-  <link rel="icon" type="image/png" href="<?= base_url('boassets/img/favicon.png') ?>">
+  <link rel="icon" type="image/png" href="<?= base_url('fashion/img/LOGOGRAM.png') ?>">
   <title>
     ZibraID
   </title>
@@ -25,16 +25,16 @@
   <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
 </head>
 
-<body class="">
+<body class="" style="background-color: #F0F0F0;">
   <main class="main-content  mt-0">
     <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signup-cover.jpg'); background-position: top;">
       <span class="mask bg-gradient-dark opacity-6"></span>
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-5 text-center mx-auto">
-            <img src="<?= base_url('boassets/img/LOGO.png') ?>" class="img-fluid" alt="" width="300px">
-            <h1 class="text-white mb-2 mt-2">Welcome!</h1>
-            <p class="text-lead text-white">Tagline ZibraID Disini</p>
+            <img src="<?= base_url('boassets/img/LOGO2.png') ?>" class="img-fluid" alt="" width="300px">
+            <p class="text-lead text-white">Your Daily Artwear</p>
+
           </div>
         </div>
       </div>
@@ -42,7 +42,7 @@
     <div class="container">
       <div class="row mt-lg-n11 mt-md-n11 mt-n11 justify-content-center">
         <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
-          <div class="card z-index-0">
+          <div class="card z-index-0 border shadow-lg">
             <div class="card-header text-center pt-4">
               <h5>Register</h5>
             </div>
