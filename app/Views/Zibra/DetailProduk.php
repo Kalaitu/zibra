@@ -38,7 +38,7 @@
                                 <div class="quantity">
                                     <span>Jumlah :</span>
                                     <div class="pro-qty">
-                                        <input type="number" value="1" name="qty">
+                                        <input type="text" value="1" name="qty">
                                     </div>
                                     <input hidden type="text" name="id_produk" value="<?= $produk['0']->id_produk ?>">
                                 </div>

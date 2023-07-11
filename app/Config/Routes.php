@@ -31,11 +31,11 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
-$routes->get('/login', 'Home::login');
-$routes->post('/proses-login', 'Home::proses_login');
+$routes->get('login', 'Home::login');
+$routes->post('loginproses', 'Home::loginproses');
 
-$routes->get('/register', 'Home::register');
-$routes->post('/proses-register', 'Home::proses_register');
+$routes->get('register', 'Home::register');
+$routes->post('proses-register', 'Home::proses_register');
 
 $routes->group('/manager', function ($routes) {
     // =========== Dashboard Manager ===========
@@ -111,7 +111,7 @@ $routes->group('/zibra', function ($routes) {
 });
 
 // routes for gudang
-$routes->group('/gudang', function ($routes) {
+$routes->group('gudang', function ($routes) {
     // =========== Dashboard Gudang ===========
     $routes->get('', 'Gudang\GudangController::index');
 

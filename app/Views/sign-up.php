@@ -1,79 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light-style customizer-hide" dir="ltr" data-theme="theme-default" data-assets-path="../assets/" data-template="vertical-menu-template-free">
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="<?= base_url('boassets/img/apple-icon.png') ?>">
-  <link rel="icon" type="image/png" href="<?= base_url('fashion/img/LOGOGRAM.png') ?>">
-  <title>
-    ZibraID
-  </title>
-  <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-  <!-- Nucleo Icons -->
-  <link href="<?= base_url('boassets/css/nucleo-icons.css') ?>" rel="stylesheet" />
-  <link href="<?= base_url('boassets/css/nucleo-svg.css') ?>" rel="stylesheet" />
-  <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="<?= base_url('boassets/css/nucleo-svg.css') ?>" rel="stylesheet" />
-  <!-- CSS Files -->
-  <link id="pagestyle" href="<?= base_url('boassets/css/argon-dashboard.css?v=2.0.4') ?>" rel="stylesheet" />
-  <!-- swal 2 -->
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <!-- jquery -->
-  <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+  <title>Login ZibraID</title>
+
+  <meta name="description" content="" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="<?= base_url('fashion/img/logo.png') ?>" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+
+  <!-- Icons. Uncomment required icon fonts -->
+  <link rel="stylesheet" href="<?= base_url('assets/vendor/fonts/boxicons.css') ?>" />
+
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="<?= base_url('assets/vendor/css/core.css') ?>" class="template-customizer-core-css" />
+  <link rel="stylesheet" href="<?= base_url('assets/vendor/css/theme-default.css') ?>" class="template-customizer-theme-css" />
+  <link rel="stylesheet" href="<?= base_url('assets/css/demo.css') ?>" />
+
+  <!-- Vendors CSS -->
+  <link rel="stylesheet" href="<?= base_url('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') ?>" />
+
+  <!-- Page CSS -->
+  <!-- Page -->
+  <link rel="stylesheet" href="<?= base_url('assets/vendor/css/pages/page-auth.css') ?>" />
+  <!-- Helpers -->
+  <script src="<?= base_url('assets/vendor/js/helpers.js') ?>"></script>
+
+  <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+  <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+  <script src="<?= base_url('assets/js/config.js') ?>"></script>
 </head>
 
-<body class="" style="background-color: #F0F0F0;">
-  <main class="main-content  mt-0">
-    <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signup-cover.jpg'); background-position: top;">
-      <span class="mask bg-gradient-dark opacity-6"></span>
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-5 text-center mx-auto">
-            <img src="<?= base_url('boassets/img/LOGO2.png') ?>" class="img-fluid" alt="" width="300px">
-            <p class="text-lead text-white">Your Daily Artwear</p>
+<body style="background-image: url(<?= base_url('fashion/img/hero/hero-2.jpg') ?>);">
+  <!-- Content -->
+  <div class="container-xxl">
+    <div class="authentication-wrapper authentication-basic container-p-y">
+      <div class="authentication-inner">
+        <!-- Register -->
+        <div class="card">
+          <div class="card-body">
+            <!-- Logo -->
+            <div class="app-brand justify-content-center">
+              <a href="" class="app-brand-link gap-2">
+                <span class="app-brand-logo demo">
+                  <img src="<?= base_url('fashion/img/logo.png') ?>" alt="" width="40px">
+                </span>
+                <span class="app-brand-text demo text-body fw-bolder">ZibraID</span>
+              </a>
+            </div>
+            <!-- /Logo -->
+            <h4 class="mb-2">Welcome to ZibraID! 👋</h4>
+            <p class="mb-4">Make your account easy and fun!</p>
 
+            <form id="formAuthentication" class="mb-3" action="loginproses" method="POST">
+              <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username here" autofocus />
+              </div>
+              <div class="mb-3 form-password-toggle">
+                <div class="d-flex justify-content-between">
+                  <label class="form-label" for="password">Password</label>
+                </div>
+                <div class="input-group input-group-merge">
+                  <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
+                  <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                </div>
+              </div>
+              <div class="my-4">
+                <button class="btn btn-primary d-grid w-100" type="submit">Sign up</button>
+              </div>
+            </form>
+
+            <p class="text-center">
+              <span>Already have an account?</span>
+              <a href="login">
+                <span>Sign in instead</span>
+              </a>
+            </p>
           </div>
         </div>
+        <!-- /Register -->
       </div>
     </div>
-    <div class="container">
-      <div class="row mt-lg-n11 mt-md-n11 mt-n11 justify-content-center">
-        <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
-          <div class="card z-index-0 border shadow-lg">
-            <div class="card-header text-center pt-4">
-              <h5>Register</h5>
-            </div>
-            <div class="card-body">
-              <form role="form" method="POST" action="<?= base_url('proses-register') ?>">
-                <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="Username" name="username">
-                </div>
-                <div class="mb-3">
-                  <input type="password" class="form-control" placeholder="Password" aria-label="Password" name="password">
-                </div>
-                <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="Nama Customer" name="nama_customer">
-                </div>
-                <div class="mb-3">
-                  <input type="bumber" class="form-control" placeholder="Nomor Telepon" name="nomor_telepon">
-                </div>
-                <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="Alamat Customer" name="alamat_customer">
-                </div>
-                <div class="text-center">
-                  <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Sign up</button>
-                </div>
-                <p class="text-sm mt-3 mb-0">Already have an account? <a href="<?= base_url('login') ?>" class="text-dark font-weight-bolder">Sign in</a></p>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
+  </div>
+  <!-- / Content -->
+
+  <!-- Core JS -->
+  <!-- build:js assets/vendor/js/core.js -->
+  <script src="<?= base_url('assets/vendor/libs/jquery/jquery.js') ?>"></script>
+  <script src="<?= base_url('assets/vendor/libs/popper/popper.js') ?>"></script>
+  <script src="<?= base_url('assets/vendor/js/bootstrap.js') ?>"></script>
+  <script src="<?= base_url('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') ?>"></script>
+
+  <script src="<?= base_url('assets/vendor/js/menu.js') ?>"></script>
+  <!-- endbuild -->
+
+  <!-- Vendors JS -->
+
+  <!-- Main JS -->
+  <script src="<?= base_url('assets/js/main.js') ?>"></script>
+
+  <!-- Page JS -->
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+  <!-- Notifikasi -->
   <?php
   if (!empty(session()->getFlashdata('register-berhasil'))) {
   ?>
@@ -92,24 +133,7 @@
   <?php
   }
   ?>
-  <!--   Core JS Files   -->
-  <script src="<?= base_url('boassets/js/core/popper.min.js') ?>"></script>
-  <script src="<?= base_url('boassets/js/core/bootstrap.min.js') ?>"></script>
-  <script src="<?= base_url('boassets/js/plugins/perfect-scrollbar.min.js') ?>"></script>
-  <script src="<?= base_url('boassets/js/plugins/smooth-scrollbar.min.js') ?>"></script>
-  <script>
-    var win = navigator.platform.indexOf('Win') > -1;
-    if (win && document.querySelector('#sidenav-scrollbar')) {
-      var options = {
-        damping: '0.5'
-      }
-      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-    }
-  </script>
-  <!-- Github buttons -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="<?= base_url('boassets/js/argon-dashboard.min.js?v=2.0.4') ?>"></script>
+
 </body>
 
 </html>
