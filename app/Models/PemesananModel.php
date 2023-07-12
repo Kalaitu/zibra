@@ -18,31 +18,54 @@ class PemesananModel extends Model
     protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';
 
-    public function seleksi()
-    {
-        $db      = \Config\Database::connect();
-        $query   = $db->query("SELECT id_user FROM user ORDER BY id_user DESC LIMIT 1");
-        return $query;
-    }
-
-    public function login($username, $password)
-    {
-        $db      = \Config\Database::connect();
-        $query   = $db->query("SELECT * FROM user WHERE username='$username' AND password='$password'");
-        return $query;
-    }
-
     function cekKode($id)
     {
-        $db      = \Config\Database::connect();
-        $query   = $db->query("SELECT * FROM pemesanan WHERE id_user = '$id'");
-        return $query;
+        $query = $this->db->table('pemesanan')
+            ->select('pemesanan.*')
+            ->where('pemesanan.id_user', $id)
+            ->where('pemesanan.status', 'Keranjang')
+            ->get();
+        return $query->getRow();
     }
 
-    function cekBarang($id, $id2)
+    function cekBarang($id, $idbarang)
     {
-        $db      = \Config\Database::connect();
-        $query   = $db->query("SELECT * FROM pemesanan WHERE id_user = '$id' AND id_produk='$id2'");
-        return $query;
+        $query = $this->db->table('pemesanan')
+            ->select('pemesanan.*')
+            ->where('pemesanan.id_user', $id)
+            ->where('pemesanan.status', 'Keranjang')
+            ->where('pemesanan.id_produk', $idbarang)
+            ->get();
+        return $query->getRow();
+    }
+
+    function getProdukByKodePemesanan($id)
+    {
+        $query = $this->db->table('pemesanan')
+            ->select('pemesanan.*, produk.*')
+            ->join('produk', 'produk.id_produk = pemesanan.id_produk', 'left')
+            ->where('pemesanan.kode_pemesanan', $id)
+            ->get();
+        return $query->getResultObject();
+    }
+
+    function getProdukByIdPemesanan($id)
+    {
+        $query = $this->db->table('pemesanan')
+            ->select('pemesanan.*, produk.*')
+            ->join('produk', 'produk.id_produk = pemesanan.id_produk', 'left')
+            ->where('pemesanan.id_pemesanan', $id)
+            ->get();
+        return $query->getRow();
+    }
+
+    function updateByKodePesanan($id)
+    {
+        $data = [
+            'status' => 'Menunggu Pembayaran'
+        ];
+        $this->db->table('pemesanan')
+            ->where('kode_pemesanan', $id)
+            ->update($data);
     }
 }

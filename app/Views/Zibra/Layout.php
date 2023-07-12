@@ -8,12 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ZibraID</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/bootstrap-icons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="<?= base_url('boassets/css/nucleo-icons.css') ?>" rel="stylesheet" />
-    <link href="<?= base_url('boassets/css/nucleo-svg.css') ?>" rel="stylesheet" />
-    <link id="pagestyle" href="<?= base_url('boassets/css/argon-dashboard.css?v=2.0.4') ?>" rel="stylesheet" />
     <!-- Css Styles -->
     <link rel="stylesheet" href="<?= base_url('fashion/css/bootstrap.min.css') ?>" type="text/css">
     <link rel="stylesheet" href="<?= base_url('fashion/css/font-awesome.min.css') ?>" type="text/css">
@@ -23,6 +21,7 @@
     <link rel="stylesheet" href="<?= base_url('fashion/css/owl.carousel.min.css') ?>" type="text/css">
     <link rel="stylesheet" href="<?= base_url('fashion/css/slicknav.min.css') ?>" type="text/css">
     <link rel="stylesheet" href="<?= base_url('fashion/css/style.css') ?>" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
@@ -36,25 +35,30 @@
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__option">
             <div class="offcanvas__links">
-                <a href="<?= base_url('login') ?>" class="text-dark <?= empty(session()->get('id_customer')) ? '' : 'd-none' ?>">Login</i></a>
-                <a href="<?= base_url('login') ?>" class="text-dark <?= empty(session()->get('id_customer')) ? 'd-none' : '' ?>">Logout</i></a>
+                <img src="<?= base_url('fashion/img/logologinregister.png') ?>" alt="" class="mb-3">
+                <a href="#" onclick='logout()' class="fw-bold text-dark <?= (session()->get('statuscustomer') == null ? 'd-none' : 'd-inline') ?>">Logout</i></a>
+                <a href="<?= base_url('login') ?>" class="fw-bold text-dark <?= (session()->get('statuscustomer') ? 'd-none' : 'd-inline') ?>">Login</i></a>
             </div>
-
         </div>
-        <div class="offcanvas__nav__option">
-            <a href="<?= base_url('zibra/profile') ?>" class="text-dark"> <i class="fa fa-user me-3"></i><?= session()->get('nama_customer') ?></a>
+        <div class="offcanvas__nav__option text-left">
+            <p>
+                <a href="<?= base_url('zibra/profile') ?>" class="fw-bold text-dark"><i class="fa fa-user-circle-o me-3"></i><?= session()->get('nama') ?></a>
+            </p>
+            <p>
+                <a href="#" onclick='logout()' class="fw-bold text-dark <?= (session()->get('statuscustomer') == null ? 'd-none' : 'd-inline') ?>"><i class="fa fa-shopping-cart me-3"></i>Keranjang</a>
+            </p>
         </div>
         <div id="mobile-menu-wrap"></div>
     </div>
     <!-- Offcanvas Menu End -->
 
     <!-- Header Section Begin -->
-    <header class="header">
+    <header class="header shadow">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-2 px-3">
                     <div class="header__logo ">
-                        <a href="<?= base_url('zibra') ?>"><img src="<?= base_url('boassets/img/LOGO.png') ?>" class="img-fluid" alt="" width="200px"></a>
+                        <a href="<?= base_url('zibra') ?>"><img src="<?= base_url('fashion/img/logologinregister.png') ?>" class="img-fluid" alt="" width="200px"></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4">
@@ -68,10 +72,9 @@
                 </div>
                 <div class="col-lg-4 col-md-4">
                     <div class="header__nav__option">
-                        <a href="#" class="search-switch"><img src="<?= base_url('fashion/img/icon/search.png') ?>" alt=""></a>
-                        <a href="<?= base_url('zibra/profile') ?>" class="text-dark"><i class="fa fa-user text-lg me-3"></i><?= session()->get('nama_customer') ?></a>
-                        <a href="<?= base_url('login') ?>" class="text-dark d-inline <?= empty(session()->get('id_customer')) ? 'd-none' : '' ?>">Logout</i></a>
-                        <a href="<?= base_url('login') ?>" class="text-dark <?= empty(session()->get('id_customer')) ? 'd-inline' : 'd-none' ?>">Login</i></a>
+                        <a href="<?= base_url('zibra/profile') ?>" class="text-dark"><i class="fa fa-user-circle-o text-lg me-3"></i><?= session()->get('nama') ?></a>
+                        <a href="#" onclick='logout()' class="fw-bold text-dark <?= (session()->get('statuscustomer') == null ? 'd-none' : 'd-inline') ?>">Logout</i></a>
+                        <a href="<?= base_url('login') ?>" class="fw-bold text-dark <?= (session()->get('statuscustomer') ? 'd-none' : 'd-inline') ?>">Login</i></a>
                     </div>
                 </div>
             </div>
@@ -169,7 +172,32 @@
     <script src="<?= base_url('fashion/js/mixitup.min.js') ?>"></script>
     <script src="<?= base_url('fashion/js/owl.carousel.min.js') ?>"></script>
     <script src="<?= base_url('fashion/js/main.js') ?>"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script>
+        function logout() {
+            Swal.fire({
+                title: 'Logout',
+                text: "Apakah anda yakin?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Logout!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        text: 'Berhasil Logout',
+                        showConfirmButton: false,
+                        timer: 2000
+                    }).then(function() {
+                        window.location = "<?= base_url('logout') ?>";
+                    });
+                }
+            })
+        }
+    </script>
 </body>
 
 </html>

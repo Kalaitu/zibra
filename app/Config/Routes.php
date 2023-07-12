@@ -35,93 +35,56 @@ $routes->get('login', 'Home::login');
 $routes->post('loginproses', 'Home::loginproses');
 
 $routes->get('register', 'Home::register');
-$routes->post('proses-register', 'Home::proses_register');
+$routes->post('registerproses', 'Home::registerproses');
+
+$routes->get('logout', 'Home::logout');
 
 $routes->group('/manager', function ($routes) {
-    // =========== Dashboard Manager ===========
-    $routes->get('', 'Manager\ManagerController::index');
+    $routes->get('', 'ManagerController::index');
+    $routes->get('produk', 'ManagerController::produk');
+    $routes->get('produk/detail/(:num)', 'ManagerController::detailProduk/$1');
+    $routes->get('customer', 'ManagerController::customer');
+    $routes->get('customer/detail/(:num)', 'ManagerController::detailCustomer/$1');
+    $routes->get('karyawan', 'ManagerController::karyawan');
+    $routes->get('karyawan/hapus/(:num)', 'ManagerController::hapusKaryawan/$1');
+    $routes->get('karyawan/create', 'ManagerController::create');
+    $routes->post('karyawan/add', 'ManagerController::add');
 
-    // =========== Dashboard Product ===========
-    $routes->get('produk', 'Manager\ManagerController::produk');
-
-    // =========== Dashboard Customer ===========
-    $routes->get('customer', 'Manager\ManagerController::customer');
-
-    // =========== Dashboard Promo ===========
-    $routes->get('promo', 'Manager\ManagerController::promo');
-
-    // =========== Dashboard Manager ===========
-    $routes->get('karyawan', 'Manager\ManagerController::karyawan');
-    $routes->get('create-karyawan', 'Manager\ManagerController::create_karyawan');
-    $routes->post('insert-karyawan', 'Manager\ManagerController::insert_karyawan');
-    $routes->get('detail-karyawan/(:num)', 'Manager\ManagerController::detail_karyawan/$1');
-    $routes->post('edit-karyawan', 'Manager\ManagerController::update_karyawan');
-    $routes->get('delete-karyawan/(:num)', 'Manager\ManagerController::delete_karyawan/$1');
-
-    // =========== Dashboard Transaksi ===========
     $routes->get('transaksi', 'Manager\ManagerController::transaksi');
     $routes->get('detail-transaksi', 'Manager\ManagerController::detail_transaksi/$1');
-
-    // =========== Dashboard Report ===========
     $routes->get('report', 'Manager\ManagerController::report');
     $routes->get('detail-report', 'Manager\ManagerController::detail_report/$1');
 });
 
 $routes->group('/kasir', function ($routes) {
-    // =========== Dashboard Kasir ===========
     $routes->get('', 'Kasir\KasirController::index');
-
-    // =========== Dashboard Product ===========
     $routes->get('produk', 'Kasir\KasirController::produk');
     $routes->get('create-produk', 'Kasir\KasirController::create_produk');
     $routes->post('insert-produk', 'Kasir\KasirController::insert_produk');
     $routes->get('detail-produk', 'Kasir\KasirController::detail_produk/$1');
     $routes->post('edit-produk', 'Kasir\KasirController::update_produk');
-
-    // =========== Dashboard Promo ===========
     $routes->get('promo', 'Kasir\KasirController::promo');
     $routes->get('create-promo', 'Kasir\KasirController::create_promo');
     $routes->post('insert-promo', 'Kasir\KasirController::insert_promo');
     $routes->get('detail-promo', 'Kasir\KasirController::detail_promo/$1/$2');
     $routes->post('edit-promo', 'Kasir\KasirController::update_promo');
-
-    // =========== Dashboard Kasir ===========
     $routes->get('kasir', 'Kasir\KasirController::kasir');
     $routes->get('create-kasir', 'Kasir\KasirController::create_kasir');
     $routes->post('insert-kasir', 'Kasir\KasirController::insert_kasir');
     $routes->get('detail-kasir', 'Kasir\KasirController::detail_kasir/$1/$2');
     $routes->post('edit-kasir', 'Kasir\KasirController::update_kasir');
-
-    // =========== Dashboard Transaksi ===========
     $routes->get('transaksi', 'Kasir\KasirController::transaksi');
     $routes->get('detail-transaksi', 'Kasir\KasirController::detail_transaksi/$1');
 });
 
-// routes for customers
-$routes->group('/zibra', function ($routes) {
-    $routes->get('', 'Customer\CustomerController::index');
-    $routes->get('produk-detail/(:any)', 'Customer\CustomerController::produk_detail/$1/$2');
-    $routes->get('checkout', 'Customer\CustomerController::checkout/$1/$2');
-    $routes->get('cart', 'Customer\CustomerController::cart/$1/$2');
-    $routes->get('product', 'Customer\CustomerController::product/$1/$2');
-    $routes->get('contact', 'Customer\CustomerController::contact/$1/$2');
-    $routes->get('promo', 'Customer\CustomerController::promo/$1/$2');
-    $routes->get('profile', 'Customer\CustomerController::profile/$1/$2');
-    $routes->post('tambahkeranjang', 'Customer\CustomerController::tambahkeranjang');
-});
-
-// routes for gudang
 $routes->group('gudang', function ($routes) {
-    // =========== Dashboard Gudang ===========
-    $routes->get('', 'Gudang\GudangController::index');
-
-    // =========== Dashboard Product ===========
-    $routes->get('produk', 'Gudang\GudangController::index');
-    $routes->get('create-produk', 'Gudang\GudangController::create_produk');
-    $routes->post('insert-produk', 'Gudang\GudangController::insert_produk');
-    $routes->get('detail-produk/(:num)', 'Gudang\GudangController::detail_produk/$1');
-    $routes->post('edit-produk', 'Gudang\GudangController::update_produk');
-    $routes->get('delete-produk/(:num)', 'Gudang\GudangController::delete_produk/$1');
+    $routes->get('', 'GudangController::index');
+    $routes->get('produk/create', 'GudangController::create');
+    $routes->add('produk/add', 'GudangController::add');
+    $routes->get('produk/detail/(:num)', 'GudangController::detail/$1');
+    $routes->add('produk/update', 'GudangController::update');
+    $routes->get('profile', 'GudangController::profile');
+    $routes->add('profile/update', 'GudangController::updateProfile');
 });
 
 // routes for keuangan
@@ -146,6 +109,21 @@ $routes->group('/keuangan', function ($routes) {
     // dashboard report
     $routes->get('report', 'Keuangan\KeuanganController::report');
     $routes->get('detail-report', 'Keuangan\KeuanganController::detail_report/$1');
+});
+
+$routes->group('/zibra', function ($routes) {
+    $routes->get('', 'CustomerController::index');
+    $routes->get('product', 'CustomerController::product');
+    $routes->get('product/detail/(:num)', 'CustomerController::productDetail/$1');
+    $routes->post('tambahkeranjang', 'CustomerController::tambahkeranjang');
+    $routes->get('cart', 'CustomerController::cart');
+    $routes->get('editcart/(:num)', 'CustomerController::editcart/$1');
+    $routes->post('updatecart', 'CustomerController::updatecart');
+    $routes->post('checkoutbray', 'CustomerController::checkoutbray');
+    $routes->get('invoice/(:any)', 'CustomerController::invoice/$1');
+    $routes->get('contact', 'Customer\CustomerController::contact/$1/$2');
+    $routes->get('promo', 'Customer\CustomerController::promo/$1/$2');
+    $routes->get('profile', 'Customer\CustomerController::profile/$1/$2');
 });
 
 /*

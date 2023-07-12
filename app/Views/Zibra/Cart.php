@@ -1,23 +1,6 @@
 <?= $this->extend('Zibra/Layout'); ?>
 <?= $this->section('content'); ?>
-<?php
-if (empty(session()->get('id_customer'))) {
-?>
-    <script>
-        Swal.fire({
-            position: 'center',
-            icon: 'warning',
-            text: "Silahkan Login Terlebih Dahulu",
-            showConfirmButton: false,
-            timer: 1500
-        }).then(function() {
-            window.location = "login";
-        });
-    </script>
-<?php
-}
-?>
-<section class="shopping-cart spad">
+<section class="shopping-cart mt-5 mb-5">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
@@ -32,61 +15,100 @@ if (empty(session()->get('id_customer'))) {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="product__cart__item">
-                                    <div class="product__cart__item__pic">
-                                        <img src="<?= base_url('fashion/img/hero/prod1.jpg') ?>" class="h-50 w-50" alt="">
-                                    </div>
-                                    <div class="product__cart__item__text">
-                                        <h6>T-shirt Contrast Pocket</h6>
-                                        <h5>$98.49</h5>
-                                    </div>
-                                </td>
-                                <td class="quantity__item">
-                                    <div class="quantity">
-                                        <div class="pro-qty-2">
-                                            <input type="text" value="1">
+                            <?php
+                            $total = 0;
+                            foreach ($datapesanan as $data) :
+                            ?>
+                                <tr>
+                                    <td class="product__cart__item">
+                                        <div class="product__cart__item__pic">
+                                            <img src="<?= base_url('produk/' . $data->foto_produk) ?>" class="h-50 w-50" alt="">
+                                            <p class="mt-3"><?= $data->nama_produk ?><br><span class="mt-2">Rp.<?= $data->harga_produk ?>,-</span></p>
                                         </div>
-                                    </div>
-                                </td>
-                                <td class="cart__price">$ 30.00</td>
-                                <td class="cart__close"><i class="fa fa-close"></i></td>
-                            </tr>
-
+                                    </td>
+                                    <td class="quantity__item">
+                                        <div class="quantity">
+                                            <div class="">
+                                                <?= $data->qty ?>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cart__price">Rp.<?= $data->harga_produk * $data->qty ?>,-</td>
+                                    <td class="cart__close"><a href="<?= base_url('zibra/editcart/' . $data->id_pemesanan) ?>"><i class="fa fa-pencil-square-o text-primary" aria-hidden="true"></i></a></td>
+                                </tr>
+                            <?php
+                                $total = $total + ($data->harga_produk * $data->qty);
+                            endforeach
+                            ?>
                         </tbody>
                     </table>
                 </div>
                 <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
                         <div class="continue__btn">
-                            <a href="#">Lanjutkan Belanja</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="continue__btn update__btn">
-                            <a href="#"><i class="fa fa-spinner"></i> Update cart</a>
+                            <a href="<?= base_url('zibra/product') ?>" class="w-100 text-center">Lanjutkan Belanja</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="cart__discount">
-                    <h6>Discount codes</h6>
-                    <form action="#">
-                        <input type="text" placeholder="Coupon code">
-                        <button type="submit">Apply</button>
+                    <h6>Reveral codes</h6>
+                    <form action="<?= base_url('zibra/checkoutbray') ?>" method="post" id="formcheckout">
+                        <input type="text" name="kode_pemesanan" id="" value="<?= $datapesanan[0]->kode_pemesanan ?>" hidden>
+                        <input type="text" name="kode_reveral" placeholder="Coupon code">
                     </form>
                 </div>
+                <?php
+                if ($datacustomer->point <= 50) {
+                    $jenismember = "Bronze Member";
+                    $potongan = 0;
+                } else if ($datacustomer->point <= 100) {
+                    $jenismember = "Silver Member";
+                    $potongan = 0.1;
+                } else {
+                    $jenismember = "Gold Member";
+                    $potongan = 0.15;
+                }
+                ?>
                 <div class="cart__total">
                     <h6>Cart total</h6>
-                    <ul>
-                        <li>Subtotal <span>$ 169.50</span></li>
-                        <li>Total <span>$ 169.50</span></li>
+                    <ul class="text-start">
+                        <li>Subtotal <span><?= $total ?></span></li>
+                        <li>Diskon (<?= $jenismember ?>) <span><?= $total * $potongan ?></span></li>
+                        <li>Total <span>Rp. <?= $total - ($total * $potongan) ?></span></li>
                     </ul>
-                    <a href="#" class="primary-btn">Lanjutkan Checkout</a>
+                    <a href="#" onclick="checkout()" class="primary-btn">Lanjutkan Checkout</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<script>
+    function checkout() {
+        Swal.fire({
+            title: 'Checkout',
+            text: "Apakah anda yakin? Pesanan yang sudah di checkout tidak bisa dibatakkan",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yakin!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Notifikasi',
+                    text: 'Checkout berhasil, silahkan lakukan pembayaran!',
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(function() {
+                    var form = document.getElementById('formcheckout');
+                    form.submit();
+                });
+            }
+        })
+    }
+</script>
 <?= $this->endSection(); ?>

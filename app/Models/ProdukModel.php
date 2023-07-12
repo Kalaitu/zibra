@@ -18,6 +18,50 @@ class ProdukModel extends Model
     protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';
 
+    public function getAllProduk()
+    {
+        $query = $this->db->table('produk')
+            ->select('produk.*')
+            ->get();
+        return $query->getResultObject();
+    }
+
+    public function getDetailProduk($id)
+    {
+        $query = $this->db->table('produk')
+            ->select('produk.*')
+            ->where('id_produk', $id)
+            ->get();
+        return $query->getRow();
+    }
+
+    public function getHotSalesProduk()
+    {
+        $query = $this->db->table('produk')
+            ->select('produk.*')
+            ->where('status', 'Hot Sales')
+            ->get();
+        return $query->getResultObject();
+    }
+
+    public function getNewArivalProduk()
+    {
+        $query = $this->db->table('produk')
+            ->select('produk.*')
+            ->where('status', 'New Arival')
+            ->get();
+        return $query->getResultObject();
+    }
+
+    public function getRegulerProduk()
+    {
+        $query = $this->db->table('produk')
+            ->select('produk.*')
+            ->where('status', 'Reguler')
+            ->get();
+        return $query->getResultObject();
+    }
+
     public function sudahSetHargaNewArival()
     {
         $db      = \Config\Database::connect();

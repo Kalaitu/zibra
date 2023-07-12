@@ -1,12 +1,13 @@
 <?= $this->extend('Zibra/Layout'); ?>
 <?= $this->section('content'); ?>
-<div class="container">
+<div class="container mt-5">
     <div class="row">
+        <div class="col-12 mb-3">
+            <h4 class="fw-bold">INVOICE TRANSAKSI <?= $datapemesanan[0]->kode_pemesanan ?></h4>
+        </div>
         <div class=" col-lg-6 md-12 sm-12">
             <h6 class="text-sm my-1">Kode Transaksi: <span>KD21231 </span> </h6>
             <h6 class="text-sm my-1">Tanggal Transaksi : <span>23/09/2023 </span> </h6>
-
-
         </div>
         <div class=" col-lg-6 md-12 sm-12">
             <h6 class="text-sm my-1">Nama Customer: <span>Katak Bizer </span> </h6>
@@ -54,16 +55,6 @@
     </div>
 </div>
 <script>
-    /* Set countdown date as a future date with a 24 hour format */
-    // let countdownDate = new Date('01 January 2023 00:00')
-
-    /* Set countdown date by adding hours to current date */
-    // let countdownDate = new Date().setHours(new Date().getHours() + 1)
-
-    /* Set countdown date by adding minutes to current date */
-    // let countdownDate = new Date().setMinutes(new Date().getMinutes() + 5);
-
-    /* Set countdown date by adding seconds to current date */
     let countdownDate = new Date().setSeconds(new Date().getSeconds() + 84600);
 
     let timerInterval;

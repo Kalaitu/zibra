@@ -18,10 +18,38 @@ class CustomerModel extends Model
     protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';
 
-    public function seleksiIdUser($id)
+    public function getAllCustomer()
     {
-        $db      = \Config\Database::connect();
-        $query   = $db->query("SELECT * FROM customer WHERE id_user = '$id'");
-        return $query;
+        $query = $this->db->table('customer')
+            ->select('customer.*')
+            ->get();
+        return $query->getResultObject();
+    }
+
+    public function detDetailCustomer($id)
+    {
+        $query = $this->db->table('customer')
+            ->select('customer.*')
+            ->where('id_customer', $id)
+            ->get();
+        return $query->getRow();
+    }
+
+    function getByIdUser($id)
+    {
+        $query = $this->db->table('customer')
+            ->select('customer.*')
+            ->where('id_user', $id)
+            ->get();
+        return $query->getRow();
+    }
+
+    function getByKodeReveral($id)
+    {
+        $query = $this->db->table('customer')
+            ->select('customer.*')
+            ->where('kode_reveral', $id)
+            ->get();
+        return $query->getRow();
     }
 }

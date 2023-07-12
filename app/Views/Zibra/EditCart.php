@@ -6,14 +6,14 @@
             <div class="row py-5">
                 <div class="col-lg-4 col-md-3 col-sm-12 mt-2">
                     <div class="product__details__pic__item">
-                        <img src="<?= base_url('produk/' . $dataproduk->foto_produk) ?>" class="" alt="">
+                        <img src="<?= base_url('produk/' . $datapemesanan->foto_produk) ?>" class="" alt="">
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-9 col-sm-12 mt-2">
                     <div class="product__details__text text-left">
-                        <h4><?= $dataproduk->nama_produk ?></h4>
-                        <p><?= $dataproduk->deskripsi_produk ?></p>
-                        <h3>Rp.<?= $dataproduk->harga_produk ?></h3>
+                        <h4><?= $datapemesanan->nama_produk ?></h4>
+                        <p><?= $datapemesanan->deskripsi_produk ?></p>
+                        <h3>Rp.<?= $datapemesanan->harga_produk ?></h3>
                     </div>
                     <div class="product__details__option mb-1 text-left">
                         <div class="product__details__option__size">
@@ -32,21 +32,21 @@
                             </label>
                         </div>
                     </div>
-                    <form action="<?= base_url('zibra/tambahkeranjang') ?>" method="post" id="julahform">
+                    <form action="<?= base_url('zibra/updatecart') ?>" method="post" id="julahform">
                         <div class="product__details__option mb-1 mt-2 text-left">
                             <div class="product__details__cart__option">
                                 <div class="quantity">
                                     <span>Jumlah :</span>
                                     <div class="pro-qty">
-                                        <input type="text" value="1" name="qty">
+                                        <input type="text" value="<?= $datapemesanan->qty ?>" name="qty">
                                     </div>
-                                    <input hidden type="text" name="id_produk" value="<?= $dataproduk->id_produk ?>">
+                                    <input hidden type="text" name="id_pemesanan" value="<?= $datapemesanan->id_pemesanan ?>">
                                 </div>
                             </div>
                         </div>
                         <div class="product__details__option mb-1 mt-5">
                             <div class="product__details__cart__option">
-                                <a href="#" onclick="tambahin()" class="primary-btn w-100">add to cart</a>
+                                <a href="#" onclick="tambahin()" class="primary-btn w-100">udpate cart</a>
                             </div>
                         </div>
                     </form>

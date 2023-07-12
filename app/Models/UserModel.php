@@ -18,17 +18,18 @@ class UserModel extends Model
     protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';
 
-    public function seleksi()
-    {
-        $db      = \Config\Database::connect();
-        $query   = $db->query("SELECT id_user FROM user ORDER BY id_user DESC LIMIT 1");
-        return $query;
-    }
-
     public function login($username, $password)
     {
-        $db      = \Config\Database::connect();
-        $query   = $db->query("SELECT * FROM user WHERE username='$username' AND password='$password'");
-        return $query;
+        $query = $this->db->table('user')
+            ->select('user.*')
+            ->where('username', $username)
+            ->where('password', $password)
+            ->get();
+        return $query->getRow();
+    }
+
+    public function getLastUser()
+    {
+        return $this->orderBy('id_user', 'desc')->limit(1)->first();
     }
 }
