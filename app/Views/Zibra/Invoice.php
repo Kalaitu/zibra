@@ -24,8 +24,9 @@
     </div>
     <div class="row lg-mx-5 md-mx-5 sm-mx-2">
         <div class="categories__deal__countdown">
-
-            <h6 class="mx-5">Harap Lakukan Pembayaran Sebelum :</h6>
+            <center>
+                <h6 class="my-3">Harap Lakukan Pembayaran Sebelum</h6>
+            </center>
             <div class="categories__deal__countdown__timer" id="timer">
                 <div class="cd-item">
                     <span id="days">0</span>
