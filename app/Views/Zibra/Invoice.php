@@ -6,13 +6,38 @@
             <h4 class="fw-bold">INVOICE TRANSAKSI <?= $datapemesanan[0]->kode_pemesanan ?></h4>
         </div>
         <div class=" col-lg-6 md-12 sm-12">
-            <h6 class="text-sm my-1">Kode Transaksi: <span>KD21231 </span> </h6>
-            <h6 class="text-sm my-1">Tanggal Transaksi : <span>23/09/2023 </span> </h6>
+            <table>
+                <tr>
+                    <td style="width: 120px;">Kode Transaksi</td>
+                    <td>:</td>
+                    <td><?= $datapemesanan[0]->kode_pemesanan ?></td>
+                </tr>
+                <tr>
+                    <td>Tanggal</td>
+                    <td>:</td>
+                    <td><?= $datapemesanan[0]->tanggal_pemesanan ?></td>
+                </tr>
+            </table>
         </div>
         <div class=" col-lg-6 md-12 sm-12">
-            <h6 class="text-sm my-1">Nama Customer: <span>Katak Bizer </span> </h6>
-            <h6 class="text-sm my-1">No Telepon: <span>089213123 </span> </h6>
-            <h6 class="text-sm mt-3">Alamat:<span> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque ad sunt dolor error quas deleniti non! Nam reprehenderit soluta inventore similique consequatur minus necessitatibus cupiditate dolor nostrum alias, saepe a! </span> </h6>
+            <table>
+                <tr>
+                    <td style="width: 120px;">Nama Customer</td>
+                    <td>:</td>
+                    <td>ww</td>
+                </tr>
+                <tr>
+                    <td>No Telepon</td>
+                    <td>:</td>
+                    <td>asd</td>
+                </tr>
+                <tr>
+                    <td>Alamat</td>
+                    <td>:</td>
+                    <td>asdsa</td>
+                </tr>
+            </table>
+
         </div>
     </div>
     <hr color="black">
@@ -21,6 +46,40 @@
 
         <img src="<?= base_url('fashion/img/banner/spay.jpeg') ?>" class="img-fluid" style="max-width:250px; min-width:100px; height-auto" alt="">
 
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="shopping__cart__table">
+                <table>
+                    <thead>
+                        <tr class="">
+                            <th>Produk</th>
+                            <th class="">Jumlah</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="product__cart__item">
+                                <div class="product__cart__item__pic">
+                                    <img src="<?= base_url('produk/dummyfoto.jpg') ?>" class="h-50 w-50" alt="">
+                                    <p class="mt-3"> Nama Produk<br><span class="mt-2">Rp. 50</span></p>
+                                </div>
+                            </td>
+                            <td class="quantity__item">
+                                <div class="quantity">
+                                    <div class="">
+                                        qty
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="cart__price">Rp. 5000,-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
     </div>
     <div class="row lg-mx-5 md-mx-5 sm-mx-2">
         <div class="categories__deal__countdown">
@@ -47,13 +106,21 @@
             </div>
 
         </div>
+
+    </div>
+    <div class="row lg-mx-5 md-mx-5 sm-mx-2">
+        <div class="categories__deal__countdown">
+
+            <strong> Upload Bukti Pembayaran</strong>
+            <input class="form-control my-2" type="file" id="formFile">
+            <a class="btn btn-dark text-light w-100 my-2">Kirim</a>
+
+
+        </div>
+
     </div>
     <hr color="black">
-    <div class="row my-4">
-        <strong> Upload Bukti Pembayaran</strong>
-        <input class="form-control my-2" type="file" id="formFile">
-        <a class="btn btn-dark text-light">Kirim</a>
-    </div>
+
 </div>
 <script>
     let countdownDate = new Date().setSeconds(new Date().getSeconds() + 84600);
