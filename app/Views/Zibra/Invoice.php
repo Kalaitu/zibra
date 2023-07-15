@@ -32,53 +32,52 @@
                     <td>asd</td>
                 </tr>
                 <tr>
-                    <td>Alamat</td>
-                    <td>:</td>
-                    <td>asdsa</td>
+                    <td valign="top">Alamat</td>
+                    <td valign="top">:</td>
+                    <td>Jl. Veteran No.15, Kuningan, Kec. Kuningan, Kabupaten Kuningan, Jawa Barat 45511</td>
                 </tr>
             </table>
-
         </div>
     </div>
     <hr color="black">
     <div class="d-flex justify-content-center">
-
-
         <img src="<?= base_url('fashion/img/banner/spay.jpeg') ?>" class="img-fluid" style="max-width:250px; min-width:100px; height-auto" alt="">
-
     </div>
     <div class="row">
         <div class="col-lg-12">
             <div class="shopping__cart__table">
                 <table>
                     <thead>
-                        <tr class="">
-                            <th>Produk</th>
-                            <th class="">Jumlah</th>
-                            <th>Total</th>
+                        <tr>
+                            <th>Product</th>
+                            <th>Qty</th>
+                            <th>SUB Total</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="product__cart__item">
+                            <td class=" product__cart__item">
                                 <div class="product__cart__item__pic">
-                                    <img src="<?= base_url('produk/dummyfoto.jpg') ?>" class="h-50 w-50" alt="">
-                                    <p class="mt-3"> Nama Produk<br><span class="mt-2">Rp. 50</span></p>
+                                    <p class="mb-3">NAMA PRODUK<br><span class="mt-2">Rp.100000,-</span></p>
+                                    <img src="<?= base_url('produk/dummyfoto.jpg') ?>" class="h-75 w-75" alt="">
                                 </div>
                             </td>
-                            <td class="quantity__item">
+                            <td class="quantity__item" valign="top">
                                 <div class="quantity">
                                     <div class="">
-                                        qty
+                                        10
                                     </div>
                                 </div>
                             </td>
-                            <td class="cart__price">Rp. 5000,-</td>
+                            <td class="cart__price" valign="top">Rp.100000,-</td>
+                        </tr>
+                        <tr>
+                            <td class="cart__price" valign="top" colspan="2">TOTAL</td>
+                            <td class="cart__price" valign="top">Rp.100000,-</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-
         </div>
     </div>
     <div class="row lg-mx-5 md-mx-5 sm-mx-2">
@@ -104,23 +103,15 @@
                     <p>Seconds</p>
                 </div>
             </div>
-
         </div>
-
     </div>
-    <div class="row lg-mx-5 md-mx-5 sm-mx-2">
+    <div class="row lg-mx-5 md-mx-5 sm-mx-2 mb-3">
         <div class="categories__deal__countdown">
-
             <strong> Upload Bukti Pembayaran</strong>
             <input class="form-control my-2" type="file" id="formFile">
             <a class="btn btn-dark text-light w-100 my-2">Kirim</a>
-
-
         </div>
-
     </div>
-    <hr color="black">
-
 </div>
 <script>
     let countdownDate = new Date().setSeconds(new Date().getSeconds() + 84600);
