@@ -29,22 +29,6 @@
       width: 310px !important;
       margin: 0px 0px 0px 0px !important;
     }
-
-    .hidescroll {
-      overflow: scroll;
-    }
-
-    .hidescroll::-webkit-scrollbar {
-      display: none;
-    }
-
-    /* Hide scrollbar for IE, Edge and Firefox */
-    .hidescroll {
-      -ms-overflow-style: none;
-      /* IE and Edge */
-      scrollbar-width: none;
-      /* Firefox */
-    }
   </style>
 </head>
 

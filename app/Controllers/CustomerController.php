@@ -3,10 +3,10 @@
 namespace App\Controllers;
 
 use App\Models\CustomerModel;
-use App\Models\KaryawanModel;
 use App\Models\ProdukModel;
 use App\Models\UserModel;
 use App\Models\PemesananModel;
+use App\Models\PembayaranModel;
 
 class CustomerController extends BaseController
 {
@@ -92,13 +92,23 @@ class CustomerController extends BaseController
         $pemesananModel = new PemesananModel();
         $customerModel = new CustomerModel();
         $cek = $pemesananModel->cekKode(session()->get('id_user'));
-        $data = [
-            'aktif1' => '',
-            'aktif2' => 'active',
-            'aktif3' => '',
-            'datapesanan' => $pemesananModel->getProdukByKodePemesanan($cek->kode_pemesanan),
-            'datacustomer' => $customerModel->detDetailCustomer(session()->get('id_customer'))
-        ];
+        if ($cek == null) {
+            $data = [
+                'aktif1' => '',
+                'aktif2' => 'active',
+                'aktif3' => '',
+                'datapesanan' => null,
+                'datacustomer' => $customerModel->detDetailCustomer(session()->get('id_customer'))
+            ];
+        } else {
+            $data = [
+                'aktif1' => '',
+                'aktif2' => 'active',
+                'aktif3' => '',
+                'datapesanan' => $pemesananModel->getProdukByKodePemesanan($cek->kode_pemesanan),
+                'datacustomer' => $customerModel->detDetailCustomer(session()->get('id_customer'))
+            ];
+        }
         return view('Zibra/Cart', $data);
     }
 
@@ -149,7 +159,10 @@ class CustomerController extends BaseController
                 $customerModel->update($datacustomerreveral->id_customer, $data);
             }
         }
-        $pemesananModel->updateByKodePesanan($this->request->getPost('kode_pemesanan'));
+        $status = [
+            'status' => 'Menunggu Pembayaran'
+        ];
+        $pemesananModel->updateByKodePesanan($this->request->getPost('kode_pemesanan'), $status);
         session()->setFlashdata('checkoutberhasil', 'tambah-berhasil');
         return redirect()->to(base_url('zibra/invoice/' . $this->request->getPost('kode_pemesanan')));
     }
@@ -164,5 +177,29 @@ class CustomerController extends BaseController
             'datapemesanan' => $pemesananModel->getProdukByKodePemesanan($id)
         ];
         return view('Zibra/Invoice', $data);
+    }
+
+    public function prosesbayar()
+    {
+        // dd("INI PROSES PEMBAYARAN " . );
+        $currentDate2 = date('Y-m-d');
+        $pemesananModel = new PemesananModel();
+        $pembayaranModel = new PembayaranModel();
+        $dataBerkas = $this->request->getFile('bukti_pembayaran');
+        $filename = $dataBerkas->getRandomName();
+        $dataBerkas->move('pembayaran/', $filename);
+        $data = [
+            'kode_pemesanan' => $this->request->getPost('kode_pemesanan'),
+            'id_user' => session()->get('id_user'),
+            'tanggal_pembayaran' => $currentDate2,
+            'bukti_pembayaran' => $filename
+        ];
+        $pembayaranModel->insert($data);
+        $status = [
+            'status' => 'Diproses'
+        ];
+        $pemesananModel->updateByKodePesanan($this->request->getPost('kode_pemesanan'), $status);
+        session()->setFlashdata('bayarberhasil', 'bayar-berhasil');
+        return redirect()->to(base_url('zibra/cart'));
     }
 }

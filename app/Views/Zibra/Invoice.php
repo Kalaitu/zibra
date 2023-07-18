@@ -24,17 +24,17 @@
                 <tr>
                     <td style="width: 120px;">Nama Customer</td>
                     <td>:</td>
-                    <td>ww</td>
+                    <td><?= $datapemesanan[0]->nama_customer ?></td>
                 </tr>
                 <tr>
                     <td>No Telepon</td>
                     <td>:</td>
-                    <td>asd</td>
+                    <td><?= $datapemesanan[0]->nomor_telepon ?></td>
                 </tr>
                 <tr>
                     <td valign="top">Alamat</td>
                     <td valign="top">:</td>
-                    <td>Jl. Veteran No.15, Kuningan, Kec. Kuningan, Kabupaten Kuningan, Jawa Barat 45511</td>
+                    <td><?= $datapemesanan[0]->alamat_customer ?></td>
                 </tr>
             </table>
         </div>
@@ -55,25 +55,53 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class=" product__cart__item">
-                                <div class="product__cart__item__pic">
-                                    <p class="mb-3">NAMA PRODUK<br><span class="mt-2">Rp.100000,-</span></p>
-                                    <img src="<?= base_url('produk/dummyfoto.jpg') ?>" class="h-75 w-75" alt="">
-                                </div>
-                            </td>
-                            <td class="quantity__item" valign="top">
-                                <div class="quantity">
-                                    <div class="">
-                                        10
+                        <?php
+                        $total = 0;
+                        foreach ($datapemesanan as $data) :
+                        ?>
+                            <tr>
+                                <td class=" product__cart__item">
+                                    <div class="product__cart__item__pic">
+                                        <p class="mb-3"><?= $data->nama_produk ?><br><span class="mt-2">Rp.100000,-</span></p>
+                                        <img src="<?= base_url('produk/' . $data->foto_produk) ?>" class="h-50 w-50" alt="">
                                     </div>
-                                </div>
-                            </td>
-                            <td class="cart__price" valign="top">Rp.100000,-</td>
+                                </td>
+                                <td class="quantity__item" valign="top">
+                                    <div class="quantity">
+                                        <div class="">
+                                            <?= $data->qty ?>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="cart__price" valign="top"><?= $data->harga_produk * $data->qty ?>,-</td>
+                            </tr>
+                        <?php
+                            $total = $total = $data->harga_produk * $data->qty;
+                        endforeach;
+                        ?>
+                        <tr>
+                            <td class="cart__price" valign="top" colspan="2">SUB TOTAL</td>
+                            <td class="cart__price" valign="top">Rp.<?= $total ?>,-</td>
+                        </tr>
+                        <tr>
+                            <?php
+                            if ($datapemesanan[0]->point <= 50) {
+                                $statusmember = "Bronze";
+                                $diskon = 0;
+                            } else if ($datapemesanan[0]->point <= 100) {
+                                $statusmember = "Silver";
+                                $diskon = 0.1;
+                            } else {
+                                $statusmember = "Gold";
+                                $diskon = 0.15;
+                            }
+                            ?>
+                            <td class="cart__price" valign="top" colspan="2">DISKON (<?= $statusmember ?>)</td>
+                            <td class="cart__price" valign="top">Rp.<?= $total * $diskon ?>,-</td>
                         </tr>
                         <tr>
                             <td class="cart__price" valign="top" colspan="2">TOTAL</td>
-                            <td class="cart__price" valign="top">Rp.100000,-</td>
+                            <td class="cart__price" valign="top">Rp.<?= $total - ($total * $diskon) ?>,-</td>
                         </tr>
                     </tbody>
                 </table>
@@ -108,8 +136,11 @@
     <div class="row lg-mx-5 md-mx-5 sm-mx-2 mb-3">
         <div class="categories__deal__countdown">
             <strong> Upload Bukti Pembayaran</strong>
-            <input class="form-control my-2" type="file" id="formFile">
-            <a class="btn btn-dark text-light w-100 my-2">Kirim</a>
+            <form action="<?= base_url('zibra/prosesbayar') ?>" method="post" enctype="multipart/form-data">
+                <input class="form-control my-2" type="file" id="bukti_pembayaran" name="bukti_pembayaran" required>
+                <input class="form-control my-2" type="text" id="kode_pemesanan" name="kode_pemesanan" value="<?= $datapemesanan[0]->kode_pemesanan ?>" hidden>
+                <button class="btn btn-dark text-light w-100 my-2">Kirim</button>
+            </form>
         </div>
     </div>
 </div>

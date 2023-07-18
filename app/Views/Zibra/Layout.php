@@ -25,7 +25,7 @@
 
 </head>
 
-<body>
+<body class="hidescroll">
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>

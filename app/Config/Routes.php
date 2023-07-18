@@ -121,6 +121,7 @@ $routes->group('/zibra', function ($routes) {
     $routes->post('updatecart', 'CustomerController::updatecart');
     $routes->post('checkoutbray', 'CustomerController::checkoutbray');
     $routes->get('invoice/(:any)', 'CustomerController::invoice/$1');
+    $routes->post('prosesbayar', 'CustomerController::prosesbayar');
     $routes->get('contact', 'Customer\CustomerController::contact/$1/$2');
     $routes->get('promo', 'Customer\CustomerController::promo/$1/$2');
     $routes->get('profile', 'Customer\CustomerController::profile/$1/$2');

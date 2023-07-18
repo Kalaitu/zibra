@@ -4,12 +4,12 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class PemesananModel extends Model
+class PembayaranModel extends Model
 {
-    protected $table            = 'pemesanan';
-    protected $primaryKey       = 'id_pemesanan';
+    protected $table            = 'pembayaran';
+    protected $primaryKey       = 'id_pembayaran';
     protected $useAutoIncrement = true;
-    protected $allowedFields    = ['kode_pemesanan', 'id_produk', 'id_user', 'tanggal_pemesanan', 'qty', 'status'];
+    protected $allowedFields    = ['id_user', 'tanggal_pembayaran', 'kode_pemesanan', 'bukti_pembayaran'];
 
     // Dates
     protected $useTimestamps = false;
@@ -60,8 +60,11 @@ class PemesananModel extends Model
         return $query->getRow();
     }
 
-    function updateByKodePesanan($id, $data)
+    function updateByKodePesanan($id)
     {
+        $data = [
+            'status' => 'Menunggu Pembayaran'
+        ];
         $this->db->table('pemesanan')
             ->where('kode_pemesanan', $id)
             ->update($data);
