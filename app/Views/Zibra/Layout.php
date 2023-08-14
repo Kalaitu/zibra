@@ -198,6 +198,13 @@
             })
         }
     </script>
+
+    <script>
+        $('input[type="file"]').change(function(e) {
+            var output = document.getElementById('output');
+            output.src = URL.createObjectURL(event.target.files[0]);
+        });
+    </script>
 </body>
 
 </html>

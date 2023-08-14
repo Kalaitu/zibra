@@ -139,6 +139,7 @@
             <form action="<?= base_url('zibra/prosesbayar') ?>" method="post" enctype="multipart/form-data">
                 <input class="form-control my-2" type="file" id="bukti_pembayaran" name="bukti_pembayaran" required>
                 <input class="form-control my-2" type="text" id="kode_pemesanan" name="kode_pemesanan" value="<?= $datapemesanan[0]->kode_pemesanan ?>" hidden>
+                <img src="" id="output" alt="" width="100%" class="mb-3">
                 <button class="btn btn-dark text-light w-100 my-2">Kirim</button>
             </form>
         </div>
@@ -146,9 +147,7 @@
 </div>
 <script>
     let countdownDate = new Date().setSeconds(new Date().getSeconds() + 84600);
-
     let timerInterval;
-
     const daysElem = document.getElementById("days"),
         hoursElem = document.getElementById("hours"),
         minutesElem = document.getElementById("minutes"),
