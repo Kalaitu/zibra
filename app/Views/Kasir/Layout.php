@@ -1,108 +1,179 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/" data-template="vertical-menu-template-free">
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="<?= base_url('boassets/img/apple-icon.png') ?>">
-    <link rel="icon" type="image/png" href="<?= base_url('fashion/img/LOGOGRAM.png') ?>">
-    <title>
-        ZIBRA.ID
-    </title>
-    <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-    <!-- Nucleo Icons -->
-    <link href="<?= base_url('boassets/css/nucleo-icons.css') ?>" rel="stylesheet" />
-    <link href="<?= base_url('boassets/css/nucleo-svg.css') ?>" rel="stylesheet" />
-    <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <link href="<?= base_url('boassets/css/nucleo-svg.css') ?>" rel="stylesheet" />
-    <!-- CSS Files -->
-    <link id="pagestyle" href="<?= base_url('boassets/css/argon-dashboard.css?v=2.0.4') ?>" rel="stylesheet" />
-    <!-- swal 2 -->
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- jquery -->
-    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
-    <!-- font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.css" integrity="sha512-Z0kTB03S7BU+JFU0nw9mjSBcRnZm2Bvm0tzOX9/OuOuz01XQfOpa0w/N9u6Jf2f1OAdegdIPWZ9nIZZ+keEvBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>ZibraID | Kasir</title>
+    <meta name="description" content="" />
+    <link rel="icon" type="image/x-icon" href="<?= base_url('fashion/img/logo.png') ?>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+    <link href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?= base_url('assets/vendor/fonts/boxicons.css') ?>" />
+    <link rel="stylesheet" href="<?= base_url('assets/vendor/css/core.css') ?>" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="<?= base_url('assets/vendor/css/theme-default.css') ?>" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="<?= base_url('assets/css/demo.css') ?>" />
+    <link rel="stylesheet" href="<?= base_url('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') ?>" />
+    <link rel="stylesheet" href="<?= base_url('assets/vendor/libs/apex-charts/apex-charts.css') ?>" />
+    <script src="<?= base_url('assets/vendor/js/helpers.js') ?>"></script>
+    <script src="<?= base_url('assets/js/config.js') ?>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .pull-left {
+            float: right !important;
+        }
+
+        div.dataTables_wrapper div.dataTables_filter input {
+            width: 310px !important;
+            margin: 0px 0px 0px 0px !important;
+        }
+    </style>
 </head>
 
-<body class="g-sidenav-show bg-gray-100 ">
-    <div class="min-height-300 bg-primary position-absolute w-100">
+<body class="hidescroll">
+    <?php if (session()->get('statuskaryawan') != true) : ?>
+        <script>
+            window.location.href = '<?= base_url('login') ?>';
+        </script>
+    <?php endif; ?>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <!-- Menu -->
 
-    </div>
-    <aside class="sidenav bg-light navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
-        <div class="sidenav-header">
-            <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0" href="">
-                <img src="<?= base_url('boassets/img/LOGO.png') ?>" class="navbar-brand-img h-100" alt="main_logo">
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+                <div class="app-brand demo">
+                    <a href="#" class="app-brand-link">
+                        <span class="app-brand-logo demo">
+                            <img src="<?= base_url('fashion/img/logologinregister.png') ?>" alt="" width="200px">
+                        </span>
+                    </a>
 
-            </a>
-        </div>
-        <hr class="horizontal dark mt-0">
-        <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link <?= $aktif1 ?>" href="<?= base_url('kasir') ?>">
-                        <div class=" icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Dashboard</span>
+                    <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+                        <i class="bx bx-chevron-left bx-sm align-middle"></i>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?= $aktif3 ?>" href="<?= base_url('/kasir/produk') ?>">
-                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-app text-success text-sm opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Produk</span>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link <?= $aktif5 ?>" href="<?= base_url('/kasir/transaksi') ?>">
-                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-app text-danger text-sm opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Transaksi</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </aside>
-    <main class="main-content position-relative border-radius-lg ">
-        <!-- Navbar -->
-        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="false">
-            <div class="container-fluid py-1 mt-4">
-                <nav aria-label="breadcrumb">
-                    <h6 class="text-white font-weight-bolder ms-2 mt-2"><?= $halaman ?></h6>
-                </nav>
-                <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0" id="navbar">
-                    <ul class="ms-md-auto navbar-nav justify-content-end">
-                        <li class="nav-item d-flex align-items-center">
-                            <a href="#" onclick="logout()" class="nav-link text-white font-weight-bold px-0">
-                                <i class="fa fa-user me-sm-1" aria-hidden="true"></i>
-                                <span class="d-sm-inline d-none">Kasir</span>
-                            </a>
-                        </li>
-                        <li class="nav-item d-xl-none ps-3 pe-0 d-flex align-items-center">
-                            <a href="javascript:;" class="nav-link text-white p-0">
-                            </a><a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
-                                <div class="sidenav-toggler-inner">
-                                    <i class="sidenav-toggler-line bg-white"></i>
-                                    <i class="sidenav-toggler-line bg-white"></i>
-                                    <i class="sidenav-toggler-line bg-white"></i>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
                 </div>
+
+                <div class="menu-inner-shadow"></div>
+
+                <ul class="menu-inner py-1">
+                    <li class="menu-item <?= $aktif1 ?>">
+                        <a href="<?= base_url('kasir') ?>" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <div data-i18n="Analytics">Dashboard</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item <?= $aktif2 ?>">
+                        <a href="<?= base_url('kasir/produk') ?>" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-cube-alt"></i>
+                            <div data-i18n="Analytics">Produk</div>
+                        </a>
+                    </li>
+                    <li class="menu-item <?= $aktif3 ?>">
+                        <a href="<?= base_url('kasir/transaksi') ?>" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-file"></i>
+                            <div data-i18n="Analytics">Transaksi</div>
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+            <!-- / Menu -->
+            <!-- Layout container -->
+            <div class="layout-page">
+                <!-- Navbar -->
+                <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
+                    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+                        <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+                            <i class="bx bx-menu bx-sm"></i>
+                        </a>
+                    </div>
+                    <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+                        <!-- Search -->
+                        <div class="navbar-nav align-items-center">
+                            <span class="fw-bold"><?= $halaman ?></span>
+                        </div>
+                        <!-- /Search -->
+                        <ul class="navbar-nav flex-row align-items-center ms-auto">
+                            <!-- Place this tag where you want the button to render. -->
+                            <li class="nav-item lh-1 me-3">
+                                <span><?= session()->get('nama') ?></span>
+                            </li>
+                            <!-- User -->
+                            <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                                <a class="" href="#" onclick="logout()">
+                                    <div class="avatar avatar-online">
+                                        <img src="<?= base_url('assets/img/avatars/1.png') ?>" alt class="w-px-40 h-auto rounded-circle" />
+                                    </div>
+                                </a>
+                            </li>
+                            <!--/ User -->
+                        </ul>
+                    </div>
+                </nav>
+                <!-- / Navbar -->
+                <?= $this->renderSection('content'); ?>
             </div>
-        </nav>
-        <!-- End Navbar -->
-        <?= $this->renderSection('content') ?>
-    </main>
+            <!-- / Layout page -->
+        </div>
+
+        <!-- Overlay -->
+        <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" />
+    <script src="<?= base_url('assets/vendor/libs/jquery/jquery.js') ?>"></script>
+    <script src="<?= base_url('assets/vendor/libs/popper/popper.js') ?>"></script>
+    <script src="<?= base_url('assets/vendor/js/bootstrap.js') ?>"></script>
+    <script src="<?= base_url('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') ?>"></script>
+    <script src="<?= base_url('assets/vendor/js/menu.js') ?>"></script>
+    <script src="<?= base_url('assets/vendor/libs/apex-charts/apexcharts.js') ?>"></script>
+    <script src="<?= base_url('assets/js/main.js') ?>"></script>
+    <script src="<?= base_url('assets/js/dashboards-analytics.js') ?>"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
     <script>
+        $(document).ready(function() {
+            $('#tablekaryawan').DataTable({
+                paging: true,
+                ordering: false,
+                info: false,
+                searching: true,
+                language: {
+                    search: "",
+                    search: "_INPUT_",
+                    searchPlaceholder: "Keyword Pencarian Disini"
+                },
+                "lengthChange": false,
+                "pageLength": 15,
+            });
+            $('.dataTables_filter').addClass('pull-left');
+            $('.dataTables_paginate').addClass('pull-left');
+        });
+
+        $(document).ready(function() {
+            $('#tableproduk').DataTable({
+                paging: false,
+                ordering: false,
+                info: false,
+                searching: true,
+                language: {
+                    search: "",
+                    search: "_INPUT_",
+                    searchPlaceholder: "Keyword Pencarian Disini"
+                },
+                "lengthChange": false,
+                "pageLength": 15,
+            });
+            $('.dataTables_filter').addClass('pull-left');
+            $('.dataTables_paginate').addClass('pull-left');
+        });
+
         function logout() {
             Swal.fire({
                 title: 'Logout',
@@ -121,23 +192,17 @@
                         showConfirmButton: false,
                         timer: 2000
                     }).then(function() {
-                        window.location = "/";
+                        window.location = "<?= base_url('logout') ?>";
                     });
                 }
             })
         }
-    </script>
-    <!--   Core JS Files   -->
-    <script src="<?= base_url('boassets/js/plugins/chartjs.min.js') ?>"></script>
-    <script src="<?= base_url('boassets/js/core/popper.min.js') ?>"></script>
-    <script src="<?= base_url('boassets/js/core/bootstrap.min.js') ?>"></script>
-    <script src="<?= base_url('boassets/js/plugins/perfect-scrollbar.min.js') ?>"></script>
-    <script src="<?= base_url('boassets/js/plugins/smooth-scrollbar.min.js') ?>"></script>
-    <!-- Github buttons -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="<?= base_url('boassets/js/argon-dashboard.min.js?v=2.0.4') ?>"></script>
 
+        $('input[type="file"]').change(function(e) {
+            var output = document.getElementById('output');
+            output.src = URL.createObjectURL(event.target.files[0]);
+        });
+    </script>
 </body>
 
 </html>

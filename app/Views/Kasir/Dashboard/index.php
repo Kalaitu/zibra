@@ -1,4 +1,4 @@
-<?php $this->extend('Manager/layout'); ?>
+<?php $this->extend('Kasir/layout'); ?>
 <?php $this->section('content'); ?>
 <!-- Content wrapper -->
 <div class="content-wrapper">

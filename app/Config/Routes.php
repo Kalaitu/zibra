@@ -57,8 +57,8 @@ $routes->group('/manager', function ($routes) {
 });
 
 $routes->group('/kasir', function ($routes) {
-    $routes->get('', 'Kasir\KasirController::index');
-    $routes->get('produk', 'Kasir\KasirController::produk');
+    $routes->get('', 'KasirController::index');
+    $routes->get('produk', 'KasirController::produk');
     $routes->get('create-produk', 'Kasir\KasirController::create_produk');
     $routes->post('insert-produk', 'Kasir\KasirController::insert_produk');
     $routes->get('detail-produk', 'Kasir\KasirController::detail_produk/$1');
@@ -73,8 +73,8 @@ $routes->group('/kasir', function ($routes) {
     $routes->post('insert-kasir', 'Kasir\KasirController::insert_kasir');
     $routes->get('detail-kasir', 'Kasir\KasirController::detail_kasir/$1/$2');
     $routes->post('edit-kasir', 'Kasir\KasirController::update_kasir');
-    $routes->get('transaksi', 'Kasir\KasirController::transaksi');
-    $routes->get('detail-transaksi', 'Kasir\KasirController::detail_transaksi/$1');
+    $routes->get('transaksi', 'KasirController::transaksi');
+    $routes->get('detail-transaksi', 'KasirController::detail_transaksi/$1');
 });
 
 $routes->group('gudang', function ($routes) {
