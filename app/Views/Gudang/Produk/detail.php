@@ -31,9 +31,9 @@
                                                     <div class="col-md-4 col-sm-12 mb-3">
                                                         <select id="statusproduk" name="statusproduk" class="form-select" required>
                                                             <option selected disabled>Pilih Status Produk</option>
-                                                            <option value="New Arival" <?= ($dataproduk->status == 'New Arival') ? 'selected' : '' ?>>New Arival</option>
-                                                            <option value="Hot Sales" <?= ($dataproduk->status == 'Hot Sales') ? 'selected' : '' ?>>Hot Sales</option>
-                                                            <option value="Reguler" <?= ($dataproduk->status == 'Reguler') ? 'selected' : '' ?>>Reguler</option>
+                                                            <option value="New Arival" <?= ($dataproduk->statusproduk == 'New Arival') ? 'selected' : '' ?>>New Arival</option>
+                                                            <option value="Hot Sales" <?= ($dataproduk->statusproduk == 'Hot Sales') ? 'selected' : '' ?>>Hot Sales</option>
+                                                            <option value="Reguler" <?= ($dataproduk->statusproduk == 'Reguler') ? 'selected' : '' ?>>Reguler</option>
                                                         </select>
                                                     </div>
                                                     <div class="col-md-4 col-sm-12 mb-3">

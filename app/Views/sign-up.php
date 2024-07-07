@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="light-style customizer-hide" dir="ltr" data-theme="theme-default" data-assets-path="../assets/" data-template="vertical-menu-template-free">
+<html lang="en" translate="no" class="light-style customizer-hide" dir="ltr" data-theme="theme-default" data-assets-path="../assets/" data-template="vertical-menu-template-free">
 
 <head>
   <meta charset="utf-8" />
@@ -19,6 +19,8 @@
   <script src="<?= base_url('assets/vendor/js/helpers.js') ?>"></script>
   <script src="<?= base_url('assets/js/config.js') ?>"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 </head>
 
 <body style="background-image: url(<?= base_url('fashion/img/hero/hero-2.jpg') ?>);">
@@ -43,21 +45,25 @@
 
             <form id="formAuthentication" class="mb-3" action="registerproses" method="POST">
               <div class="mb-3">
+                <label for="ref" class="form-label">Refferal Code</label>
+                <input type="text" class="form-control" id="ref" name="ref" placeholder="Masukan Kode Referal" />
+              </div>
+              <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username here" autofocus />
+                <input type="text" required class="form-control" id="username" name="username" placeholder="Enter your username here" autofocus />
               </div>
               <div class="mb-3 form-password-toggle">
                 <div class="d-flex justify-content-between">
                   <label class="form-label" for="password">Password</label>
                 </div>
                 <div class="input-group input-group-merge">
-                  <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
+                  <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" required />
                   <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                 </div>
               </div>
               <div class="mb-3">
                 <label for="namalengkap" class="form-label">Fullname</label>
-                <input type="text" class="form-control" id="namalengkap" name="namalengkap" placeholder="Enter your fullname here" />
+                <input type="text" class="form-control" id="namalengkap" name="namalengkap" required placeholder="Enter your fullname here" />
               </div>
               <div class="my-4">
                 <button class="btn btn-primary d-grid w-100" type="submit">Sign up</button>
@@ -78,6 +84,40 @@
   </div>
   <!-- / Content -->
 
+  <script>
+    $('#ref').change(function() {
+      var inputannya = $('#ref').val();
+      var ditemukan = false;
+      console.log(inputannya);
+      // Send Ajax GET request to the specified URL
+      $.ajax({
+        type: 'GET',
+        url: '<?= base_url('cekreferal') ?>', // Sesuaikan dengan rute yang Anda tentukan di langkah 1
+        success: function(response) {
+          response.forEach(function(r) {
+            if (inputannya == r.kode_reveral) {
+              ditemukan = true;
+            }
+          });
+          if (ditemukan == false) {
+            Swal.fire({
+              icon: 'error',
+              title: 'Kode Referal Tidak Ditemukan!',
+              text: 'Silahkan Masukan Kode Referel Lainnya',
+              timer: 1500,
+              position: 'center',
+              showConfirmButton: false,
+            });
+            $('#ref').val('');
+          }
+        },
+        error: function(error) {
+          // Tangani kesalahan jika ada
+          console.log(error);
+        }
+      });
+    });
+  </script>
 
   <script src="<?= base_url('assets/vendor/libs/jquery/jquery.js') ?>"></script>
   <script src="<?= base_url('assets/vendor/libs/popper/popper.js') ?>"></script>

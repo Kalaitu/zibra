@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="light-style customizer-hide" dir="ltr" data-theme="theme-default" data-assets-path="../assets/" data-template="vertical-menu-template-free">
+<html lang="en" translate="no" class="light-style customizer-hide" dir="ltr" data-theme="theme-default" data-assets-path="../assets/" data-template="vertical-menu-template-free">
 
 <head>
   <meta charset="utf-8" />
@@ -100,6 +100,25 @@
     </script>
   <?php
   }
+  ?>
+  
+  <?php
+  if (!empty(session()->getFlashdata('belumlogin'))) {
+  ?>
+    <script>
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Notifikasi',
+        text: "Silahkan login terlebih dahulu untuk mulai berbelanja",
+        showConfirmButton: false,
+        timer: 2000
+      }).then(function() {
+        window.location = "login";
+      });
+    </script>
+  <?php
+  }
   if (!empty(session()->getFlashdata('login-manager'))) {
   ?>
     <script>
@@ -181,6 +200,7 @@
   <?php
   }
   ?>
+  
 </body>
 
 </html>

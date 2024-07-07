@@ -1,0 +1,16 @@
+{
+  "name": "Zibra.ID x Muhamad Fajar",
+  "short_name": "Zibra.ID x Muhamad Fajar",
+  "description": "Zibra.ID x Muhamad Fajar",
+  "icons": [
+    {
+      "src": "../images/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "fullscreen",
+  "theme_color": "#343A3F",
+  "background_color": "#343A3F"
+}

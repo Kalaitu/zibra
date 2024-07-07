@@ -43,7 +43,7 @@ class GudangController extends BaseController
             'nama_produk' => $this->request->getPost('namaproduk'),
             'harga_produk' => $this->request->getPost('hargaproduk'),
             'deskripsi_produk' => $this->request->getPost('deskripsiproduk'),
-            'status' => $this->request->getPost('statusproduk'),
+            'statusproduk' => $this->request->getPost('statusproduk'),
             'foto_produk' => $filename
         ];
         $modelProduk = new ProdukModel();
@@ -74,7 +74,7 @@ class GudangController extends BaseController
                 'nama_produk' => $this->request->getPost('namaproduk'),
                 'harga_produk' => $this->request->getPost('hargaproduk'),
                 'deskripsi_produk' => $this->request->getPost('deskripsiproduk'),
-                'status' => $this->request->getPost('statusproduk')
+                'statusproduk' => $this->request->getPost('statusproduk')
             ];
         } else {
             $filename = $dataBerkas->getRandomName();
@@ -83,7 +83,7 @@ class GudangController extends BaseController
                 'nama_produk' => $this->request->getPost('namaproduk'),
                 'harga_produk' => $this->request->getPost('hargaproduk'),
                 'deskripsi_produk' => $this->request->getPost('deskripsiproduk'),
-                'status' => $this->request->getPost('statusproduk'),
+                'statusproduk' => $this->request->getPost('statusproduk'),
                 'foto_produk' => $filename
             ];
         }

@@ -29,6 +29,8 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+$routes->get('/cekreferal', 'Home::cekreferal');
+
 $routes->get('/', 'Home::index');
 
 $routes->get('login', 'Home::login');
@@ -38,6 +40,8 @@ $routes->get('register', 'Home::register');
 $routes->post('registerproses', 'Home::registerproses');
 
 $routes->get('logout', 'Home::logout');
+
+$routes->get('penjualan/getDataByMonth/(:any)', 'ManagerController::getDataByMonth/$1');
 
 $routes->group('/manager', function ($routes) {
     $routes->get('', 'ManagerController::index');
@@ -49,15 +53,14 @@ $routes->group('/manager', function ($routes) {
     $routes->get('karyawan/hapus/(:num)', 'ManagerController::hapusKaryawan/$1');
     $routes->get('karyawan/create', 'ManagerController::create');
     $routes->post('karyawan/add', 'ManagerController::add');
-
-    $routes->get('transaksi', 'Manager\ManagerController::transaksi');
-    $routes->get('detail-transaksi', 'Manager\ManagerController::detail_transaksi/$1');
+    $routes->get('transaksi', 'ManagerController::transaksi');
+    $routes->get('transaksi/detail/(:any)', 'ManagerController::detailTransaksi/$1');
     $routes->get('report', 'Manager\ManagerController::report');
     $routes->get('detail-report', 'Manager\ManagerController::detail_report/$1');
 });
 
 $routes->group('/kasir', function ($routes) {
-    $routes->get('', 'KasirController::index');
+    $routes->get('', 'KasirController::produk');
     $routes->get('produk', 'KasirController::produk');
     $routes->get('create-produk', 'Kasir\KasirController::create_produk');
     $routes->post('insert-produk', 'Kasir\KasirController::insert_produk');
@@ -74,7 +77,8 @@ $routes->group('/kasir', function ($routes) {
     $routes->get('detail-kasir', 'Kasir\KasirController::detail_kasir/$1/$2');
     $routes->post('edit-kasir', 'Kasir\KasirController::update_kasir');
     $routes->get('transaksi', 'KasirController::transaksi');
-    $routes->get('detail-transaksi', 'KasirController::detail_transaksi/$1');
+    $routes->get('transaksi/detail/(:any)', 'KasirController::detailTransaksi/$1');
+    $routes->post('konfirmasi/', 'KasirController::konfirmasi');
 });
 
 $routes->group('gudang', function ($routes) {
@@ -89,26 +93,12 @@ $routes->group('gudang', function ($routes) {
 
 // routes for keuangan
 $routes->group('/keuangan', function ($routes) {
-    // =========== Dashboard Keuangan ===========
-    $routes->get('', 'Keuangan\KeuanganController::index');
-
-    // =========== Dashboard Promo ===========
-    $routes->get('promo', 'Keuangan\KeuanganController::promo');
-    $routes->get('create-promo', 'Keuangan\KeuanganController::create_promo');
-    $routes->post('insert-promo', 'Keuangan\KeuanganController::insert_promo');
-    $routes->get('detail-promo/(:num)', 'Keuangan\KeuanganController::detail_promo/$1');
-    $routes->get('delete-promo/(:num)', 'Keuangan\KeuanganController::delete_promo/$1');
-    $routes->post('edit-promo', 'Keuangan\KeuanganController::update_promo');
-    // dasboard transaksi
-    $routes->get('transaksi', 'Keuangan\KeuanganController::transaksi');
-    $routes->get('detail-transaksi', 'Keuangan\KeuanganController::detail_transaksi/$1');
-    // dashboard produk
-    $routes->get('produk', 'Keuangan\KeuanganController::produk');
-    $routes->get('detail-produk/(:num)', 'Keuangan\KeuanganController::detail_produk/$1');
-    $routes->post('edit-produk', 'Keuangan\KeuanganController::update_produk');
-    // dashboard report
-    $routes->get('report', 'Keuangan\KeuanganController::report');
-    $routes->get('detail-report', 'Keuangan\KeuanganController::detail_report/$1');
+    $routes->get('', 'KeuanganController::index');
+    $routes->get('promo', 'KeuanganController::index');
+    $routes->get('promo/detail/(:num)', 'KeuanganController::detail/$1');
+    $routes->add('promo/update', 'KeuanganController::update');
+    $routes->get('transaksi', 'KeuanganController::transaksi');
+    $routes->get('transaksi/detail/(:any)', 'KeuanganController::detailTransaksi/$1');
 });
 
 $routes->group('/zibra', function ($routes) {
@@ -124,7 +114,9 @@ $routes->group('/zibra', function ($routes) {
     $routes->post('prosesbayar', 'CustomerController::prosesbayar');
     $routes->get('contact', 'Customer\CustomerController::contact/$1/$2');
     $routes->get('promo', 'Customer\CustomerController::promo/$1/$2');
-    $routes->get('profile', 'Customer\CustomerController::profile/$1/$2');
+    $routes->get('profile', 'CustomerController::profile');
+    $routes->post('updateprofile', 'CustomerController::updateprofile');
+    $routes->get('history', 'Customer\CustomerController::history');
 });
 
 /*

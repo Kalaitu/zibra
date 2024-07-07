@@ -17,7 +17,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                 <div class="product__item">
                     <div class="product__item__pic set-bg" data-setbg="<?= base_url('produk/' . $data->foto_produk) ?>">
-                        <span class="label"><?= $data->status ?></span>
+                        <span class="label"><?= $data->statusproduk ?></span>
                     </div>
                     <div class="product__item__text">
                         <h6><?= $data->nama_produk ?></h6>
@@ -35,7 +35,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
                 <div class="product__item">
                     <div class="product__item__pic set-bg" data-setbg="<?= base_url('produk/' . $data->foto_produk) ?>">
-                        <span class="label"><?= $data->status ?></span>
+                        <span class="label"><?= $data->statusproduk ?></span>
                     </div>
                     <div class="product__item__text">
                         <h6><?= $data->nama_produk ?></h6>
@@ -53,7 +53,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix">
                 <div class="product__item">
                     <div class="product__item__pic set-bg" data-setbg="<?= base_url('produk/' . $data->foto_produk) ?>">
-                        <span class="label"><?= $data->status ?></span>
+                        <span class="label"><?= $data->statusproduk ?></span>
                     </div>
                     <div class="product__item__text">
                         <h6><?= $data->nama_produk ?></h6>

@@ -21,7 +21,7 @@ class CustomerController extends BaseController
             'produknewarival' => $modelProduk->getNewArivalProduk(),
             'produkreguler' => $modelProduk->getRegulerProduk()
         ];
-        return view('Zibra/index', $data);
+        return view('Zibra/Index', $data);
     }
 
     public function product()
@@ -35,7 +35,7 @@ class CustomerController extends BaseController
             'produknewarival' => $modelProduk->getNewArivalProduk(),
             'produkreguler' => $modelProduk->getRegulerProduk()
         ];
-        return view('Zibra/product', $data);
+        return view('Zibra/Product', $data);
     }
 
     public function productDetail($id)
@@ -52,6 +52,10 @@ class CustomerController extends BaseController
 
     public function tambahkeranjang()
     {
+        if (session()->get('satuslogin') == null) {
+            session()->setFlashdata('belumlogin', 'belumlogin');
+            return redirect()->to(base_url('login'));
+        }
         $currentDate = date('Ymdhis');
         $currentDate2 = date('Y-m-d');
         $pemesananModel = new PemesananModel();
@@ -201,5 +205,44 @@ class CustomerController extends BaseController
         $pemesananModel->updateByKodePesanan($this->request->getPost('kode_pemesanan'), $status);
         session()->setFlashdata('bayarberhasil', 'bayar-berhasil');
         return redirect()->to(base_url('zibra/cart'));
+    }
+
+    public function profile()
+    {
+        $modelCustomer = new CustomerModel();
+        $data = [
+            'aktif1' => '',
+            'aktif2' => '',
+            'aktif3' => '',
+            'dataprofile' => $modelCustomer->getByIdUser(session()->get('id_user')),
+            'ref' => $modelCustomer->getPenggunaRef(session()->get('ref'))
+        ];
+        return view('Zibra/Profile', $data);
+    }
+
+    public function updateprofile()
+    {
+
+        $modelCustomer = new CustomerModel();
+        $dataBerkas = $this->request->getFile('foto');
+        if ($dataBerkas->getSize() == 0) {
+            $data = [
+                'nama_customer' => $this->request->getPost('nama'),
+                'nomor_telepon' => $this->request->getPost('nomor'),
+                'alamat_customer' => $this->request->getPost('alamat'),
+            ];
+        } else {
+            $filename = $dataBerkas->getName();
+            $dataBerkas->move('customer/', $filename);
+            $data = [
+                'nama_customer' => $this->request->getPost('nama'),
+                'nomor_telepon' => $this->request->getPost('nomor'),
+                'alamat_customer' => $this->request->getPost('alamat'),
+                'foto_customer' => $filename,
+            ];
+        }
+        $modelCustomer->update(session()->get('id_customer'), $data);
+        session()->setFlashdata('updateprofile', 'tambah-berhasil');
+        return redirect()->to(base_url('zibra/'));
     }
 }

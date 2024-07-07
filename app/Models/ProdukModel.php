@@ -9,7 +9,7 @@ class ProdukModel extends Model
     protected $table            = 'produk';
     protected $primaryKey       = 'id_produk';
     protected $useAutoIncrement = true;
-    protected $allowedFields    = ['nama_produk', 'foto_produk', 'deskripsi_produk', 'harga_produk', 'status'];
+    protected $allowedFields    = ['nama_produk', 'foto_produk', 'deskripsi_produk', 'harga_produk', 'statusproduk'];
 
     // Dates
     protected $useTimestamps = false;
@@ -39,7 +39,7 @@ class ProdukModel extends Model
     {
         $query = $this->db->table('produk')
             ->select('produk.*')
-            ->where('status', 'Hot Sales')
+            ->where('statusproduk', 'Hot Sales')
             ->get();
         return $query->getResultObject();
     }
@@ -48,7 +48,7 @@ class ProdukModel extends Model
     {
         $query = $this->db->table('produk')
             ->select('produk.*')
-            ->where('status', 'New Arival')
+            ->where('statusproduk', 'New Arival')
             ->get();
         return $query->getResultObject();
     }
@@ -57,7 +57,7 @@ class ProdukModel extends Model
     {
         $query = $this->db->table('produk')
             ->select('produk.*')
-            ->where('status', 'Reguler')
+            ->where('statusproduk', 'Reguler')
             ->get();
         return $query->getResultObject();
     }
@@ -65,14 +65,14 @@ class ProdukModel extends Model
     public function sudahSetHargaNewArival()
     {
         $db      = \Config\Database::connect();
-        $query   = $db->query("SELECT * FROM produk WHERE harga_produk != '0' AND status = 'New Arival' LIMIT 8");
+        $query   = $db->query("SELECT * FROM produk WHERE harga_produk != '0' AND statusproduk = 'New Arival' LIMIT 8");
         return $query;
     }
 
     public function sudahSetHargaHotSales()
     {
         $db      = \Config\Database::connect();
-        $query   = $db->query("SELECT * FROM produk WHERE harga_produk != '0' AND status = 'Hot Sales' LIMIT 8");
+        $query   = $db->query("SELECT * FROM produk WHERE harga_produk != '0' AND statusproduk = 'Hot Sales' LIMIT 8");
         return $query;
     }
 

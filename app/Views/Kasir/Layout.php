@@ -59,12 +59,6 @@
                 <div class="menu-inner-shadow"></div>
 
                 <ul class="menu-inner py-1">
-                    <li class="menu-item <?= $aktif1 ?>">
-                        <a href="<?= base_url('kasir') ?>" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                            <div data-i18n="Analytics">Dashboard</div>
-                        </a>
-                    </li>
 
                     <li class="menu-item <?= $aktif2 ?>">
                         <a href="<?= base_url('kasir/produk') ?>" class="menu-link">
@@ -105,7 +99,7 @@
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                                 <a class="" href="#" onclick="logout()">
                                     <div class="avatar avatar-online">
-                                        <img src="<?= base_url('assets/img/avatars/1.png') ?>" alt class="w-px-40 h-auto rounded-circle" />
+                                         <img src="<?= base_url('karyawan/' . $datakaryawan->foto_karyawan) ?>" alt class="w-px-40 h-auto rounded-circle"  style="height: 40px !important; width: 40px !important;" />
                                     </div>
                                 </a>
                             </li>

@@ -24,14 +24,11 @@
                                                     <td style="padding-left: 0px !important; padding-right: 0px !important;">
                                                         <div class="card border">
                                                             <div class="row">
-                                                                <div class="col-md-3">
-                                                                    <img class="card-img card-img-left" src="<?= base_url('produk/') ?>" alt="Card image">
-                                                                </div>
-                                                                <div class="col-md-9">
+                                                                <div class="col-md-12">
                                                                     <div class="card-body">
                                                                         <div class="d-flex flex-row">
                                                                             <div class="">
-                                                                                <p class="card-title fw-bold"><a href="<?= base_url('') ?>"><?= $data->kode_pemesanan ?></a></p>
+                                                                                <p class="card-title fw-bold"><a href="<?= base_url('kasir/transaksi/detail/' . $data->kode_pemesanan) ?>"><?= $data->kode_pemesanan ?></a></p>
                                                                             </div>
                                                                             <div class="ms-auto">
                                                                                 <p class="card-title fw-bold"><span class="badge <?php if ($data->status == 'Menunggu Pembayaran') {
@@ -45,7 +42,7 @@
                                                                         </div>
                                                                         <hr>
                                                                         <p class="card-text">
-                                                                            Jumlah Pesanan : <?= $data->qty ?>
+                                                                            Qty Item : <?= $data->qty ?>
                                                                             <br>
                                                                             <?= $data->tanggal_pemesanan ?>
                                                                         </p>

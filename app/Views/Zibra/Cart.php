@@ -8,7 +8,7 @@
             ?>
                 <div class="col-lg-12 col-md-12 col-sm-12 my-5">
                     <div class="h5 text-center mb-5">
-                        Anda belum melakukan transaksi
+                        Todak ada barang dikeranjang, Yuk lanjut berbelanja
                     </div>
                     <div class="continue__btn">
                         <a href="<?= base_url('zibra/product') ?>" class="w-100 text-center">Lanjutkan Belanja</a>
@@ -76,13 +76,13 @@
                     <?php
                     if ($datacustomer->point <= 50) {
                         $jenismember = "Bronze Member";
-                        $potongan = 0;
+                        $potongan = 0.0;
                     } else if ($datacustomer->point <= 100) {
                         $jenismember = "Silver Member";
-                        $potongan = 0.1;
+                        $potongan = 0.05;
                     } else {
                         $jenismember = "Gold Member";
-                        $potongan = 0.15;
+                        $potongan = 0.1;
                     }
                     ?>
                     <div class="cart__total">

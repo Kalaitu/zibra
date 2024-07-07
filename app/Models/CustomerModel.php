@@ -9,7 +9,7 @@ class CustomerModel extends Model
     protected $table            = 'customer';
     protected $primaryKey       = 'id_customer';
     protected $useAutoIncrement = true;
-    protected $allowedFields    = ['id_user', 'nama_customer', 'nomor_telepon', 'alamat_customer', 'point', 'kode_reveral', 'foto_customer'];
+    protected $allowedFields    = ['id_user', 'nama_customer', 'nomor_telepon', 'alamat_customer', 'point', 'kode_reveral', 'foto_customer', 'kode_referal_register'];
 
     // Dates
     protected $useTimestamps = false;
@@ -26,6 +26,23 @@ class CustomerModel extends Model
         return $query->getResultObject();
     }
 
+    public function getJumlah()
+    {
+        $query = $this->db->table('customer')
+            ->selectCount('customer.id_customer')
+            ->get();
+        return $query->getRow();
+    }
+
+    public function getPoint($id)
+    {
+        $query = $this->db->table('customer')
+            ->select('customer.*')
+            ->where('customer.kode_reveral', $id)
+            ->get();
+        return $query->getRow();
+    }
+
     public function detDetailCustomer($id)
     {
         $query = $this->db->table('customer')
@@ -33,6 +50,23 @@ class CustomerModel extends Model
             ->where('id_customer', $id)
             ->get();
         return $query->getRow();
+    }
+
+    public function getPenggunaRef($id)
+    {
+        $query = $this->db->table('customer')
+            ->select('customer.*')
+            ->where('kode_referal_register', $id)
+            ->get();
+        return $query->getResultObject();
+    }
+
+    public function updatePointsByReferralCode($kode, $point)
+    {
+        $db = \Config\Database::connect();
+        $db->table('customer')
+            ->where('customer.kode_reveral', $kode)
+            ->update(['point' => $point]);
     }
 
     function getByIdUser($id)

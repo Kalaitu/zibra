@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="zxx" translate="no">
 
 <head>
     <meta charset="UTF-8">
@@ -22,14 +22,12 @@
     <link rel="stylesheet" href="<?= base_url('fashion/css/slicknav.min.css') ?>" type="text/css">
     <link rel="stylesheet" href="<?= base_url('fashion/css/style.css') ?>" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <meta name="theme-color" content="#343A3F" />
+    <link rel="manifest" href="<?= base_url('assets/js/web.webmanifest') ?>" />
+    <link rel="shortcut icon" href="<?= base_url('assets/images/icon.png') ?>" />
 </head>
 
 <body class="hidescroll">
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
     <!-- Offcanvas Menu Begin -->
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
@@ -42,7 +40,7 @@
         </div>
         <div class="offcanvas__nav__option text-left">
             <p>
-                <a href="<?= base_url('zibra/profile') ?>" class="fw-bold text-dark"><i class="fa fa-user-circle-o me-3"></i><?= session()->get('nama') ?></a>
+                <a href="<?= base_url('zibra/profile') ?>" class="fw-bold text-dark <?= (session()->get('statuscustomer') == null ? 'd-none' : 'd-inline') ?>"><i class="fa fa-user-circle-o me-3"></i><?= session()->get('nama') ?></a>
             </p>
             <p>
                 <a href="#" onclick='logout()' class="fw-bold text-dark <?= (session()->get('statuscustomer') == null ? 'd-none' : 'd-inline') ?>"><i class="fa fa-shopping-cart me-3"></i>Keranjang</a>
@@ -66,15 +64,15 @@
                         <ul>
                             <li class="<?= $aktif1 ?>"><a href="<?= base_url('zibra') ?>">Home</a></li>
                             <li class="<?= $aktif2 ?>"><a href="<?= base_url('zibra/product') ?>">Shop</a></li>
-                            <li class="<?= $aktif3 ?>"><a href="<?= base_url('zibra/contact') ?>">Contacts</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col-lg-4 col-md-4">
                     <div class="header__nav__option">
-                        <a href="<?= base_url('zibra/profile') ?>" class="text-dark"><i class="fa fa-user-circle-o text-lg me-3"></i><?= session()->get('nama') ?></a>
-                        <a href="#" onclick='logout()' class="fw-bold text-dark <?= (session()->get('statuscustomer') == null ? 'd-none' : 'd-inline') ?>">Logout</i></a>
+                        <a href="<?= base_url('zibra/profile') ?>" class="text-dark <?= (session()->get('statuscustomer') == null ? 'd-none' : 'd-inline') ?>"><i class="fa fa-user-circle-o text-lg me-3"></i><?= session()->get('nama') ?></a>
+                        <a href="<?= base_url('zibra/cart') ?>" class="text-dark <?= (session()->get('statuscustomer') == null ? 'd-none' : 'd-inline') ?>">Keranjang</a>
                         <a href="<?= base_url('login') ?>" class="fw-bold text-dark <?= (session()->get('statuscustomer') ? 'd-none' : 'd-inline') ?>">Login</i></a>
+                        <a href="#" onclick='logout()' class="fw-bold text-dark <?= (session()->get('statuscustomer') == null ? 'd-none' : 'd-inline') ?>">Logout</i></a>
                     </div>
                 </div>
             </div>
@@ -87,51 +85,7 @@
     <!-- Footer Section Begin -->
     <footer class="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="footer__about">
-                        <div class="footer__logo">
-                            <a href="#"><img src="<?= base_url('boassets/img/LOGO2.png') ?>" alt=""></a>
-                        </div>
-                        <p>The customer is at the heart of our unique business model, which includes design.</p>
-                        <a href="#"><img src="img/payment.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
-                    <div class="footer__widget">
-                        <h6>Shopping</h6>
-                        <ul>
-                            <li><a href="#">Clothing Store</a></li>
-                            <li><a href="#">Trending Shoes</a></li>
-                            <li><a href="#">Accessories</a></li>
-                            <li><a href="#">Sale</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-6">
-                    <div class="footer__widget">
-                        <h6>Shopping</h6>
-                        <ul>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Payment Methods</a></li>
-                            <li><a href="#">Delivary</a></li>
-                            <li><a href="#">Return & Exchanges</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
-                    <div class="footer__widget">
-                        <h6>NewLetter</h6>
-                        <div class="footer__newslatter">
-                            <p>Be the first to know about new arrivals, look books, sales & promos!</p>
-                            <form action="#">
-                                <input type="text" placeholder="Your email">
-                                <button type="submit"><span class="icon_mail_alt"></span></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="footer__copyright__text">

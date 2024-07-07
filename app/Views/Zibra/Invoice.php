@@ -103,6 +103,12 @@
                             <td class="cart__price" valign="top" colspan="2">TOTAL</td>
                             <td class="cart__price" valign="top">Rp.<?= $total - ($total * $diskon) ?>,-</td>
                         </tr>
+                        <tr>
+                            <td class="cart__price" valign="top" colspan="3">Pembayaran Daapat Dilakukan Transfer Bank BCA (763 0414 673) a.n Zibra ID</td>
+                        </tr>
+                        <tr>
+                            <td class="cart__price" valign="top" colspan="3">Pembayaran Daapat Dilakukan Dengan QRis <br><img width="200px" src="<?= base_url('qr.png') ?>" class="img-fluid" style="" alt=""> </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

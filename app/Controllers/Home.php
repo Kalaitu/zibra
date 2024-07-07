@@ -32,7 +32,8 @@ class Home extends BaseController
                 session()->set([
                     'id_user' => 1,
                     'nama' => "Manager",
-                    'statusmanager' => true
+                    'statusmanager' => true,
+                    'satuslogin' => 'login'
                 ]);
                 session()->setFlashdata('login-manager', 'login-berhasil');
             } else if ($data->role == "Kasir") {
@@ -41,7 +42,8 @@ class Home extends BaseController
                     'id_user' => $datakaryawan->id_user,
                     'id_karyawan' => $datakaryawan->id_karyawan,
                     'nama' => $datakaryawan->nama_karyawan,
-                    'statuskaryawan' => true
+                    'statuskaryawan' => true,
+                    'satuslogin' => 'login'
                 ]);
                 session()->setFlashdata('login-kasir', 'login-berhasil');
             } else if ($data->role == "Staff Gudang") {
@@ -50,7 +52,8 @@ class Home extends BaseController
                     'id_user' => $datakaryawan->id_user,
                     'id_karyawan' => $datakaryawan->id_karyawan,
                     'nama' => $datakaryawan->nama_karyawan,
-                    'statuskaryawan' => true
+                    'statuskaryawan' => true,
+                    'satuslogin' => 'login'
                 ]);
                 session()->setFlashdata('login-gudang', 'login-berhasil');
             } else if ($data->role == "Staff Keuangan") {
@@ -59,7 +62,8 @@ class Home extends BaseController
                     'id_user' => $datakaryawan->id_user,
                     'id_karyawan' => $datakaryawan->id_karyawan,
                     'nama' => $datakaryawan->nama_karyawan,
-                    'statuskaryawan' => true
+                    'statuskaryawan' => true,
+                    'satuslogin' => 'login'
                 ]);
                 session()->setFlashdata('login-keuangan', 'login-berhasil');
             } else {
@@ -68,7 +72,9 @@ class Home extends BaseController
                     'id_user' => $data->id_user,
                     'id_customer' => $datacustomer->id_customer,
                     'nama' => $datacustomer->nama_customer,
-                    'statuscustomer' => true
+                    'statuscustomer' => true,
+                    'satuslogin' => 'login',
+                    'ref' => $datacustomer->kode_reveral,
                 ]);
                 session()->setFlashdata('login-customer', 'login-berhasil');
             }
@@ -79,6 +85,13 @@ class Home extends BaseController
     {
         return view('sign-up');
     }
+
+    public function cekreferal()
+    {
+        $refModel = new CustomerModel();
+        return $this->response->setJSON($refModel->findAll());
+    }
+
     public function registerproses()
     {
         $userModel = new UserModel();
@@ -86,6 +99,7 @@ class Home extends BaseController
         $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
         $namalengkap = $this->request->getPost('namalengkap');
+        $ref = $this->request->getPost('ref');
         $validationRules = [
             'username' => 'is_unique[user.username]',
         ];
@@ -102,7 +116,7 @@ class Home extends BaseController
         $data = [
             'username' => $username,
             'password' => $password,
-            'role' => "Customer"
+            'role' => "Customer",
         ];
         $userModel->insert($data);
         $lastUser = $userModel->getLastUser();
@@ -110,9 +124,16 @@ class Home extends BaseController
         $data = [
             'id_user' => $lastUser['id_user'],
             'nama_customer' => $namalengkap,
-            'kode_reveral' => $kode
+            'kode_reveral' => $kode,
+            'nomor_telepon' => '000000000000',
+            'alamat_customer' => '',
+            'foto_customer' => 'dummyfoto.jpg',
+            'kode_referal_register' => $ref
         ];
         $customerModel->insert($data);
+        $bahan = $customerModel->getPoint($ref);
+        $poinbaru = $bahan->point + 10;
+        $customerModel->updatePointsByReferralCode($ref, $poinbaru);
         session()->setFlashdata('register-berhasil', 'register-berhasil');
         return redirect()->to(base_url('register'));
     }

@@ -9,12 +9,8 @@ class PromoModel extends Model
     protected $table            = 'promo';
     protected $primaryKey       = 'id_promo';
     protected $useAutoIncrement = true;
-    protected $allowedFields    = ['nama_promo', 'deskripsi_promo', 'poin', 'diskon', 'foto_promo'];
+    protected $allowedFields    = ['nama_promo', 'poin', 'diskon'];
 
     // Dates
-    protected $useTimestamps = false;
-    protected $dateFormat    = 'datetime';
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
+    protected $returnType = 'object';
 }

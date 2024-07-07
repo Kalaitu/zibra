@@ -34,13 +34,13 @@
                                                                                 <p class="card-title fw-bold"><?= $data->nama_produk ?></p>
                                                                             </div>
                                                                             <div class="ms-auto">
-                                                                                <p class="card-title fw-bold"><span class="badge <?php if ($data->status == 'New Arival') {
+                                                                                <p class="card-title fw-bold"><span class="badge <?php if ($data->statusproduk == 'New Arival') {
                                                                                                                                         echo 'bg-label-primary';
-                                                                                                                                    } else if ($data->status == 'Hot Sales') {
+                                                                                                                                    } else if ($data->statusproduk == 'Hot Sales') {
                                                                                                                                         echo 'bg-label-danger';
                                                                                                                                     } else {
                                                                                                                                         echo 'bg-label-success';
-                                                                                                                                    } ?>"><?= $data->status ?></span></p>
+                                                                                                                                    } ?>"><?= $data->statusproduk ?></span></p>
                                                                             </div>
                                                                         </div>
                                                                         <hr>

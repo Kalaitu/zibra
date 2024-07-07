@@ -14,10 +14,9 @@
                                 commitment to exceptional quality.</p>
                             <a href="#" class="primary-btn">Shop now <span class="arrow_right"></span></a>
                             <div class="hero__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-pinterest"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="https://www.facebook.com/azhart?mibextid=ZbWKwL" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a href="https://x.com/zibraclothid?t=WoEDE2l4EW74hD94CdnIJQ&s=09" target="_blank"><i class="fa fa-twitter"></i></a>
+                                <a href="https://instagram.com/zibraid?igshid=MzMyNGUyNmU2YQ==" target="_blank"><i class="fa fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -109,7 +108,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="<?= base_url('produk/' . $data->foto_produk) ?>">
-                            <span class="label"><?= $data->status ?></span>
+                            <span class="label"><?= $data->statusproduk ?></span>
                         </div>
                         <div class="product__item__text">
                             <h6><?= $data->nama_produk ?></h6>
@@ -127,7 +126,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="<?= base_url('produk/' . $data->foto_produk) ?>">
-                            <span class="label"><?= $data->status ?></span>
+                            <span class="label"><?= $data->statusproduk ?></span>
                         </div>
                         <div class="product__item__text">
                             <h6><?= $data->nama_produk ?></h6>
@@ -145,7 +144,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix">
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="<?= base_url('produk/' . $data->foto_produk) ?>">
-                            <span class="label"><?= $data->status ?></span>
+                            <span class="label"><?= $data->statusproduk ?></span>
                         </div>
                         <div class="product__item__text">
                             <h6><?= $data->nama_produk ?></h6>

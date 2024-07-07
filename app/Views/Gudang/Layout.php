@@ -114,7 +114,7 @@
               <li class="nav-item navbar-dropdown dropdown-user dropdown">
                 <a class="" href="#" onclick="logout()">
                   <div class="avatar avatar-online">
-                    <img src="<?= base_url('karyawan/' . $datakaryawan->foto_karyawan) ?>" alt class="w-px-40 h-auto rounded-circle" />
+                    <img src="<?= base_url('karyawan/' . $datakaryawan->foto_karyawan) ?>" alt class="w-px-40 h-auto rounded-circle"  style="height: 40px !important; width: 40px !important;" />
                   </div>
                 </a>
               </li>

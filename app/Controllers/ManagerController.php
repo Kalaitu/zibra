@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Models\UserModel;
 use App\Models\CustomerModel;
 use App\Models\KaryawanModel;
+use App\Models\PembayaranModel;
+use App\Models\PemesananModel;
 use App\Models\ProdukModel;
 
 
@@ -116,5 +118,42 @@ class ManagerController extends BaseController
             'dataproduk' => $modelProduk->getAllProduk()
         ];
         return view('Manager/Produk/index', $data);
+    }
+
+    public function transaksi()
+    {
+        $modelPembayaran = new PembayaranModel();
+        $data = [
+            'halaman' => 'Transaksi',
+            'aktif1' => '',
+            'aktif2' => '',
+            'aktif3' => '',
+            'aktif4' => '',
+            'aktif5' => 'active',
+            'datatransaksi' => $modelPembayaran->findAll()
+        ];
+        return view('Manager/Transaksi/index', $data);
+    }
+
+    public function detailTransaksi($id)
+    {
+        $modelPemesanan = new PemesananModel();
+        $data = [
+            'halaman' => 'Transaksi',
+            'aktif1' => '',
+            'aktif2' => '',
+            'aktif3' => '',
+            'aktif4' => '',
+            'aktif5' => 'active',
+            'datatransaksi' => $modelPemesanan->getProdukByKodePemesanann($id)
+        ];
+        return view('Manager/Transaksi/detail', $data);
+    }
+    
+    public function getDataByMonth($bulan)
+    {
+        $model = new PemesananModel();
+        $data = $model->getDataByMonth($bulan);
+        return $this->response->setJSON($data);
     }
 }
